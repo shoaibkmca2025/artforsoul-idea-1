@@ -1,13 +1,6 @@
-import { getSession } from "@/lib/session";
-import { redirect } from "next/navigation";
 import LoginForm from "./LoginForm";
 
-export const dynamic = "force-dynamic";
-
-export default async function AdminLoginPage() {
-  const session = await getSession();
-  if (session.userId) redirect("/admin");
-
+export default function AdminLoginPage() {
   return (
     <div className="grid min-h-screen place-items-center px-5">
       <div className="card-journal w-full max-w-md">

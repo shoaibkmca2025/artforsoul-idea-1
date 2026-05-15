@@ -8,17 +8,12 @@ import GalleryStrip from "@/components/home/GalleryStrip";
 import Testimonials from "@/components/home/Testimonials";
 import AffirmationMarquee from "@/components/home/AffirmationMarquee";
 import CTASection from "@/components/home/CTASection";
-import { prisma } from "@/lib/prisma";
+import { portfolioItems, courses, testimonials, galleryItems } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
-
-export default async function HomePage() {
-  const [portfolio, courses, testimonials, gallery] = await Promise.all([
-    prisma.portfolioItem.findMany({ where: { featured: true }, orderBy: { order: "asc" }, take: 6 }),
-    prisma.course.findMany({ where: { featured: true, published: true }, orderBy: { order: "asc" }, take: 6 }),
-    prisma.testimonial.findMany({ orderBy: { order: "asc" } }),
-    prisma.galleryItem.findMany({ orderBy: { order: "asc" }, take: 12 }),
-  ]);
+export default function HomePage() {
+  const portfolio = portfolioItems.filter((p) => p.featured).slice(0, 6);
+  const featuredCourses = courses.filter((c) => c.featured && c.published).slice(0, 6);
+  const gallery = galleryItems.slice(0, 12);
 
   return (
     <>
@@ -28,7 +23,7 @@ export default async function HomePage() {
       <ServicesSection />
       <BenefitsSection />
       <PortfolioPreview items={portfolio} />
-      <CoursesPreview courses={courses} />
+      <CoursesPreview courses={featuredCourses} />
       <GalleryStrip items={gallery} />
       <Testimonials items={testimonials} />
       <CTASection />

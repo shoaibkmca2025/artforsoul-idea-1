@@ -1,16 +1,14 @@
-import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { formatINR, safeJson } from "@/lib/utils";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import EnrollForm from "./EnrollForm";
 import { Clock, Layers, Sparkles, CheckCircle2 } from "lucide-react";
-
-export const dynamic = "force-dynamic";
+import { courses } from "@/lib/data";
 
 type Module = { title: string; lessons: string[] };
 
-export default async function CourseDetail({ params }: { params: { slug: string } }) {
-  const course = await prisma.course.findUnique({ where: { slug: params.slug } });
+export default function CourseDetail({ params }: { params: { slug: string } }) {
+  const course = courses.find((c) => c.slug === params.slug);
   if (!course || !course.published) return notFound();
 
   const modules = safeJson<Module[]>(course.modules, []);

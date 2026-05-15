@@ -1,13 +1,10 @@
 import PageHero from "@/components/ui/PageHero";
-import { prisma } from "@/lib/prisma";
 import GalleryMasonry from "./GalleryMasonry";
+import { galleryItems } from "@/lib/data";
 
-export const dynamic = "force-dynamic";
 export const metadata = { title: "Gallery — Art For Soul" };
 
-export default async function GalleryPage() {
-  const items = await prisma.galleryItem.findMany({ orderBy: { order: "asc" } });
-
+export default function GalleryPage() {
   return (
     <>
       <PageHero
@@ -16,7 +13,7 @@ export default async function GalleryPage() {
         script="tender artwork."
         subtitle="A growing collection of student work, journaled prompts and affirmation art from inside the Art For Soul studio."
       />
-      <GalleryMasonry items={items} />
+      <GalleryMasonry items={galleryItems} />
     </>
   );
 }

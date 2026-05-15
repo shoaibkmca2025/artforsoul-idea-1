@@ -1,22 +1,17 @@
-import { prisma } from "@/lib/prisma";
 import PageHero from "@/components/ui/PageHero";
 import Link from "next/link";
 import { formatINR } from "@/lib/utils";
 import { Clock, Sparkles } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-
-export const dynamic = "force-dynamic";
+import { courses } from "@/lib/data";
 
 export const metadata = {
   title: "Online Courses — Art For Soul",
   description: "Live cohorts and self-paced online courses for healing through art.",
 };
 
-export default async function CoursesIndex() {
-  const courses = await prisma.course.findMany({
-    where: { published: true },
-    orderBy: { order: "asc" },
-  });
+export default function CoursesIndex() {
+  const published = courses.filter((c) => c.published);
 
   return (
     <>
@@ -29,7 +24,7 @@ export default async function CoursesIndex() {
 
       <section className="container-page pb-20 sm:pb-24">
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-          {courses.map((c, i) => (
+          {published.map((c, i) => (
             <ScrollReveal key={c.id} delay={i * 0.08} direction="up">
               <Link
                 href={`/courses/${c.slug}`}
