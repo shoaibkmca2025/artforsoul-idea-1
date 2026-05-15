@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream-50: #fbf7f0;
+  --cream-100: #f7f0e4;
+  --cream-200: #f0e5d2;
+  --ink: #3a2a20;
+  --rose: #f2c4c0;
+  --sage: #b4c4a0;
+  --lavender: #c9b6de;
+  --earth: #b08968;
+}
+
+html, body { height: 100%; }
+
+html {
+  scroll-behavior: auto; /* Lenis takes over */
+  background: var(--cream-50);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(242,196,192,0.35), transparent 60%),
+    radial-gradient(1000px 700px at 110% 20%, rgba(201,182,222,0.30), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(180,196,160,0.30), transparent 60%),
+    var(--cream-50);
+  background-attachment: fixed;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Paper / journal grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(rgba(94,68,52,0.06) 1px, transparent 1px),
+    radial-gradient(rgba(94,68,52,0.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1.5px 1.5px;
+}
+
+/* Make sure interactive content sits above the grain */
+main, header, footer, nav, section { position: relative; z-index: 2; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Selection */
+::selection { background: rgba(180,196,160,0.55); color: var(--ink); }
+
+/* Custom utilities */
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 active:scale-95 sm:px-6;
+  }
+  .btn-primary {
+    @apply btn bg-earth-700 text-cream-50 shadow-soft hover:bg-earth-900 hover:shadow-journal;
+  }
+  .btn-ghost {
+    @apply btn border border-earth-300/60 bg-cream-50/70 text-earth-700 backdrop-blur hover:bg-cream-100;
+  }
+  .btn-rose {
+    @apply btn bg-rose-dusty text-earth-900 hover:bg-rose-blush;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/70 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-earth-700 backdrop-blur;
+  }
+
+  .heading-script {
+    @apply font-script text-earth-900;
+    line-height: 0.95;
+  }
+  .heading-display {
+    @apply font-display text-earth-900;
+    line-height: 1.05;
+  }
+  .body-soft {
+    @apply text-earth-700/90 leading-relaxed;
+  }
+
+  .card-journal {
+    @apply relative rounded-3xl border border-earth-300/40 bg-cream-50/85 p-5 shadow-soft backdrop-blur sm:p-6;
+  }
+
+  .tape {
+    @apply absolute inset-x-0 mx-auto -top-3 h-6 w-24 rotate-[-3deg] rounded-sm bg-rose-soft/70 shadow;
+  }
+
+  .watercolor-blob {
+    filter: blur(40px);
+    opacity: 0.55;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+/* Reveal helpers */
+[data-reveal] { opacity: 0; transform: translateY(36px); transition: opacity .9s ease, transform .9s ease; }
+[data-reveal].in { opacity: 1; transform: translateY(0); }
+
+/* Marquee */
+.marquee-track { animation: marquee 40s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--cream-100); }
+::-webkit-scrollbar-thumb { background: #d9c2a4; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--earth); }
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
