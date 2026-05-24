@@ -5,11 +5,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
+import { FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 
 // ── Hero video — swap with your own MP4 in /public when ready ──
 const HERO_VIDEO_SRC =
   "https://videos.pexels.com/video-files/7794505/7794505-hd_1920_1080_30fps.mp4";
-const HERO_VIDEO_POSTER = "/uploads/client%20image.jpeg";
+const HERO_VIDEO_POSTER = FOUNDER_IMAGE_SRC;
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);

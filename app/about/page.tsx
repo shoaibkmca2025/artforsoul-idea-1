@@ -1,6 +1,8 @@
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Parallax from "@/components/animations/Parallax";
+import SafeImage from "@/components/ui/SafeImage";
+import { FOUNDER_IMAGE_ALT, FOUNDER_IMAGE_FALLBACK_TEXT, FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 import { Heart, Leaf, Brush, Sparkles, HeartPulse, Palette, Baby, Home as HomeIcon } from "lucide-react";
 
 export const metadata = { title: "About — Art For Soul" };
@@ -33,9 +35,10 @@ export default function AboutPage() {
         <div className="grid items-center gap-10 sm:gap-14 lg:grid-cols-2">
           <Parallax offset={50}>
             <div className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[1.75rem] border-[6px] border-cream-50 shadow-journal sm:rounded-[2rem] sm:border-8 lg:max-w-none">
-              <img
-                src="/uploads/client%20image.jpeg"
-                alt="Founder of Art For Soul"
+              <SafeImage
+                src={FOUNDER_IMAGE_SRC}
+                alt={FOUNDER_IMAGE_ALT}
+                fallbackText={FOUNDER_IMAGE_FALLBACK_TEXT}
                 className="h-full w-full object-cover"
               />
             </div>

@@ -122,6 +122,8 @@ public/
 
 - Image uploads are saved locally to `public/uploads`. For deployment to a
   serverless host (Vercel) you should swap this to S3/Cloudinary.
+- Permanent site images, like the founder photo, should live in `public/images`
+  so they are committed and included in the Vercel build.
 - The `.env` file ships with development defaults — change `SESSION_PASSWORD`
   to a strong 32+ char secret before production.
 - The site uses Unsplash placeholder images in the seed. Replace them via the

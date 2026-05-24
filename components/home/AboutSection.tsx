@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import SafeImage from "@/components/ui/SafeImage";
+import { FOUNDER_IMAGE_ALT, FOUNDER_IMAGE_FALLBACK_TEXT, FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 import {
   ArrowRight,
   Sparkles,
@@ -40,9 +42,10 @@ export default function AboutSection() {
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-rose-soft/40 blur-2xl" />
 
           <div className="relative aspect-square overflow-hidden rounded-[2rem] border-[6px] border-cream-50 bg-cream-100 shadow-journal sm:rounded-[2.5rem] sm:border-8">
-            <img
-              src="/uploads/client%20image.jpeg"
-              alt={`${FOUNDER_NAME} — Founder of Art For Soul`}
+            <SafeImage
+              src={FOUNDER_IMAGE_SRC}
+              alt={FOUNDER_IMAGE_ALT}
+              fallbackText={FOUNDER_IMAGE_FALLBACK_TEXT}
               className="h-full w-full object-cover"
             />
           </div>
