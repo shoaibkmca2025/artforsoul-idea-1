@@ -4,12 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const lines = [
-  "you are not behind",
+  "heal · create · transform · align",
   "you are allowed to soften",
-  "your art is enough",
+  "your energy is sacred",
   "breathing is a kind of prayer",
   "you can begin again",
-  "messy is still meaningful",
+  "art is medicine",
 ];
 
 export default function AffirmationMarquee() {

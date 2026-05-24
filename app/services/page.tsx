@@ -1,54 +1,97 @@
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Link from "next/link";
-import { Palette, Users, HeartPulse, Sparkles, Home as HomeIcon, ArrowRight } from "lucide-react";
+import {
+  Sparkles,
+  HeartPulse,
+  Repeat,
+  Baby,
+  Users,
+  CalendarDays,
+  ArrowRight,
+} from "lucide-react";
 
-export const metadata = { title: "Services — Art For Soul" };
+export const metadata = { title: "Sessions — Art For Soul" };
 
 const services = [
   {
-    icon: Palette,
-    title: "1:1 Online Art Therapy",
-    subtitle: "60 minutes · video session",
-    text: "A private creative session — bring your worries, your sketchbook, your overwhelm. We'll explore them gently through art-making and reflection. Ideal for anxiety, overwhelm, creative blocks, life transitions.",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1200&q=80",
-    price: "₹2,499 / session",
+    icon: HeartPulse,
+    title: "Personal Counseling & Healing Therapy Session",
+    subtitle: "One-to-One Online · ~90 min",
+    text:
+      "A personalised session for emotional healing, mental clarity, inner transformation, energy balancing and overall well-being. Customised to your personal challenges, emotional state, lifestyle and healing requirements.",
+    stages: [
+      "Discovery & Assessment — discovery call, history, lifestyle, root-cause questionnaires.",
+      "Healing & Therapy — personalised healing technique, emotional release, energy balancing.",
+      "Counseling & Transformation — one-to-one counseling, mindset shift, self-awareness.",
+      "Action Plan & Follow-Up — homework, healing practices, actionable plan.",
+    ],
+    image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=1200&q=80",
+    price: "₹1999 / session",
     tint: "bg-rose-soft/60",
   },
   {
-    icon: Users,
-    title: "Group Workshops",
-    subtitle: "2.5 hours · in-person or online",
-    text: "Small, soulful circles of 6–10 souls. Watercolor, collage and journaling led with breath and slowness. Perfect for a tender introduction to creative healing.",
-    image: "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=1200&q=80",
-    price: "from ₹1,499",
+    icon: Repeat,
+    title: "Follow-Up Counseling Session",
+    subtitle: "One-to-One Online · ~30 min · within 1 month",
+    text:
+      "Continued support after your main healing & therapy session. Review your emotional progress, clear doubts, understand challenges and receive ongoing guidance.",
+    stages: [
+      "Progress review & emotional support.",
+      "Guidance for challenges during the healing journey.",
+      "Clarity, motivation & counseling support.",
+      "Adjustments in healing practices or actionable plans if required.",
+    ],
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80",
+    price: "₹1111 / session",
     tint: "bg-sage-300/60",
   },
   {
-    icon: HeartPulse,
-    title: "Emotional Healing Programs",
-    subtitle: "4–8 week cohorts",
-    text: "A multi-week guided journey through emotion, somatic awareness and creative ritual. Includes weekly live sessions, a curated workbook and a small group container.",
-    image: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1200&q=80",
-    price: "from ₹6,999",
+    icon: Baby,
+    title: "Garbha Sanskar — Personalised One-to-One Sessions",
+    subtitle: "For pregnant mothers · Online · per session",
+    text:
+      "A special healing & counseling program designed exclusively for pregnant women and their babies. Focuses on emotional well-being of the mother, positive energy healing, healthy brain development of the baby and a calm, nurturing 9-month journey.",
+    stages: [
+      "Emotional & mental well-being of the mother.",
+      "Positive energy healing for mother & baby.",
+      "Healthy brain development of the baby.",
+      "Calm, happy & nurturing pregnancy — stronger emotional bonding.",
+    ],
+    image: "https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=1200&q=80",
+    price: "₹3333 / session",
     tint: "bg-lavender-300/60",
   },
   {
-    icon: Sparkles,
-    title: "Creative Wellness Experiences",
-    subtitle: "Retreats & corporate sessions",
-    text: "Custom-designed creative wellness for teams, retreats and friend circles. From half-day workshops to weekend retreats, we will build something tender and unforgettable.",
-    image: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200&q=80",
-    price: "Custom quote",
+    icon: Users,
+    title: "Mother & Child Development Session",
+    subtitle: "Mother + Child (0–10 yrs) · Online · per session",
+    text:
+      "Personalised one-to-one sessions for mothers and children to support the child's emotional, mental and neurological development during the most important foundation years of life. Includes conscious parenting guidance.",
+    stages: [
+      "Healthy neurological & brain development (most crucial 0–7 yrs).",
+      "Focus, intelligence, creativity & learning abilities.",
+      "Emotional balance, confidence & natural talents.",
+      "Conscious parenting & a loving, nurturing home environment.",
+    ],
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=1200&q=80",
+    price: "₹3333 / session",
     tint: "bg-rose-dusty/60",
   },
   {
-    icon: HomeIcon,
-    title: "Soulful Interior Design",
-    subtitle: "Homes · studios · cafes",
-    text: "Emotionally-led interior design rooted in handmade texture, calming palettes and your unique story. From a single room to a full home, we build sanctuaries that exhale with you.",
-    image: "https://images.unsplash.com/photo-1616627547584-bf28cee262db?w=1200&q=80",
-    price: "Project-based",
+    icon: CalendarDays,
+    title: "4-Week Consistency & Transformation Program",
+    subtitle: "1 Month · 8 Online Sessions",
+    text:
+      "A one-month healing & growth journey to become emotionally balanced, mentally clear, spiritually aligned and consistent in achieving your goals. Includes 4 deep therapy sessions (90 min, Fridays) and 4 meditation & journaling sessions (30 min, Tuesdays).",
+    stages: [
+      "4 Deep Therapy Sessions — healing, counseling, emotional release, art therapy, meditation, journaling & guidance.",
+      "4 Meditation & Journaling Sessions — inner healing, consistency, mental clarity, goal planning, motivation.",
+      "Heal emotionally · create healthy routines · stay focused.",
+      "Achieve goals with clarity, direction & guidance.",
+    ],
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
+    price: "1:1 ₹9999  ·  Group ₹5555",
     tint: "bg-cream-200",
   },
 ];
@@ -57,10 +100,10 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Services"
-        title="Soft, soulful"
-        script="ways to begin."
-        subtitle="A gentle menu of creative-care offerings. Choose what feels right — there is no wrong way to start."
+        eyebrow="Sessions & Programs"
+        title="Heal · Create · Transform"
+        script="· Align ·"
+        subtitle="Personalised one-to-one and group sessions for emotional healing, inner transformation, creativity, wellness and positive energy alignment. Choose what feels right — sessions can be combined according to your needs."
       />
 
       <section className="container-page space-y-14 pb-16 sm:space-y-16 sm:pb-20">
@@ -82,14 +125,79 @@ export default function ServicesPage() {
                 </div>
                 <h2 className="heading-display text-2xl sm:text-3xl md:text-4xl">{s.title}</h2>
                 <p className="mt-3 body-soft text-base sm:mt-4 sm:text-lg">{s.text}</p>
+
+                <ul className="mt-5 space-y-2">
+                  {s.stages.map((step, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-earth-700/90">
+                      <span className="mt-1 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-rose-soft/70 text-[10px] font-medium text-earth-900">
+                        {idx + 1}
+                      </span>
+                      <span>{step}</span>
+                    </li>
+                  ))}
+                </ul>
+
                 <div className="mt-5 flex flex-wrap gap-3 sm:mt-6">
-                  <Link href="/contact" className="btn-primary">Book this</Link>
-                  <Link href="/courses" className="btn-ghost">See courses <ArrowRight className="h-4 w-4" /></Link>
+                  <Link href="/contact" className="btn-primary">Book this session</Link>
+                  <Link href="/courses" className="btn-ghost">All sessions <ArrowRight className="h-4 w-4" /></Link>
                 </div>
               </div>
             </div>
           </ScrollReveal>
         ))}
+      </section>
+
+      {/* Healing modalities at a glance */}
+      <section className="container-page pb-20 sm:pb-24">
+        <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-7 shadow-soft backdrop-blur sm:p-10">
+          <div className="mb-8 text-center">
+            <ScrollReveal>
+              <div className="pill mx-auto mb-3"><Sparkles className="h-3.5 w-3.5" /> Modalities</div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="heading-display text-3xl sm:text-4xl">
+                All healing modalities, <span className="heading-script">in one studio</span>
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Healing Therapies",
+                items: ["Pranic Healing", "Sound Healing", "Chakra Healing", "Crystal Healing", "Mudra Therapy", "Pranayama Therapy", "Therapeutic Yoga", "Acupressure Healing", "Face Yoga Therapy", "Inner Child Healing", "Child Healing"],
+              },
+              {
+                title: "Creative & Art Therapies",
+                items: ["Art Therapy", "Mandala Art", "Dot Mandala Art", "Texture Art", "Clay Molding", "Journaling Therapy", "Music Therapy"],
+              },
+              {
+                title: "Customised Art & Healing Paintings",
+                items: ["Customized Paintings", "Canvas Paintings", "Wall Art", "Large Healing Paintings", "Vastu-Based Paintings", "Energy & Healing Artworks"],
+              },
+              {
+                title: "Mindset, Spiritual & Energy",
+                items: ["Money Manifestation", "Vision Board & Goal Setting", "Personality Development", "Parenting Guidance", "Vastu Shastra", "Feng Shui", "Garbha Sanskar"],
+              },
+            ].map((col) => (
+              <div key={col.title}>
+                <h3 className="font-display text-xl text-earth-900">{col.title}</h3>
+                <ul className="mt-3 space-y-1.5 text-sm text-earth-700/90">
+                  {col.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-rose-dusty" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm italic text-earth-700/80">
+            Sessions are conducted individually or as a combination of modalities according to your needs and energy.
+          </p>
+        </div>
       </section>
     </>
   );

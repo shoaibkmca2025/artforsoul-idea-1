@@ -1,21 +1,24 @@
-# Art For Soul · Creative Healing Studio
+# Art For Soul · Healing & Art Studio
 
-A fully animated, multi-page Next.js website for *Art For Soul* — a creative
-healing studio offering art therapy, soulful interior design and online
-courses.
+A fully animated, multi-page Next.js website for *Art For Soul* — a healing
+studio offering personalised one-to-one and group sessions for emotional
+healing, art therapy, energy alignment, Garbha Sanskar, mother & child
+development and personal transformation.
 
 ## What is built
 
 **Public pages** — all with scroll-based Framer Motion animations and Lenis
 smooth scroll:
 
-- `/` — Hero, marquee affirmations, About, Services, Benefits, Interior
-  portfolio preview, Courses preview, gallery strip, Testimonials, CTA
-- `/about` — Story, values, timeline
-- `/services` — 1:1 sessions, workshops, healing programs, creative wellness,
-  interior design
-- `/portfolio` — Interior design work with category filter + lightbox detail
-- `/courses` — Course listing
+- `/` — Hero (video), marquee affirmations, About, Services, Benefits,
+  Process, Healing-art preview, Programs preview, gallery strip,
+  Testimonials, CTA
+- `/about` — Founder story, values, offerings
+- `/services` — Personal Counseling, Follow-Up, Garbha Sanskar, Mother & Child,
+  4-Week Transformation Program + full modalities list
+- `/portfolio` — Healing art gallery (customised paintings, mandala, Vastu,
+  energy artworks) with category filter + lightbox detail
+- `/courses` — Sessions & programs listing
 - `/courses/[slug]` — Course detail with syllabus and enrollment form
 - `/gallery` — Masonry gallery wall with category filter + lightbox
 - `/contact` — Contact form, booking form, WhatsApp/Instagram/email
@@ -24,7 +27,7 @@ smooth scroll:
 
 - `/admin/login` — Email/password sign-in (iron-session cookie)
 - `/admin` — Stats dashboard + recent activity
-- `/admin/portfolio` — Create / feature / delete interior projects
+- `/admin/portfolio` — Create / feature / delete healing artworks
   with image uploads
 - `/admin/courses` — Create / publish / feature / delete courses,
   including modules + outcomes + image uploads, and a roster of
@@ -89,7 +92,7 @@ app/
   page.tsx                Home page (assembles all sections)
   about/                  About page
   services/               Services page
-  portfolio/              Interior portfolio + lightbox
+  portfolio/              Healing art gallery + lightbox
   courses/                Courses index + [slug] detail
   gallery/                Masonry gallery
   contact/                Contact + booking forms

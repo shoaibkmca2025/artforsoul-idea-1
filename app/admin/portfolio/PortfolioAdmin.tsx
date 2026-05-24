@@ -111,8 +111,8 @@ export default function PortfolioAdmin({ initialItems }: { initialItems: Item[] 
     <div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="heading-display text-3xl">Interior Portfolio</h1>
-          <p className="body-soft text-sm">Add and curate your interior design work.</p>
+          <h1 className="heading-display text-3xl">Healing Art Gallery</h1>
+          <p className="body-soft text-sm">Add and curate your healing paintings, mandalas & energy artworks.</p>
         </div>
         <button onClick={() => setShow(true)} className="btn-primary"><Plus className="h-4 w-4" /> Add work</button>
       </div>
@@ -151,7 +151,7 @@ export default function PortfolioAdmin({ initialItems }: { initialItems: Item[] 
         <div className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto overscroll-contain bg-earth-900/60 p-3 backdrop-blur-sm sm:p-4" onClick={() => setShow(false)}>
           <div className="my-6 w-full max-w-2xl rounded-3xl bg-cream-50 p-5 shadow-journal sm:my-10 sm:p-6" onClick={(e) => e.stopPropagation()}>
             <div className="mb-5 flex items-center justify-between">
-              <h2 className="heading-display text-2xl">Add interior work</h2>
+              <h2 className="heading-display text-2xl">Add healing artwork</h2>
               <button onClick={() => setShow(false)} className="grid h-9 w-9 place-items-center rounded-full bg-cream-100"><X className="h-4 w-4" /></button>
             </div>
 

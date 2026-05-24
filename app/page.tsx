@@ -2,6 +2,7 @@ import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import BenefitsSection from "@/components/home/BenefitsSection";
+import ProcessSection from "@/components/home/ProcessSection";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import CoursesPreview from "@/components/home/CoursesPreview";
 import GalleryStrip from "@/components/home/GalleryStrip";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <AboutSection />
       <ServicesSection />
       <BenefitsSection />
+      <ProcessSection />
       <PortfolioPreview items={portfolio} />
       <CoursesPreview courses={featuredCourses} />
       <GalleryStrip items={gallery} />

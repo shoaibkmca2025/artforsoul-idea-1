@@ -6,8 +6,9 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import { courses } from "@/lib/data";
 
 export const metadata = {
-  title: "Online Courses — Art For Soul",
-  description: "Live cohorts and self-paced online courses for healing through art.",
+  title: "Sessions & Programs — Art For Soul",
+  description:
+    "Personalised healing sessions, follow-ups, Garbha Sanskar, Mother & Child development and the 4-week transformation program.",
 };
 
 export default function CoursesIndex() {
@@ -16,10 +17,10 @@ export default function CoursesIndex() {
   return (
     <>
       <PageHero
-        eyebrow="Online courses"
-        title="Learn at your"
-        script="soft, soulful pace."
-        subtitle="Live and self-paced courses on art therapy, watercolor, journaling and soulful interior styling. Lifetime access. Tender community."
+        eyebrow="Sessions & Programs"
+        title="Heal · Create · Transform"
+        script="at your own pace."
+        subtitle="One-to-one personalised sessions and group programs for emotional healing, energy alignment, conscious pregnancy, mother & child development and personal transformation."
       />
 
       <section className="container-page pb-20 sm:pb-24">

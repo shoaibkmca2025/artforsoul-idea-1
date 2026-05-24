@@ -34,7 +34,7 @@ export default function ContactPage() {
           <ScrollReveal delay={0.1}>
             <div className="card-journal">
               <h3 className="font-display text-2xl">Book a session</h3>
-              <p className="mt-1 text-sm body-soft">Reserve a 1:1, workshop or interiors slot.</p>
+              <p className="mt-1 text-sm body-soft">Reserve a one-to-one or group healing session.</p>
               <div className="mt-4">
                 <BookingForm />
               </div>

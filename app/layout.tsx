@@ -20,13 +20,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Art For Soul — Let Your Art Speak & Your Soul Heal",
+  title: "Art For Soul — Heal · Create · Transform · Align",
   description:
-    "Art For Soul is a creative healing studio offering art therapy, workshops, soulful interiors and online courses. A soft place to feel, create and come home to yourself.",
-  keywords: ["art therapy", "healing", "interior design", "art workshops", "creative wellness", "online art courses"],
+    "Art For Soul is a healing studio offering personalised one-to-one and group sessions for emotional healing, art therapy, energy alignment, Garbha Sanskar, mother & child development and personal transformation.",
+  keywords: [
+    "pranic healing",
+    "sound healing",
+    "chakra healing",
+    "art therapy",
+    "mandala art",
+    "garbha sanskar",
+    "vastu shastra",
+    "mother child development",
+    "energy healing",
+    "transformation program",
+  ],
   openGraph: {
     title: "Art For Soul",
-    description: "Create. Feel. Heal.",
+    description: "Heal · Create · Transform · Align",
     type: "website",
   },
 };

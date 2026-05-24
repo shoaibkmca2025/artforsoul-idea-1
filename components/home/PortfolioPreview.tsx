@@ -38,23 +38,24 @@ export default function PortfolioPreview({ items }: { items: Item[] }) {
         <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-12 md:flex-row md:items-end">
           <div>
             <ScrollReveal>
-              <div className="pill mb-4">Interior work</div>
+              <div className="pill mb-4">Healing Art</div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-                Rooms designed to <span className="heading-script">hold</span> you.
+                Paintings that <span className="heading-script">hold</span> energy.
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mt-4 max-w-xl body-soft">
-                A handpicked look into recent interior projects — homes, studios and
-                cafes layered with handmade texture and emotional warmth.
+                Customised paintings, Mandala &amp; Dot Mandala art, Vastu-based
+                paintings and energy artworks — created intuitively to bring
+                positive vibrations into your home and healing space.
               </p>
             </ScrollReveal>
           </div>
           <ScrollReveal delay={0.3}>
             <Link href="/portfolio" className="btn-ghost">
-              View full portfolio <ArrowUpRight className="h-4 w-4" />
+              View all healing art <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
         </div>

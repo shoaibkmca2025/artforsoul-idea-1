@@ -6,30 +6,10 @@ import ScrollReveal from "@/components/animations/ScrollReveal";
 import { Wind, Heart, Brush, Leaf } from "lucide-react";
 
 const benefits = [
-  {
-    icon: Wind,
-    title: "Relax & De-stress",
-    text: "Down-regulate a tired nervous system with rhythmic, repetitive creative ritual.",
-    tint: "bg-rose-soft/60",
-  },
-  {
-    icon: Heart,
-    title: "Heal Emotional Blocks",
-    text: "Make space for emotions that words alone could not reach.",
-    tint: "bg-sage-300/60",
-  },
-  {
-    icon: Brush,
-    title: "Creative Self-Expression",
-    text: "Find your unique visual voice — no perfect outcome required.",
-    tint: "bg-lavender-300/60",
-  },
-  {
-    icon: Leaf,
-    title: "Calm & Mindfulness",
-    text: "Slow down. Soften. Return to the present, brush stroke by brush stroke.",
-    tint: "bg-cream-200",
-  },
+  { icon: Wind,  title: "Heal",       text: "Release.",   tint: "bg-rose-soft/70" },
+  { icon: Heart, title: "Align",      text: "Balance.",   tint: "bg-sage-300/70" },
+  { icon: Brush, title: "Create",     text: "Express.",   tint: "bg-lavender-300/70" },
+  { icon: Leaf,  title: "Transform",  text: "Grow.",      tint: "bg-rose-dusty/60" },
 ];
 
 export default function BenefitsSection() {

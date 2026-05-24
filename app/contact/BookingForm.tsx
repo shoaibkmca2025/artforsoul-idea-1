@@ -4,11 +4,14 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 const SERVICES = [
-  "1:1 Online Art Therapy",
-  "Group Workshop",
-  "Healing Program",
-  "Creative Wellness Experience",
-  "Interior Design Project",
+  "Personal Counseling & Healing Therapy (₹1999)",
+  "Follow-Up Counseling Session (₹1111)",
+  "Garbha Sanskar Session (₹3333)",
+  "Mother & Child Development Session (₹3333)",
+  "4-Week Transformation Program — 1:1 (₹9999)",
+  "4-Week Transformation Program — Group (₹5555)",
+  "Customised Healing Painting / Mandala Art",
+  "Group Healing Session",
 ];
 
 export default function BookingForm() {

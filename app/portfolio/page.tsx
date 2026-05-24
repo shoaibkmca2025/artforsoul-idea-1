@@ -3,18 +3,19 @@ import PortfolioGrid from "./PortfolioGrid";
 import { portfolioItems } from "@/lib/data";
 
 export const metadata = {
-  title: "Interior Portfolio — Art For Soul",
-  description: "A showcase of warm, soulful interior design work by Art For Soul.",
+  title: "Healing Art Gallery — Art For Soul",
+  description:
+    "A collection of customised healing paintings, mandala art, Vastu-based artworks and energy paintings by Art For Soul.",
 };
 
 export default function PortfolioPage() {
   return (
     <>
       <PageHero
-        eyebrow="Interior portfolio"
-        title="Spaces that breathe,"
-        script="rooms that hold."
-        subtitle="A growing collection of soulful interiors — homes, studios and cafes layered with handmade texture, gentle palettes and a great deal of love."
+        eyebrow="Healing Art"
+        title="Customised paintings,"
+        script="charged with energy."
+        subtitle="A growing collection of healing artworks — customised paintings, large healing canvases, Mandala & Dot Mandala art, Vastu-based paintings, and energy artworks for positive vibrations."
       />
       <PortfolioGrid items={portfolioItems} />
     </>

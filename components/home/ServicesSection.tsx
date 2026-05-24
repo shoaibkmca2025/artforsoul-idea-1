@@ -2,33 +2,33 @@
 
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import { Palette, Users, HeartPulse, Sparkles, ArrowRight } from "lucide-react";
+import { HeartPulse, Palette, Baby, Users, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const services = [
   {
-    icon: Palette,
-    title: "1:1 Online Sessions",
+    icon: HeartPulse,
+    title: "Healing Therapies",
     color: "bg-rose-soft/70",
-    text: "Tender, focused art therapy sessions over video — for anxiety, overwhelm, grief and creative blocks.",
+    text: "Pranic, Sound, Chakra, Crystal, Mudra, Pranayama, Acupressure, Face Yoga, Inner Child & Therapeutic Yoga sessions.",
+  },
+  {
+    icon: Palette,
+    title: "Art & Creative Therapy",
+    color: "bg-sage-300/70",
+    text: "Art therapy, Mandala & Dot Mandala, Texture art, Clay molding, Journaling and Music therapy for emotional release.",
+  },
+  {
+    icon: Baby,
+    title: "Garbha Sanskar & Child",
+    color: "bg-lavender-300/70",
+    text: "Conscious pregnancy sessions for mother & baby, plus mother-and-child development sessions for ages 0–10.",
   },
   {
     icon: Users,
-    title: "Group Workshops",
-    color: "bg-sage-300/70",
-    text: "Small, soulful circles. Watercolor, collage and journal-making — together, in safe creative containers.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Healing Programs",
-    color: "bg-lavender-300/70",
-    text: "Multi-week guided programs that combine art, writing and somatic practice for deep nervous-system care.",
-  },
-  {
-    icon: Sparkles,
-    title: "Creative Wellness",
+    title: "Mindset & Spiritual Guidance",
     color: "bg-rose-dusty/70",
-    text: "Curated retreats, corporate workshops and bespoke healing experiences for teams and friend-circles.",
+    text: "Money Manifestation, Vision Board, Personality Development, Parenting, Vastu Shastra and Feng Shui guidance.",
   },
 ];
 
@@ -38,17 +38,23 @@ export default function ServicesSection() {
       <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-14 md:flex-row md:items-end">
         <div>
           <ScrollReveal>
-            <div className="pill mb-4">What we offer</div>
+            <div className="pill mb-4"><Sparkles className="h-3.5 w-3.5" /> What we offer</div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-              Four soft doorways into your <span className="heading-script">healing</span>.
+              Soft doorways into your <span className="heading-script">healing</span>.
             </h2>
+          </ScrollReveal>
+          <ScrollReveal delay={0.15}>
+            <p className="mt-3 max-w-xl body-soft text-sm sm:text-base">
+              Sessions are conducted individually or as a combination of different
+              healing modalities — chosen according to your needs and energy.
+            </p>
           </ScrollReveal>
         </div>
         <ScrollReveal delay={0.2}>
           <Link href="/services" className="btn-ghost">
-            Explore all services <ArrowRight className="h-4 w-4" />
+            Explore all sessions <ArrowRight className="h-4 w-4" />
           </Link>
         </ScrollReveal>
       </div>

@@ -1,79 +1,127 @@
 "use client";
 
+import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import { Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  HeartPulse,
+  Palette,
+  Baby,
+  Compass,
+} from "lucide-react";
+
+// ── Update this with the founder's actual name ──
+const FOUNDER_NAME = "Your Name";
+
+const badges = [
+  { icon: HeartPulse, label: "Healing", color: "bg-rose-soft/80" },
+  { icon: Palette,    label: "Art",     color: "bg-sage-300/80" },
+  { icon: Baby,       label: "Mother & Child", color: "bg-lavender-300/80" },
+  { icon: Compass,    label: "Spiritual", color: "bg-rose-dusty/80" },
+];
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const yQuote = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const yImg = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={ref} className="container-page py-16 sm:py-24 lg:py-28">
-      <div className="grid items-center gap-14 lg:grid-cols-2">
-        <div className="relative">
-          <motion.div
-            style={{ y: yImg }}
-            className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[2rem] border-[6px] border-cream-50 shadow-journal sm:border-8 lg:max-w-none"
-          >
+    <section ref={ref} id="about" className="container-page py-16 sm:py-24 lg:py-28">
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* ── Photo column ── */}
+        <motion.div
+          style={{ y: yImg }}
+          className="relative mx-auto w-full max-w-md lg:max-w-lg"
+        >
+          {/* Soft watercolor blob behind the photo */}
+          <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-rose-soft/40 blur-2xl" />
+
+          <div className="relative aspect-square overflow-hidden rounded-[2rem] border-[6px] border-cream-50 bg-cream-100 shadow-journal sm:rounded-[2.5rem] sm:border-8">
             <img
-              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80"
-              alt="Art journal"
+              src="/uploads/client%20image.jpeg"
+              alt={`${FOUNDER_NAME} — Founder of Art For Soul`}
               className="h-full w-full object-cover"
             />
-          </motion.div>
+          </div>
 
+          {/* Decorative floating sticker — bottom right */}
           <motion.div
-            style={{ y: yQuote }}
-            className="relative mx-auto -mt-8 max-w-xs rotate-[3deg] rounded-2xl border border-earth-300/40 bg-cream-50/95 p-5 shadow-soft backdrop-blur sm:absolute sm:-bottom-6 sm:-right-4 sm:mx-0 sm:mt-0"
+            className="absolute -bottom-5 -right-3 grid h-20 w-20 place-items-center rounded-full bg-sage-300/90 text-earth-900 shadow-journal sm:-right-5 sm:h-24 sm:w-24"
+            animate={{ rotate: [-6, 4, -6] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <p className="font-script text-2xl leading-tight text-earth-900">
-              "Art is the gentlest doorway back into your body."
-            </p>
-            <p className="mt-2 text-xs uppercase tracking-[0.3em] text-earth-500">
-              — Founder's note
-            </p>
+            <span className="text-center font-script text-sm leading-tight sm:text-base">
+              heal<br />create<br />align
+            </span>
           </motion.div>
-        </div>
 
+          {/* Decorative tape — top left */}
+          <span className="absolute -top-3 left-8 h-6 w-24 rotate-[-4deg] rounded-sm bg-rose-soft/80 shadow" />
+        </motion.div>
+
+        {/* ── Text column ── */}
         <div>
           <ScrollReveal direction="up">
-            <div className="pill mb-5"><Sparkles className="h-3.5 w-3.5" /> Our gentle why</div>
+            <div className="pill mb-5 border-sage-500/50 bg-cream-50/80">
+              <Sparkles className="h-3.5 w-3.5 text-sage-500" />
+              <span>Know the Founder</span>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.1}>
-            <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-              A studio that holds you while you{" "}
-              <span className="heading-script text-rose-dusty">come home</span> to yourself.
+            <h2 className="font-display text-[clamp(2.2rem,5.5vw,4rem)] leading-[1.05] text-earth-900">
+              Hi, I'm{" "}
+              <span className="heading-script text-sage-500">{FOUNDER_NAME}!</span>
             </h2>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.2}>
-            <p className="mt-6 max-w-xl body-soft text-base md:text-lg">
-              Art For Soul began as a private journaling ritual — a way to make sense
-              of overwhelm without needing to explain. Today it has grown into a
-              creative healing space offering 1:1 art therapy, group workshops,
-              soulful interior design and online courses for the tender-hearted.
+            <p className="mt-5 body-soft text-base sm:text-lg">
+              <span className="font-medium text-earth-900">
+                Healing Therapist · Art Therapist · Wellness Counsellor
+              </span>
+              <br />Personalised sessions to take you from <em>stuck</em> to <em>aligned</em>.
             </p>
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={0.3}>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                "Trauma-informed creative practice",
-                "Mindful, no-experience-needed sessions",
-                "Beautifully designed healing spaces",
-                "Live courses + lifetime access replays",
-              ].map((t) => (
-                <li key={t} className="flex items-start gap-2 text-sm text-earth-700/90">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-rose-dusty" />
-                  {t}
-                </li>
+            <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3">
+              {badges.map((b, i) => (
+                <motion.div
+                  key={b.label}
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.4, delay: i * 0.08 }}
+                  whileHover={{ y: -3, rotate: 2 }}
+                  className={`inline-flex items-center gap-2 rounded-full ${b.color} px-4 py-2 text-sm font-medium text-earth-900 shadow-soft`}
+                >
+                  <b.icon className="h-4 w-4" strokeWidth={1.7} />
+                  {b.label}
+                </motion.div>
               ))}
-            </ul>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.4}>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Link href="/contact" className="btn-primary group">
+                Book Consultation
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link href="/services" className="btn-ghost">
+                See all sessions
+              </Link>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal direction="up" delay={0.5}>
+            <p className="mt-6 font-script text-2xl text-earth-700/80">
+              ✨ Heal · Create · Transform · Align ✨
+            </p>
           </ScrollReveal>
         </div>
       </div>

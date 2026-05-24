@@ -25,13 +25,14 @@ export default function CTASection() {
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mt-4 body-soft max-w-md sm:mt-5">
-                Book a free 15-minute discovery call. We will sit together — no pressure,
-                no perfect words needed — and see what kind of creative care suits you.
+                Book a personalised one-to-one online session — for emotional healing,
+                energy alignment, conscious pregnancy, mother & child development, or
+                a 4-week transformation journey.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
               <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
-                <Link href="/contact" className="btn-primary">Book a Free Call</Link>
+                <Link href="/contact" className="btn-primary">Book a Session</Link>
                 <a
                   href={`https://wa.me/${wa.replace(/[^0-9]/g, "")}`}
                   target="_blank"

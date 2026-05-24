@@ -1,22 +1,22 @@
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Parallax from "@/components/animations/Parallax";
-import { Heart, Leaf, Brush, Sparkles } from "lucide-react";
+import { Heart, Leaf, Brush, Sparkles, HeartPulse, Palette, Baby, Home as HomeIcon } from "lucide-react";
 
 export const metadata = { title: "About — Art For Soul" };
 
 const values = [
-  { icon: Heart, title: "Tenderness first", text: "We approach every soul with care, slowness and zero judgement." },
-  { icon: Leaf, title: "Soft science", text: "Trauma-informed, somatic, evidence-aware creative practice." },
-  { icon: Brush, title: "Process over polish", text: "We celebrate the mess, the smudge, the unfinished page." },
-  { icon: Sparkles, title: "Beauty as healing", text: "We believe a beautiful space and a beautiful brushstroke are medicine." },
+  { icon: Heart, title: "Tender & personalised", text: "Every session is designed around your unique needs, energy and pace." },
+  { icon: Leaf, title: "Holistic healing", text: "We weave together energy work, therapy, art and spiritual guidance." },
+  { icon: Brush, title: "Creative as medicine", text: "Art, mandala, clay and journaling are used as powerful healing tools." },
+  { icon: Sparkles, title: "Energy alignment", text: "Bringing your inner & outer worlds into harmony — at home and within." },
 ];
 
-const timeline = [
-  { year: "2019", title: "A journal, alone", text: "It began as a private nightly ritual to soften an anxious heart." },
-  { year: "2021", title: "First circle", text: "A handful of friends gathered to paint, cry and laugh." },
-  { year: "2023", title: "Interior chapter", text: "Designing emotionally resonant homes became part of the practice." },
-  { year: "2025", title: "Art for Soul, today", text: "A creative healing studio with 1:1 work, workshops, courses & soulful interiors." },
+const offerings = [
+  { icon: HeartPulse, label: "Healing Therapies", items: "Pranic · Sound · Chakra · Crystal · Mudra · Pranayama · Acupressure · Face Yoga · Inner Child" },
+  { icon: Palette, label: "Creative & Art Therapies", items: "Art · Mandala · Dot Mandala · Texture · Clay · Journaling · Music" },
+  { icon: Baby, label: "Garbha Sanskar & Child", items: "Conscious pregnancy · Mother & child development (0–10 yrs) · Parenting guidance" },
+  { icon: HomeIcon, label: "Spiritual & Energy", items: "Vastu Shastra · Feng Shui · Customised Healing Paintings · Money Manifestation · Vision Boards" },
 ];
 
 export default function AboutPage() {
@@ -24,9 +24,9 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="About the studio"
-        title="A studio that listens,"
-        script="and gently makes room."
-        subtitle="Art For Soul is a tender meeting place between art therapy, interior storytelling and emotional wellness — built for soft souls and slow becomings."
+        title="A studio for healing,"
+        script="art & alignment."
+        subtitle="Art For Soul is a tender meeting place for emotional healing, inner transformation, creativity, wellness and positive energy alignment — built for soft souls and slow becomings."
       />
 
       <section className="container-page py-12 sm:py-16">
@@ -34,8 +34,8 @@ export default function AboutPage() {
           <Parallax offset={50}>
             <div className="relative mx-auto aspect-[4/5] max-w-md overflow-hidden rounded-[1.75rem] border-[6px] border-cream-50 shadow-journal sm:rounded-[2rem] sm:border-8 lg:max-w-none">
               <img
-                src="https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=1200&q=80"
-                alt="Founder portrait"
+                src="/uploads/client%20image.jpeg"
+                alt="Founder of Art For Soul"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -44,27 +44,36 @@ export default function AboutPage() {
           <div>
             <ScrollReveal>
               <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-                Hello, I'm <span className="heading-script text-rose-dusty">your guide</span>.
+                Hello, I'm <span className="heading-script text-rose-dusty">your healing guide</span>.
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mt-4 body-soft text-base sm:mt-5 sm:text-lg">
-                Art therapist, interior designer and softness-keeper. I work with people
-                who are tired of holding it all in. With paper, paint and rooms full of
-                light, I help you put some of it down — gently.
+                I work with people who carry quiet weight — emotional overwhelm,
+                creative blocks, life transitions, motherhood, or the longing for
+                more alignment. Together we blend healing therapies, creative art
+                practice and spiritual guidance to help you come home to yourself.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mt-4 body-soft">
-                My practice blends trauma-informed art therapy, mindful design and a deep
-                love for slow craft. Every workshop, every interior, every course is
-                shaped by one belief — your inner life deserves a beautiful place to live.
+                My practice brings together more than twenty modalities — from
+                Pranic, Sound and Crystal Healing to Art & Mandala Therapy, Garbha
+                Sanskar, Vastu Shastra and Feng Shui. Every session is
+                personalised, conducted one-to-one or in small groups, and shaped
+                around your energy on the day.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.3}>
+              <p className="mt-4 font-script text-2xl text-earth-900">
+                ✨ Heal · Create · Transform · Align ✨
               </p>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
+      {/* Values */}
       <section className="container-page py-12 sm:py-16">
         <div className="mb-8 text-center sm:mb-10">
           <ScrollReveal>
@@ -88,31 +97,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="container-page py-16 sm:py-20">
+      {/* Offerings overview */}
+      <section className="container-page py-12 sm:py-16">
         <div className="mb-8 text-center sm:mb-10">
           <ScrollReveal>
             <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-              A short <span className="heading-script text-rose-dusty">story</span>
+              Everything I <span className="heading-script text-rose-dusty">offer</span>
             </h2>
           </ScrollReveal>
+          <ScrollReveal delay={0.1}>
+            <p className="mt-3 body-soft mx-auto max-w-2xl">
+              One-to-one personalised sessions available. Customised group sessions also available.
+            </p>
+          </ScrollReveal>
         </div>
-        <div className="relative mx-auto max-w-3xl">
-          <div className="absolute left-3 top-0 h-full w-px bg-earth-300/60 md:left-1/2" />
-          {timeline.map((t, i) => (
-            <ScrollReveal key={t.year} delay={i * 0.1}>
-              <div className={`relative mb-8 grid gap-3 pl-9 sm:mb-10 sm:gap-4 md:grid-cols-2 md:gap-10 md:pl-0`}>
-                <div className={`md:text-right ${i % 2 ? "md:order-2 md:text-left" : ""}`}>
-                  <div className="inline-flex items-center gap-2 rounded-full bg-rose-soft/70 px-3 py-1 text-xs uppercase tracking-[0.25em] text-earth-900">
-                    {t.year}
-                  </div>
-                  <h3 className="mt-2 font-display text-xl sm:text-2xl">{t.title}</h3>
-                  <p className="mt-1 body-soft text-sm">{t.text}</p>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          {offerings.map((o, i) => (
+            <ScrollReveal key={o.label} delay={i * 0.08}>
+              <div className="card-journal flex gap-4">
+                <div className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-2xl bg-sage-300/60">
+                  <o.icon className="h-5 w-5" />
                 </div>
-                <div className={`hidden md:block ${i % 2 ? "md:order-1" : ""}`} />
-                <span className="absolute left-3 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-rose-dusty md:left-1/2" />
+                <div>
+                  <h3 className="font-display text-xl text-earth-900">{o.label}</h3>
+                  <p className="mt-1 body-soft text-sm">{o.items}</p>
+                </div>
               </div>
             </ScrollReveal>
           ))}
+        </div>
+      </section>
+
+      {/* Closing affirmation */}
+      <section className="container-page pb-16 sm:pb-20">
+        <div className="relative overflow-hidden rounded-[2rem] border border-earth-300/40 bg-gradient-to-br from-rose-soft/60 via-cream-100 to-sage-300/50 p-8 text-center shadow-soft sm:p-12">
+          <p className="heading-script text-4xl text-earth-900 sm:text-5xl">
+            Heal · Create · Transform · Align
+          </p>
+          <p className="mt-4 body-soft mx-auto max-w-xl">
+            Sessions are conducted individually or as a combination of different
+            healing modalities according to your requirements and energy needs.
+          </p>
         </div>
       </section>
     </>

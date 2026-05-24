@@ -17,8 +17,9 @@ export default function Footer() {
         <div className="sm:col-span-2 md:col-span-2">
           <div className="font-script text-3xl text-earth-900 sm:text-4xl">Art for Soul</div>
           <p className="mt-3 max-w-md body-soft">
-            A creative healing studio where art becomes language, interiors become
-            shelter, and self-expression becomes medicine.
+            Healing · Art · Energy Alignment · Personal Transformation. A studio
+            for personalised one-to-one and group sessions designed to help you
+            heal, create, transform and align.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a
@@ -42,9 +43,9 @@ export default function Footer() {
           <h4 className="font-display text-lg text-earth-900">Explore</h4>
           <ul className="mt-3 space-y-2 text-sm text-earth-700/90">
             <li><Link href="/about" className="hover:text-earth-900">About</Link></li>
-            <li><Link href="/services" className="hover:text-earth-900">Services</Link></li>
-            <li><Link href="/portfolio" className="hover:text-earth-900">Interior Work</Link></li>
-            <li><Link href="/courses" className="hover:text-earth-900">Courses</Link></li>
+            <li><Link href="/services" className="hover:text-earth-900">Sessions</Link></li>
+            <li><Link href="/portfolio" className="hover:text-earth-900">Healing Art</Link></li>
+            <li><Link href="/courses" className="hover:text-earth-900">Programs</Link></li>
             <li><Link href="/gallery" className="hover:text-earth-900">Gallery</Link></li>
           </ul>
         </div>
