@@ -22,27 +22,58 @@ type Step = {
 
 // Sequence follows the zigzag flow: top → bottom → top → bottom → ...
 const steps: Step[] = [
-  { icon: Brain,      label: "Understanding the nature of your mind.",  left: 7,  row: "top" },
+  { icon: Brain,      label: "Understanding the nature of your mind.",  left: 8,  row: "top" },
   { icon: Search,     label: "Identifying your emotional triggers.",     left: 22, row: "bottom" },
   { icon: Dumbbell,   label: "Discover your inner strengths.",           left: 36, row: "top" },
   { icon: Heart,      label: "Embrace gratitude & positivity.",          left: 50, row: "bottom" },
   { icon: MapPin,     label: "Plan out your goals.",                     left: 64, row: "top" },
   { icon: TrendingUp, label: "Experience continuous growth.",            left: 78, row: "bottom" },
-  { icon: Crown,      label: "Development of a resilient mindset.",      left: 93, row: "top" },
+  { icon: Crown,      label: "Development of a resilient mindset.",      left: 92, row: "top" },
 ];
 
-// SVG viewBox dimensions (px) — used purely for path math
+// SVG viewBox dimensions (px) are shared with the absolute desktop layout.
 const VB_W = 1000;
-const VB_H = 420;
-const TOP_Y = 90;
-const BOT_Y = 330;
+const VB_H = 400;
+const TOP_CENTER_Y = 108;
+const BOTTOM_CENTER_Y = 288;
+const NODE_RADIUS = 48;
+const ARROW_GAP = 12;
+const LABEL_WIDTH = 176;
+const ICON_SIZE = 80;
+
+function pointForStep(step: Step) {
+  return {
+    x: (step.left / 100) * VB_W,
+    y: step.row === "top" ? TOP_CENTER_Y : BOTTOM_CENTER_Y,
+  };
+}
+
+function arrowPath(from: Step, to: Step) {
+  const start = pointForStep(from);
+  const end = pointForStep(to);
+  const dx = end.x - start.x;
+  const dy = end.y - start.y;
+  const length = Math.hypot(dx, dy);
+  const ux = dx / length;
+  const uy = dy / length;
+  const padding = NODE_RADIUS + ARROW_GAP;
+  const sx = start.x + ux * padding;
+  const sy = start.y + uy * padding;
+  const tx = end.x - ux * padding;
+  const ty = end.y - uy * padding;
+  const curve = from.row === "top" ? 34 : -34;
+  const cpx = (sx + tx) / 2 + curve;
+  const cpy = (sy + ty) / 2;
+
+  return `M ${sx} ${sy} Q ${cpx} ${cpy} ${tx} ${ty}`;
+}
 
 export default function ProcessSection() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   return (
-    <section ref={ref} className="container-page py-20 sm:py-24">
+    <section id="process" ref={ref} className="container-page py-20 sm:py-24">
       <div className="mb-12 text-center sm:mb-16">
         <ScrollReveal>
           <div className="pill mx-auto mb-4">The Journey</div>
@@ -61,13 +92,14 @@ export default function ProcessSection() {
       </div>
 
       {/* ── Desktop / Tablet layout ── */}
-      <div className="relative mx-auto hidden h-[440px] w-full max-w-6xl lg:block">
+      <div className="relative mx-auto hidden h-[400px] w-full max-w-6xl overflow-visible lg:block">
         {/* Animated SVG arrows */}
         <svg
-          className="absolute inset-0 h-full w-full"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full"
           viewBox={`0 0 ${VB_W} ${VB_H}`}
           preserveAspectRatio="none"
           fill="none"
+          aria-hidden="true"
         >
           <defs>
             <marker
@@ -85,43 +117,18 @@ export default function ProcessSection() {
 
           {steps.slice(0, -1).map((step, i) => {
             const next = steps[i + 1];
-            const x1 = (step.left / 100) * VB_W;
-            const y1 = step.row === "top" ? TOP_Y : BOT_Y;
-            const x2 = (next.left / 100) * VB_W;
-            const y2 = next.row === "top" ? TOP_Y : BOT_Y;
-
-            // Quadratic curve: bulge the curve away from the midline
-            // If going down (top→bottom): bulge right of midline
-            // If going up (bottom→top): bulge left of midline
-            const mx = (x1 + x2) / 2;
-            const my = (y1 + y2) / 2;
-            const goingDown = step.row === "top";
-            const offsetX = goingDown ? 40 : -40;
-            const offsetY = goingDown ? -30 : 30;
-            const cpx = mx + offsetX;
-            const cpy = my + offsetY;
-
-            // Pull endpoints slightly toward control point so the arrow doesn't poke into the circle
-            const shorten = (sx: number, sy: number, tx: number, ty: number, dist: number) => {
-              const dx = tx - sx;
-              const dy = ty - sy;
-              const len = Math.hypot(dx, dy);
-              return [sx + (dx / len) * dist, sy + (dy / len) * dist] as const;
-            };
-            const [sx, sy] = shorten(x1, y1, cpx, cpy, 48);
-            const [tx, ty] = shorten(x2, y2, cpx, cpy, 55);
-
-            const path = `M ${sx} ${sy} Q ${cpx} ${cpy} ${tx} ${ty}`;
+            const path = arrowPath(step, next);
 
             return (
               <motion.path
                 key={i}
                 d={path}
                 stroke="#8FA37E"
-                strokeWidth={2.5}
+                strokeWidth={3}
                 strokeLinecap="round"
                 fill="none"
                 markerEnd="url(#process-arrow)"
+                vectorEffect="non-scaling-stroke"
                 initial={{ pathLength: 0, opacity: 0 }}
                 animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
                 transition={{
@@ -137,31 +144,44 @@ export default function ProcessSection() {
         {/* Step nodes */}
         {steps.map((step, i) => {
           const Icon = step.icon;
-          const topPct = step.row === "top" ? "0%" : "52%";
+          const centerY = pointForStep(step).y;
+          const labelTop =
+            step.row === "top"
+              ? centerY - NODE_RADIUS - 58
+              : centerY + NODE_RADIUS + 18;
           return (
-            <motion.div
-              key={i}
-              className="absolute flex w-36 -translate-x-1/2 flex-col items-center text-center"
-              style={{ left: `${step.left}%`, top: topPct }}
-              initial={{ opacity: 0, scale: 0.5, y: 14 }}
-              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.55,
-                delay: i * 0.18,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
+            <div key={i}>
               <motion.div
                 whileHover={{ scale: 1.08, rotate: 4 }}
+                initial={{ opacity: 0, scale: 0.5, y: 14 }}
+                animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
                 transition={{ type: "spring", stiffness: 300, damping: 18 }}
-                className="grid h-20 w-20 place-items-center rounded-full bg-sage-500 text-cream-50 shadow-soft ring-4 ring-sage-100"
+                className="absolute z-20 grid h-20 w-20 place-items-center rounded-full bg-sage-500 text-cream-50 shadow-soft ring-4 ring-sage-100"
+                style={{
+                  left: `calc(${step.left}% - ${ICON_SIZE / 2}px)`,
+                  top: centerY - ICON_SIZE / 2,
+                }}
               >
                 <Icon className="h-9 w-9" strokeWidth={1.6} />
               </motion.div>
-              <p className="mt-4 text-sm font-medium leading-snug text-earth-900">
+              <motion.p
+                className="absolute z-20 text-center text-sm font-medium leading-snug text-earth-900"
+                style={{
+                  left: `calc(${step.left}% - ${LABEL_WIDTH / 2}px)`,
+                  top: labelTop,
+                  width: LABEL_WIDTH,
+                }}
+                initial={{ opacity: 0, y: step.row === "top" ? -10 : 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: 0.45,
+                  delay: 0.1 + i * 0.14,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
                 {step.label}
-              </p>
-            </motion.div>
+              </motion.p>
+            </div>
           );
         })}
       </div>
