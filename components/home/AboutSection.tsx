@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 // ── Update this with the founder's actual name ──
-const FOUNDER_NAME = "Your Name";
+const FOUNDER_NAME = "Nitu Mastud";
 
 const badges = [
   { icon: HeartPulse, label: "Healing", color: "bg-rose-soft/80" },
