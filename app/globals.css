@@ -84,14 +84,45 @@ html.lenis, html.lenis body { height: auto; }
 
   .heading-script {
     @apply font-script text-earth-900;
+    font-weight: 700;
     line-height: 0.95;
   }
   .heading-display {
     @apply font-display text-earth-900;
-    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    font-variation-settings: "opsz" 80, "SOFT" 30;
   }
   .body-soft {
     @apply text-earth-700/90 leading-relaxed;
+  }
+
+  /* Gradient text — for the most impactful headings */
+  .text-gradient-warm {
+    background: linear-gradient(120deg, #5E4434 0%, #B08968 35%, #E8B4B8 70%, #A48BC4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-rose {
+    background: linear-gradient(120deg, #E8B4B8 0%, #A48BC4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Price chip — high-contrast badge so prices never get lost */
+  .price-chip {
+    @apply inline-flex items-baseline gap-1 rounded-full bg-earth-900 px-3.5 py-1.5 font-display text-base font-bold text-cream-50 shadow-soft sm:text-lg;
+    letter-spacing: -0.01em;
+  }
+  .price-chip-large {
+    @apply inline-flex items-baseline gap-1.5 rounded-2xl bg-gradient-to-br from-earth-900 via-earth-700 to-earth-500 px-5 py-2.5 font-display text-2xl font-bold text-cream-50 shadow-journal sm:text-3xl;
+    letter-spacing: -0.015em;
+  }
+  .price-strike {
+    @apply text-xs text-earth-500 line-through sm:text-sm;
   }
 
   .card-journal {

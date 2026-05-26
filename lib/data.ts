@@ -47,27 +47,17 @@ export type Testimonial = {
   createdAt: Date;
 };
 
-export type GalleryItem = {
-  id: string;
-  title: string | null;
-  caption: string | null;
-  image: string;
-  category: string;
-  order: number;
-  createdAt: Date;
-};
-
-// ─── Healing Artworks ───
+// ─── NM Art Studio — art images & wall art (mix media) ───
 export const portfolioItems: PortfolioItem[] = [
   {
     id: "p1",
-    title: "Customized Healing Painting",
+    title: "Customised Mix-Media Painting",
     slug: "customized-healing-painting",
-    category: "Customized Art",
+    category: "Mix Media",
     location: "On request",
     year: "2025",
     description:
-      "A one-of-a-kind painting created intuitively for your home or healing space — colours, symbols and energy are chosen to match your intention.",
+      "A one-of-a-kind mix-media painting created intuitively for your home — layers of acrylic, ink, texture and colour chosen to match your intention.",
     coverImage:
       "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1200&q=80",
     images: JSON.stringify([
@@ -81,13 +71,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p2",
-    title: "Large Healing Canvas",
+    title: "Large Wall Art Canvas",
     slug: "large-healing-canvas",
-    category: "Canvas Paintings",
+    category: "Wall Art",
     location: "On request",
     year: "2025",
     description:
-      "Statement healing canvases for your living room or meditation corner — vibrant strokes designed to hold and radiate positive energy.",
+      "Statement-size canvases for your living room or studio wall — bold mix-media strokes designed to hold and radiate positive energy.",
     coverImage:
       "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=1200&q=80",
     images: JSON.stringify([
@@ -100,13 +90,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p3",
-    title: "Mandala Wall Art",
+    title: "Mandala & Dot Mandala Wall Art",
     slug: "mandala-wall-art",
     category: "Mandala Art",
     location: "On request",
     year: "2025",
     description:
-      "Hand-painted mandalas and dot-mandalas crafted as moving meditations — each piece is a circle of calm, focus and balance.",
+      "Hand-painted mandala and dot-mandala wall art — meditative circles of calm, focus and balance for any wall in your home.",
     coverImage:
       "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=1200&q=80",
     images: JSON.stringify([
@@ -119,13 +109,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p4",
-    title: "Vastu-Based Painting",
+    title: "Vastu-Based Wall Painting",
     slug: "vastu-based-painting",
-    category: "Vastu Art",
+    category: "Vastu Wall Art",
     location: "Homes & Offices",
     year: "2025",
     description:
-      "Paintings designed around Vastu Shastra principles — placed thoughtfully in your home to invite prosperity, harmony and protection.",
+      "Mix-media wall paintings designed around Vastu Shastra principles — placed thoughtfully on your walls to invite prosperity, harmony and protection.",
     coverImage:
       "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1200&q=80",
     images: JSON.stringify([
@@ -138,13 +128,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p5",
-    title: "Texture Art Piece",
+    title: "Texture Wall Art",
     slug: "texture-art",
-    category: "Texture Art",
+    category: "Mix Media",
     location: "On request",
     year: "2025",
     description:
-      "Layered texture art that brings tactile depth and warmth to a wall — created with mixed media and intuitive movement.",
+      "Layered texture wall art that brings tactile depth and warmth to a room — built with mixed media, paste, pigment and intuitive movement.",
     coverImage:
       "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=1200&q=80",
     images: JSON.stringify([
@@ -157,13 +147,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p6",
-    title: "Energy & Vibration Artwork",
+    title: "Energy & Vibration Wall Art",
     slug: "energy-vibration-artwork",
-    category: "Energy Art",
+    category: "Wall Art",
     location: "On request",
     year: "2025",
     description:
-      "Intentional artworks charged with healing energy and colour therapy — perfect for bedrooms, healing rooms and conscious spaces.",
+      "Mix-media wall art charged with healing energy and colour therapy — perfect for bedrooms, healing rooms and conscious spaces.",
     coverImage:
       "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=1200&q=80",
     images: JSON.stringify([
@@ -375,25 +365,3 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-// ─── Gallery ───
-const galleryImages = [
-  "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=900&q=80",
-  "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900&q=80",
-  "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=900&q=80",
-  "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=900&q=80",
-  "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900&q=80",
-  "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900&q=80",
-  "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=900&q=80",
-  "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=900&q=80",
-  "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=900&q=80",
-];
-
-export const galleryItems: GalleryItem[] = galleryImages.map((img, i) => ({
-  id: `g${i + 1}`,
-  title: null,
-  caption: null,
-  image: img,
-  category: i % 3 === 0 ? "healing-art" : i % 3 === 1 ? "mandala" : "energy-art",
-  order: i,
-  createdAt: new Date(),
-}));

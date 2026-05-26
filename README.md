@@ -11,16 +11,14 @@ development and personal transformation.
 smooth scroll:
 
 - `/` — Hero (video), marquee affirmations, About, Services, Benefits,
-  Process, Healing-art preview, Programs preview, gallery strip,
-  Testimonials, CTA
+  Process, Healing-art preview, Programs preview, Testimonials, CTA
 - `/about` — Founder story, values, offerings
-- `/services` — Personal Counseling, Follow-Up, Garbha Sanskar, Mother & Child,
-  4-Week Transformation Program + full modalities list
 - `/portfolio` — Healing art gallery (customised paintings, mandala, Vastu,
   energy artworks) with category filter + lightbox detail
-- `/courses` — Sessions & programs listing
+- `/courses` — All sessions & programs (Personal Counseling, Follow-Up,
+  Garbha Sanskar, Mother & Child, 4-Week Transformation Program) + full
+  modalities list
 - `/courses/[slug]` — Course detail with syllabus and enrollment form
-- `/gallery` — Masonry gallery wall with category filter + lightbox
 - `/contact` — Contact form, booking form, WhatsApp/Instagram/email
 
 **Admin panel** (`/admin`) — for the client to manage everything herself:
@@ -94,7 +92,6 @@ app/
   services/               Services page
   portfolio/              Healing art gallery + lightbox
   courses/                Courses index + [slug] detail
-  gallery/                Masonry gallery
   contact/                Contact + booking forms
   admin/                  Admin panel (login + dashboard + CRUD pages)
   api/                    Server routes (contact, bookings, enrollments,
@@ -103,8 +100,8 @@ components/
   layout/                 Navigation + Footer
   animations/             SmoothScrollProvider, ScrollReveal, Parallax,
                           TextReveal, FloatingDoodles, ScrollProgress
-  home/                   Hero, About, Services, Benefits, PortfolioPreview,
-                          CoursesPreview, GalleryStrip, Testimonials,
+  home/                   Hero, About, Services, Benefits, Process,
+                          PortfolioPreview, CoursesPreview, Testimonials,
                           AffirmationMarquee, CTASection
   ui/                     PageHero
 lib/
@@ -113,7 +110,7 @@ lib/
   utils.ts                cn(), slugify(), formatINR(), safeJson()
 prisma/
   schema.prisma           Data model
-  seed.ts                 Seed admin + sample portfolio/courses/testimonials/gallery
+  seed.ts                 Seed admin + sample portfolio/courses/testimonials
 public/
   uploads/                Image uploads land here (created at runtime)
 ```

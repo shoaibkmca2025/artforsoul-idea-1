@@ -52,11 +52,12 @@ export default function CourseDetail({ params }: { params: { slug: string } }) {
             </ScrollReveal>
 
             <ScrollReveal delay={0.5}>
-              <div className="mt-7 flex items-baseline gap-3 sm:mt-8">
-                <span className="font-display text-3xl text-earth-900 sm:text-4xl">{formatINR(course.price)}</span>
+              <div className="mt-7 flex flex-wrap items-baseline gap-3 sm:mt-8">
+                <span className="price-chip-large">{formatINR(course.price)}</span>
                 {course.originalPrice ? (
-                  <span className="text-sm text-earth-500 line-through">{formatINR(course.originalPrice)}</span>
+                  <span className="price-strike">{formatINR(course.originalPrice)}</span>
                 ) : null}
+                <span className="text-xs uppercase tracking-[0.25em] text-earth-500">Energy Exchange</span>
               </div>
             </ScrollReveal>
 

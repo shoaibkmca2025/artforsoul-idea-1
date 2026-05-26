@@ -11,6 +11,60 @@ export const metadata = {
     "Personalised healing sessions, follow-ups, Garbha Sanskar, Mother & Child development and the 4-week transformation program.",
 };
 
+const modalityColumns = [
+  {
+    title: "Healing Therapies",
+    items: [
+      "Pranic Healing",
+      "Sound Healing",
+      "Chakra Healing",
+      "Crystal Healing",
+      "Mudra Therapy",
+      "Pranayama Therapy",
+      "Therapeutic Yoga",
+      "Acupressure Healing",
+      "Face Yoga Therapy",
+      "Inner Child Healing",
+      "Child Healing",
+    ],
+  },
+  {
+    title: "Creative & Art Therapies",
+    items: [
+      "Art Therapy",
+      "Mandala Art",
+      "Dot Mandala Art",
+      "Texture Art",
+      "Clay Molding",
+      "Journaling Therapy",
+      "Music Therapy",
+    ],
+  },
+  {
+    title: "Customised Art & Healing Paintings",
+    items: [
+      "Customized Paintings",
+      "Canvas Paintings",
+      "Wall Art",
+      "Large Healing Paintings",
+      "Vastu-Based Paintings",
+      "Energy & Healing Artworks",
+    ],
+  },
+  {
+    title: "Mindset, Spiritual & Energy",
+    items: [
+      "Money Manifestation",
+      "Vision Board & Goal Setting",
+      "Personality Development",
+      "Parenting Guidance",
+      "Vastu Shastra",
+      "Feng Shui",
+      "Garbha Sanskar",
+    ],
+  },
+];
+
 export default function CoursesIndex() {
   const published = courses.filter((c) => c.published);
 
@@ -23,7 +77,7 @@ export default function CoursesIndex() {
         subtitle="One-to-one personalised sessions and group programs for emotional healing, energy alignment, conscious pregnancy, mother & child development and personal transformation."
       />
 
-      <section className="container-page pb-20 sm:pb-24">
+      <section className="container-page pb-16 sm:pb-20">
         <div className="grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {published.map((c, i) => (
             <ScrollReveal key={c.id} delay={i * 0.08} direction="up">
@@ -46,11 +100,11 @@ export default function CoursesIndex() {
                   <div className="text-[11px] uppercase tracking-[0.25em] text-earth-500">{c.level}</div>
                   <h3 className="mt-2 font-display text-2xl text-earth-900">{c.title}</h3>
                   <p className="mt-2 body-soft text-sm">{c.tagline}</p>
-                  <div className="mt-5 flex items-baseline justify-between">
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display text-2xl text-earth-900">{formatINR(c.price)}</span>
+                  <div className="mt-5 flex items-center justify-between gap-3">
+                    <div className="flex flex-col items-start gap-1">
+                      <span className="price-chip">{formatINR(c.price)}</span>
                       {c.originalPrice ? (
-                        <span className="text-xs text-earth-500 line-through">{formatINR(c.originalPrice)}</span>
+                        <span className="price-strike">{formatINR(c.originalPrice)}</span>
                       ) : null}
                     </div>
                     <span className="btn-primary text-xs">View course</span>
@@ -59,6 +113,42 @@ export default function CoursesIndex() {
               </Link>
             </ScrollReveal>
           ))}
+        </div>
+      </section>
+
+      {/* Healing modalities at a glance */}
+      <section className="container-page pb-20 sm:pb-24">
+        <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-7 shadow-soft backdrop-blur sm:p-10">
+          <div className="mb-8 text-center">
+            <ScrollReveal>
+              <div className="pill mx-auto mb-3"><Sparkles className="h-3.5 w-3.5" /> Modalities</div>
+            </ScrollReveal>
+            <ScrollReveal delay={0.1}>
+              <h2 className="heading-display text-3xl sm:text-4xl">
+                All healing modalities, <span className="heading-script">in one studio</span>
+              </h2>
+            </ScrollReveal>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {modalityColumns.map((col) => (
+              <div key={col.title}>
+                <h3 className="font-display text-xl text-earth-900">{col.title}</h3>
+                <ul className="mt-3 space-y-1.5 text-sm text-earth-700/90">
+                  {col.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2">
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-rose-dusty" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm italic text-earth-700/80">
+            Sessions are conducted individually or as a combination of modalities according to your needs and energy.
+          </p>
         </div>
       </section>
     </>

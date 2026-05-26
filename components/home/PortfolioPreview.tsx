@@ -38,24 +38,24 @@ export default function PortfolioPreview({ items }: { items: Item[] }) {
         <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-12 md:flex-row md:items-end">
           <div>
             <ScrollReveal>
-              <div className="pill mb-4">Healing Art</div>
+              <div className="pill mb-4">NM Art Studio</div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-                Paintings that <span className="heading-script">hold</span> energy.
+                Art images &amp; wall art, <span className="heading-script">in mix media</span>.
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mt-4 max-w-xl body-soft">
-                Customised paintings, Mandala &amp; Dot Mandala art, Vastu-based
-                paintings and energy artworks — created intuitively to bring
-                positive vibrations into your home and healing space.
+                Mix-media art images and large wall art — customised canvases,
+                Mandala &amp; Dot Mandala art, Vastu-based paintings and energy
+                artworks for positive vibrations.
               </p>
             </ScrollReveal>
           </div>
           <ScrollReveal delay={0.3}>
             <Link href="/portfolio" className="btn-ghost">
-              View all healing art <ArrowUpRight className="h-4 w-4" />
+              Visit NM Art Studio <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
         </div>

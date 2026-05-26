@@ -53,7 +53,7 @@ export default function ServicesSection() {
           </ScrollReveal>
         </div>
         <ScrollReveal delay={0.2}>
-          <Link href="/services" className="btn-ghost">
+          <Link href="/courses" className="btn-ghost">
             Explore all sessions <ArrowRight className="h-4 w-4" />
           </Link>
         </ScrollReveal>
@@ -75,7 +75,7 @@ export default function ServicesSection() {
             </div>
             <h3 className="font-display text-2xl text-earth-900">{s.title}</h3>
             <p className="mt-3 flex-1 body-soft text-sm">{s.text}</p>
-            <Link href="/services" className="mt-5 inline-flex items-center gap-1 text-sm text-earth-700 hover:text-earth-900">
+            <Link href="/courses" className="mt-5 inline-flex items-center gap-1 text-sm text-earth-700 hover:text-earth-900">
               Learn more <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </motion.div>

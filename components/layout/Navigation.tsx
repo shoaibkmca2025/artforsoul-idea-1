@@ -11,10 +11,8 @@ import { cn } from "@/lib/utils";
 const NAV = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/services", label: "Sessions" },
-  { href: "/portfolio", label: "Healing Art" },
-  { href: "/courses", label: "Programs" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/portfolio", label: "Art of Healing" },
+  { href: "/courses", label: "Sessions" },
   { href: "/contact", label: "Contact" },
 ];
 

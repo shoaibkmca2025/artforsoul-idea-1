@@ -162,7 +162,7 @@ export default function CoursesAdmin({ initialCourses }: { initialCourses: Cours
               </div>
               <p className="mt-1 line-clamp-2 text-sm text-earth-700/80">{c.tagline}</p>
               <div className="mt-3 flex items-center justify-between text-sm">
-                <span className="font-display text-xl">{formatINR(c.price)}</span>
+                <span className="price-chip">{formatINR(c.price)}</span>
                 <button onClick={() => setOpenEnroll(openEnroll === c.id ? null : c.id)} className="inline-flex items-center gap-1 text-earth-700 hover:text-earth-900">
                   <Users className="h-3.5 w-3.5" /> {c.enrollments.length} enrolled
                 </button>

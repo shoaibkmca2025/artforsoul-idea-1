@@ -41,7 +41,7 @@ export default function Hero() {
             text="Transform · Align"
             as="h1"
             delay={0.25}
-            className="heading-script -mt-1 text-[clamp(2.6rem,9.5vw,6.5rem)] sm:-mt-2"
+            className="heading-script text-gradient-warm -mt-1 text-[clamp(2.6rem,9.5vw,6.5rem)] sm:-mt-2"
           />
 
           <motion.p
@@ -66,7 +66,7 @@ export default function Hero() {
               Book a Session
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href="/services" className="btn-ghost">
+            <Link href="/courses" className="btn-ghost">
               Explore Sessions
             </Link>
           </motion.div>
