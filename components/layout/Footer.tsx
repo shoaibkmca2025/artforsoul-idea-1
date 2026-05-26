@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Instagram, Mail, MessageCircle, Heart, ArrowUpRight } from "lucide-react";
 
-const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919999999999";
-const ig = process.env.NEXT_PUBLIC_INSTAGRAM || "https://instagram.com/artforsoul";
+const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
+const ig = process.env.NEXT_PUBLIC_INSTAGRAM || "https://www.instagram.com/artforsoul.in";
 
 export default function Footer() {
   const pathname = usePathname();

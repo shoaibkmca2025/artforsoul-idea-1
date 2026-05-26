@@ -4,7 +4,7 @@ import Link from "next/link";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import { Sparkles, MessageCircle } from "lucide-react";
 
-const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919999999999";
+const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
 
 export default function CTASection() {
   return (
