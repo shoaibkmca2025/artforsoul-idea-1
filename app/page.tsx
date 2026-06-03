@@ -6,6 +6,7 @@ import ProcessSection from "@/components/home/ProcessSection";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import CoursesPreview from "@/components/home/CoursesPreview";
 import AffirmationMarquee from "@/components/home/AffirmationMarquee";
+import FaqSection from "@/components/home/FaqSection";
 import CTASection from "@/components/home/CTASection";
 import { portfolioItems, courses } from "@/lib/data";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
       <ProcessSection />
       <PortfolioPreview items={portfolio} />
       <CoursesPreview courses={featuredCourses} />
+      <FaqSection />
       <CTASection />
     </>
   );

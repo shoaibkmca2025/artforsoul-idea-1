@@ -13,6 +13,7 @@ const NAV = [
   { href: "/about", label: "About" },
   { href: "/portfolio", label: "Art of Healing" },
   { href: "/courses", label: "Sessions" },
+  { href: "/#faq", label: "FAQs" },
   { href: "/contact", label: "Contact" },
 ];
 
