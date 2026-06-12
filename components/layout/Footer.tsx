@@ -74,6 +74,9 @@ export default function Footer() {
       <div className="bg-gradient-to-r from-plum-900 via-plum-700 to-plum-900 py-5">
         <div className="container-page flex flex-col items-center justify-between gap-2 text-xs text-cream-100/90 md:flex-row">
           <p>© {new Date().getFullYear()} Art For Soul. All hearts reserved.</p>
+          <p className="text-cream-100/70">
+            Digitally designed by <span className="font-medium text-cream-100">4AM Global Media</span>
+          </p>
           <p className="inline-flex items-center gap-1 font-script text-base text-gold-300">
             You deserve to heal, grow &amp; thrive
             <Heart className="ml-1 h-3 w-3 fill-gold-300 text-gold-300" />
