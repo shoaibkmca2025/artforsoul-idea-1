@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ScrollProgress from "@/components/animations/ScrollProgress";
+import LotusLogo from "@/components/ui/LotusLogo";
 import { cn } from "@/lib/utils";
 
 const NAV = [
@@ -54,13 +55,13 @@ export default function Navigation() {
           )}
         >
           <Link href="/" className="group flex items-center gap-2">
-            <span className="relative grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-rose-dusty via-cream-200 to-sage-300 shadow-soft sm:h-10 sm:w-10">
-              <Heart className="h-4 w-4 text-earth-900 sm:h-5 sm:w-5" strokeWidth={1.5} />
+            <span className="relative grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-rose-soft via-cream-100 to-lavender-100 shadow-soft ring-1 ring-gold-300/60 transition-transform group-hover:scale-105 sm:h-11 sm:w-11">
+              <LotusLogo className="h-6 w-6 sm:h-7 sm:w-7" />
             </span>
             <div className="leading-tight">
-              <div className="font-script text-xl text-earth-900 sm:text-2xl">Art for Soul</div>
-              <div className="-mt-1 hidden text-[10px] uppercase tracking-[0.35em] text-earth-500 sm:block">
-                Create · Feel · Heal
+              <div className="font-script text-xl text-plum-700 sm:text-2xl">Art For Soul</div>
+              <div className="-mt-1 hidden text-[10px] uppercase tracking-[0.35em] text-gold-700 sm:block">
+                Heal · Create · Transform
               </div>
             </div>
           </Link>

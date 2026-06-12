@@ -23,30 +23,41 @@ html {
 
 body {
   font-family: var(--font-body), system-ui, sans-serif;
-  background:
-    radial-gradient(1200px 800px at 10% -10%, rgba(242,196,192,0.35), transparent 60%),
-    radial-gradient(1000px 700px at 110% 20%, rgba(201,182,222,0.30), transparent 60%),
-    radial-gradient(900px 700px at 50% 110%, rgba(180,196,160,0.30), transparent 60%),
-    var(--cream-50);
-  background-attachment: fixed;
+  background: var(--cream-50);
   color: var(--ink);
   overflow-x: hidden;
 }
 
-/* Paper / journal grain */
+/* Watercolor wash — painted once on a fixed, composited layer
+   (cheap to scroll, unlike background-attachment: fixed) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  transform: translateZ(0);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(244,198,214,0.50), transparent 60%),
+    radial-gradient(1000px 700px at 110% 15%, rgba(201,182,222,0.45), transparent 60%),
+    radial-gradient(800px 600px at -5% 55%, rgba(232,201,122,0.22), transparent 60%),
+    radial-gradient(900px 700px at 105% 80%, rgba(244,198,214,0.30), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(180,196,160,0.28), transparent 60%);
+}
+
+/* Paper / journal grain — subtle, no blend mode (blend modes force
+   per-frame compositing of the whole viewport) */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.45;
-  mix-blend-mode: multiply;
+  opacity: 0.3;
+  transform: translateZ(0);
   background-image:
-    radial-gradient(rgba(94,68,52,0.06) 1px, transparent 1px),
-    radial-gradient(rgba(94,68,52,0.04) 1px, transparent 1px);
-  background-size: 3px 3px, 7px 7px;
-  background-position: 0 0, 1.5px 1.5px;
+    radial-gradient(rgba(94,68,52,0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
 }
 
 /* Make sure interactive content sits above the grain */
@@ -66,7 +77,7 @@ html.lenis, html.lenis body { height: auto; }
   .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
 
   .btn {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 active:scale-95 sm:px-6;
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition duration-200 active:scale-95 sm:px-6;
   }
   .btn-primary {
     @apply btn bg-earth-700 text-cream-50 shadow-soft hover:bg-earth-900 hover:shadow-journal;
@@ -123,6 +134,32 @@ html.lenis, html.lenis body { height: auto; }
   }
   .price-strike {
     @apply text-xs text-earth-500 line-through sm:text-sm;
+  }
+
+  /* Round pastel icon chip — brochure-style circular icons */
+  .icon-bubble {
+    @apply grid place-items-center rounded-full text-earth-900 shadow-soft transition-transform duration-300;
+  }
+
+  /* Gold divider flourish */
+  .gold-rule {
+    @apply mx-auto h-px w-24 bg-gradient-to-r from-transparent via-gold-500 to-transparent;
+  }
+
+  /* Form input — shared across booking / contact / interest forms */
+  .afs-input {
+    @apply w-full rounded-2xl border border-earth-300/50 bg-cream-50/90 px-4 py-3 text-sm text-earth-900 outline-none transition-all placeholder:text-earth-500/70 focus:border-rose-dusty focus:ring-2 focus:ring-rose-soft/60;
+  }
+
+  /* Selectable checkbox chip — hides the input, styles the label pill */
+  .check-chip {
+    @apply inline-flex cursor-pointer select-none items-center gap-1.5 rounded-full border border-earth-300/50 bg-cream-50/80 px-3.5 py-2 text-xs font-medium text-earth-700 transition-all hover:bg-cream-100 sm:text-sm;
+  }
+  .check-chip:has(input:checked) {
+    @apply border-plum-500 bg-plum-700 text-cream-50 shadow-soft;
+  }
+  .check-chip input {
+    @apply sr-only;
   }
 
   .card-journal {

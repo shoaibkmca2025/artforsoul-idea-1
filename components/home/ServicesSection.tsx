@@ -10,24 +10,28 @@ const services = [
     icon: HeartPulse,
     title: "Healing Therapies",
     color: "bg-rose-soft/70",
+    image: "https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=800&q=70",
     text: "Pranic, Sound, Chakra, Crystal, Mudra, Pranayama, Acupressure, Face Yoga, Inner Child & Therapeutic Yoga sessions.",
   },
   {
     icon: Palette,
     title: "Art & Creative Therapy",
     color: "bg-sage-300/70",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=70",
     text: "Art therapy, Mandala & Dot Mandala, Texture art, Clay molding, Journaling and Music therapy for emotional release.",
   },
   {
     icon: Baby,
     title: "Garbha Sanskar & Child",
     color: "bg-lavender-300/70",
+    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=70",
     text: "Conscious pregnancy sessions for mother & baby, plus mother-and-child development sessions for ages 0–10.",
   },
   {
     icon: Users,
     title: "Mindset & Spiritual Guidance",
     color: "bg-rose-dusty/70",
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=70",
     text: "Money Manifestation, Vision Board, Personality Development, Parenting, Vastu Shastra and Feng Shui guidance.",
   },
 ];
@@ -68,10 +72,20 @@ export default function ServicesSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -8, rotate: i % 2 === 0 ? -1.2 : 1.2 }}
-            className="card-journal group flex h-full flex-col"
+            className="card-journal group flex h-full flex-col overflow-hidden"
           >
-            <div className={`mb-5 grid h-14 w-14 place-items-center rounded-2xl ${s.color} text-earth-900 transition-transform group-hover:rotate-6`}>
-              <s.icon className="h-6 w-6" strokeWidth={1.6} />
+            {/* Image header */}
+            <div className="relative -mx-5 -mt-5 mb-4 aspect-[5/3] overflow-hidden sm:-mx-6 sm:-mt-6">
+              <img
+                src={s.image}
+                alt={s.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream-50/90 via-transparent to-transparent" />
+            </div>
+            <div className={`icon-bubble relative z-10 -mt-12 mb-4 h-16 w-16 ${s.color} ring-4 ring-cream-50 backdrop-blur group-hover:rotate-6 group-hover:scale-110`}>
+              <s.icon className="h-7 w-7" strokeWidth={1.6} />
             </div>
             <h3 className="font-display text-2xl text-earth-900">{s.title}</h3>
             <p className="mt-3 flex-1 body-soft text-sm">{s.text}</p>

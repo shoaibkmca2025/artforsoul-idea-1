@@ -2,6 +2,7 @@ import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import ContactForm from "./ContactForm";
 import BookingForm from "./BookingForm";
+import GroupInterestForm from "./GroupInterestForm";
 import { Mail, MessageCircle, Instagram, MapPin } from "lucide-react";
 
 const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
@@ -20,7 +21,29 @@ export default function ContactPage() {
       />
 
       <section className="container-page pb-20 sm:pb-24">
-        <div className="grid gap-5 sm:gap-6 lg:grid-cols-3">
+        <div className="grid items-start gap-5 sm:gap-6 lg:grid-cols-2">
+          <ScrollReveal>
+            <div className="card-journal">
+              <h3 className="font-display text-2xl text-plum-700">✨ Art Therapy &amp; Healing Session — Booking</h3>
+              <p className="mt-1 text-sm body-soft">Reserve your one-to-one online healing session.</p>
+              <div className="mt-4">
+                <BookingForm />
+              </div>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <div className="card-journal">
+              <h3 className="font-display text-2xl text-plum-700">🌿 Group Circles · Workshops · Retreats</h3>
+              <p className="mt-1 text-sm body-soft">Interested in healing together? Tell us what calls to you.</p>
+              <div className="mt-4">
+                <GroupInterestForm />
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
+        <div className="mt-6 grid items-start gap-5 sm:gap-6 lg:grid-cols-2">
           <ScrollReveal>
             <div className="card-journal">
               <h3 className="font-display text-2xl">Send a message</h3>
@@ -32,16 +55,6 @@ export default function ContactPage() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.1}>
-            <div className="card-journal">
-              <h3 className="font-display text-2xl">Book a session</h3>
-              <p className="mt-1 text-sm body-soft">Reserve a one-to-one or group healing session.</p>
-              <div className="mt-4">
-                <BookingForm />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.2}>
             <div className="card-journal flex flex-col gap-4">
               <h3 className="font-display text-2xl">Other ways to connect</h3>
 

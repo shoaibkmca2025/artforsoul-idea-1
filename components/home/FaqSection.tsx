@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import LotusLogo from "@/components/ui/LotusLogo";
 
 const faqs = [
   {
@@ -54,7 +55,37 @@ export default function FaqSection() {
         </ScrollReveal>
       </div>
 
-      <div className="mx-auto max-w-3xl space-y-3 sm:space-y-4">
+      <div className="grid items-start gap-10 lg:grid-cols-[2fr_3fr] lg:gap-14">
+        {/* ── Visual column ── */}
+        <ScrollReveal direction="left">
+          <div className="relative mx-auto hidden max-w-sm lg:sticky lg:top-28 lg:block">
+            <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-lavender-300/30 blur-2xl" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-[6px] border-cream-50 shadow-journal">
+              <img
+                src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=70"
+                alt="Peaceful healing session"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-900/40 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-cream-50">
+                <p className="font-script text-2xl">Still unsure?</p>
+                <p className="text-sm opacity-90">Reach out — there are no silly questions.</p>
+              </div>
+            </div>
+            {/* Floating lotus sticker */}
+            <motion.div
+              className="absolute -right-5 -top-5 grid h-20 w-20 place-items-center rounded-full bg-cream-50 shadow-journal"
+              animate={{ rotate: [-6, 6, -6] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <LotusLogo className="h-12 w-12" />
+            </motion.div>
+          </div>
+        </ScrollReveal>
+
+        {/* ── Accordion column ── */}
+        <div className="space-y-3 sm:space-y-4">
         {faqs.map((f, i) => {
           const open = openIdx === i;
           return (
@@ -104,6 +135,7 @@ export default function FaqSection() {
             </motion.div>
           );
         })}
+        </div>
       </div>
     </section>
   );

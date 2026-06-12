@@ -2,33 +2,73 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
+import { Sparkles } from "lucide-react";
 
-const SERVICES = [
-  "Personal Counseling & Healing Therapy (₹1999)",
-  "Follow-Up Counseling Session (₹1111)",
-  "Garbha Sanskar Session (₹3333)",
-  "Mother & Child Development Session (₹3333)",
-  "4-Week Transformation Program — 1:1 (₹9999)",
-  "4-Week Transformation Program — Group (₹5555)",
-  "Customised Healing Painting / Mandala Art",
-  "Group Healing Session",
+const SESSION_TYPES = [
+  "🎨 Art Therapy",
+  "🌿 Emotional Healing",
+  "💛 Personal Counseling",
+  "🧘 Meditation & Relaxation",
+  "✨ Confidence Building",
+  "🌼 Stress Relief",
+  "🌙 Inner Child Healing",
+  "🤰 Garbha Sanskar / Pregnancy Healing",
+  "🎭 Creative Healing",
+  "🌸 Other",
 ];
+
+const EXPERIENCING = [
+  "Stress",
+  "Anxiety",
+  "Overthinking",
+  "Emotional Pain",
+  "Low Confidence",
+  "Relationship Challenges",
+  "Burnout",
+  "Fear or Worry",
+  "Sadness",
+  "Pregnancy-related Emotions",
+  "Lack of Motivation",
+  "Other",
+];
+
+const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const TIMES = ["🌞 Morning", "☀️ Afternoon", "🌙 Evening"];
+
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="mt-6 flex items-center gap-2 border-t border-earth-300/40 pt-5 first:mt-0 first:border-t-0 first:pt-0">
+      <Sparkles className="h-3.5 w-3.5 text-gold-700" />
+      <h4 className="text-xs font-semibold uppercase tracking-[0.25em] text-plum-700">{children}</h4>
+    </div>
+  );
+}
 
 export default function BookingForm() {
   const [loading, setLoading] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     setLoading(true);
     try {
       const payload = {
+        type: "session-booking",
         name: form.get("name"),
-        email: form.get("email"),
+        age: form.get("age"),
+        city: form.get("city"),
         phone: form.get("phone"),
-        service: form.get("service"),
-        date: form.get("date"),
-        message: form.get("message"),
+        email: form.get("email"),
+        occupation: form.get("occupation"),
+        sessions: form.getAll("sessions"),
+        experiencing: form.getAll("experiencing"),
+        helpWith: form.get("helpWith"),
+        physicalConcerns: form.get("physicalConcerns"),
+        therapyBefore: form.get("therapyBefore"),
+        hopingToAchieve: form.get("hopingToAchieve"),
+        preferredDays: form.getAll("preferredDays"),
+        preferredTime: form.getAll("preferredTime"),
       };
       const res = await fetch("/api/bookings", {
         method: "POST",
@@ -36,8 +76,8 @@ export default function BookingForm() {
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Could not book");
-      toast.success("We've received your booking request. Talk soon ✿");
-      (e.currentTarget as HTMLFormElement).reset();
+      toast.success("We've received your booking request. You'll get confirmation & details soon ✿");
+      formEl.reset();
     } catch (err: any) {
       toast.error(err.message || "Something went wrong");
     } finally {
@@ -46,40 +86,112 @@ export default function BookingForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3">
+    <form onSubmit={onSubmit} className="grid gap-3">
+      <p className="text-sm body-soft">
+        Welcome to this soulful healing journey 💫 All information shared remains
+        confidential, respected &amp; held with care. 🌸
+      </p>
+
+      <SectionTitle>🌿 Personal Information</SectionTitle>
       <div className="grid gap-3 sm:grid-cols-2">
-        <input name="name" required placeholder="Your name" className="afs-input" />
-        <input name="email" type="email" required placeholder="Email" className="afs-input" />
+        <input name="name" required placeholder="👤 Full Name" className="afs-input" />
+        <input name="age" type="number" min={1} max={120} placeholder="🎂 Age" className="afs-input" />
       </div>
+      <input name="city" placeholder="📍 City & Country" className="afs-input" />
       <div className="grid gap-3 sm:grid-cols-2">
-        <input name="phone" required placeholder="Phone (WhatsApp)" className="afs-input" />
-        <input name="date" type="date" className="afs-input" />
+        <input name="phone" required placeholder="📞 Phone (WhatsApp)" className="afs-input" />
+        <input name="email" type="email" required placeholder="📧 Email ID" className="afs-input" />
       </div>
-      <select name="service" required className="afs-input">
-        <option value="">Choose a service…</option>
-        {SERVICES.map((s) => <option key={s} value={s}>{s}</option>)}
-      </select>
-      <textarea name="message" rows={3} placeholder="Anything we should know? (optional)" className="afs-input resize-none" />
-      <button disabled={loading} className="btn-primary w-full">
-        {loading ? "Booking..." : "Request Booking"}
+      <input name="occupation" placeholder="💼 Occupation / Profession" className="afs-input" />
+
+      <SectionTitle>🌸 Which session would you like to book?</SectionTitle>
+      <div className="flex flex-wrap gap-2">
+        {SESSION_TYPES.map((s) => (
+          <label key={s} className="check-chip">
+            <input type="checkbox" name="sessions" value={s} />
+            {s}
+          </label>
+        ))}
+      </div>
+
+      <SectionTitle>💫 What are you currently experiencing?</SectionTitle>
+      <div className="flex flex-wrap gap-2">
+        {EXPERIENCING.map((s) => (
+          <label key={s} className="check-chip">
+            <input type="checkbox" name="experiencing" value={s} />
+            {s}
+          </label>
+        ))}
+      </div>
+
+      <SectionTitle>💛 Tell us a little more</SectionTitle>
+      <textarea
+        name="helpWith"
+        rows={2}
+        placeholder="💛 What would you like help or healing with?"
+        className="afs-input resize-none"
+      />
+      <input
+        name="physicalConcerns"
+        placeholder="🌸 Any physical health concerns? (optional)"
+        className="afs-input"
+      />
+      <div className="flex flex-wrap items-center gap-3 text-sm text-earth-700">
+        <span>🌿 Taken therapy or counseling before?</span>
+        <label className="check-chip">
+          <input type="radio" name="therapyBefore" value="Yes" /> Yes
+        </label>
+        <label className="check-chip">
+          <input type="radio" name="therapyBefore" value="No" /> No
+        </label>
+      </div>
+      <textarea
+        name="hopingToAchieve"
+        rows={2}
+        placeholder="✨ What are you hoping to achieve from these sessions?"
+        className="afs-input resize-none"
+      />
+
+      <SectionTitle>📅 Preferred Session Timing</SectionTitle>
+      <div className="flex flex-wrap gap-2">
+        {DAYS.map((d) => (
+          <label key={d} className="check-chip">
+            <input type="checkbox" name="preferredDays" value={d} />
+            {d}
+          </label>
+        ))}
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {TIMES.map((t) => (
+          <label key={t} className="check-chip">
+            <input type="checkbox" name="preferredTime" value={t} />
+            {t}
+          </label>
+        ))}
+      </div>
+
+      <SectionTitle>🌿 Consent &amp; Understanding</SectionTitle>
+      <div className="grid gap-2 text-sm text-earth-700">
+        <label className="flex items-start gap-2">
+          <input type="checkbox" required className="mt-1 accent-plum-700" />
+          I understand these sessions are for emotional wellness, healing &amp; self-growth support purposes.
+        </label>
+        <label className="flex items-start gap-2">
+          <input type="checkbox" required className="mt-1 accent-plum-700" />
+          I understand these sessions do not replace medical or psychological treatment.
+        </label>
+        <label className="flex items-start gap-2">
+          <input type="checkbox" required className="mt-1 accent-plum-700" />
+          I agree to attend the sessions with openness, honesty &amp; respect.
+        </label>
+      </div>
+
+      <button disabled={loading} className="btn-primary mt-3 w-full disabled:opacity-60">
+        {loading ? "Sending…" : "✨ Book My Healing Session"}
       </button>
-      <style jsx>{`
-        :global(.afs-input) {
-          width: 100%;
-          border-radius: 1rem;
-          border: 1px solid rgba(176, 137, 104, 0.4);
-          background: rgba(251, 247, 240, 0.85);
-          padding: 0.85rem 1rem;
-          font-size: 0.95rem;
-          color: #3a2a20;
-          outline: none;
-          transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        :global(.afs-input:focus) {
-          border-color: #8c6a4f;
-          box-shadow: 0 0 0 4px rgba(140, 106, 79, 0.15);
-        }
-      `}</style>
+      <p className="text-center text-xs text-earth-500">
+        🌸 You will receive confirmation &amp; further details after submitting. 🌸
+      </p>
     </form>
   );
 }

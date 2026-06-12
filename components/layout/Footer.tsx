@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Instagram, Mail, MessageCircle, Heart, ArrowUpRight } from "lucide-react";
+import LotusLogo from "@/components/ui/LotusLogo";
 
 const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
 const ig = process.env.NEXT_PUBLIC_INSTAGRAM || "https://www.instagram.com/artforsoul.in";
@@ -15,8 +16,18 @@ export default function Footer() {
     <footer className="relative mt-16 overflow-hidden border-t border-earth-300/40 bg-cream-100/70 backdrop-blur sm:mt-24">
       <div className="container-page grid gap-10 py-12 sm:gap-12 sm:py-16 sm:grid-cols-2 md:grid-cols-4">
         <div className="sm:col-span-2 md:col-span-2">
-          <div className="font-script text-3xl text-earth-900 sm:text-4xl">Art for Soul</div>
-          <p className="mt-3 max-w-md body-soft">
+          <div className="flex items-center gap-3">
+            <span className="grid h-12 w-12 place-items-center rounded-full bg-gradient-to-br from-rose-soft via-cream-100 to-lavender-100 shadow-soft ring-1 ring-gold-300/60">
+              <LotusLogo className="h-8 w-8" />
+            </span>
+            <div className="leading-tight">
+              <div className="font-script text-3xl text-plum-700 sm:text-4xl">Art For Soul</div>
+              <div className="text-[10px] uppercase tracking-[0.35em] text-gold-700">
+                Heal · Create · Transform
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 max-w-md body-soft">
             Healing · Art · Energy Alignment · Personal Transformation. A studio
             for personalised one-to-one and group sessions designed to help you
             heal, create, transform and align.
@@ -60,11 +71,12 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-earth-300/40 py-5">
-        <div className="container-page flex flex-col items-center justify-between gap-2 text-xs text-earth-700/70 md:flex-row">
-          <p>© {new Date().getFullYear()} Art for Soul. All hearts reserved.</p>
-          <p className="inline-flex items-center gap-1">
-            Made with <Heart className="h-3 w-3 fill-rose-dusty text-rose-dusty" /> for healing souls
+      <div className="bg-gradient-to-r from-plum-900 via-plum-700 to-plum-900 py-5">
+        <div className="container-page flex flex-col items-center justify-between gap-2 text-xs text-cream-100/90 md:flex-row">
+          <p>© {new Date().getFullYear()} Art For Soul. All hearts reserved.</p>
+          <p className="inline-flex items-center gap-1 font-script text-base text-gold-300">
+            You deserve to heal, grow &amp; thrive
+            <Heart className="ml-1 h-3 w-3 fill-gold-300 text-gold-300" />
           </p>
         </div>
       </div>

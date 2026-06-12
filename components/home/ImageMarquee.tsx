@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 
 const images = [
-  { src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80", caption: "Art Therapy" },
-  { src: "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=800&q=80", caption: "Mandala Art" },
-  { src: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=800&q=80", caption: "Creative Healing" },
-  { src: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80", caption: "Journaling" },
-  { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=80", caption: "Journal Pages" },
-  { src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80", caption: "Energy Art" },
-  { src: "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=800&q=80", caption: "Sound Healing" },
-  { src: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800&q=80", caption: "Wellness" },
-  { src: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80", caption: "Watercolor" },
-  { src: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80", caption: "Meditation" },
+  { src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=70", caption: "Art Therapy" },
+  { src: "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=700&q=70", caption: "Mandala Art" },
+  { src: "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?w=700&q=70", caption: "Creative Healing" },
+  { src: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=700&q=70", caption: "Journaling" },
+  { src: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=700&q=70", caption: "Journal Pages" },
+  { src: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=700&q=70", caption: "Energy Art" },
+  { src: "https://images.unsplash.com/photo-1531913764164-f85c52e6e654?w=700&q=70", caption: "Sound Healing" },
+  { src: "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=700&q=70", caption: "Wellness" },
+  { src: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=700&q=70", caption: "Watercolor" },
+  { src: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=70", caption: "Meditation" },
 ];
 
 type Props = {

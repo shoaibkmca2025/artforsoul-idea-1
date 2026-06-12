@@ -6,6 +6,10 @@ import ProcessSection from "@/components/home/ProcessSection";
 import PortfolioPreview from "@/components/home/PortfolioPreview";
 import CoursesPreview from "@/components/home/CoursesPreview";
 import AffirmationMarquee from "@/components/home/AffirmationMarquee";
+import ModalitiesMarquee from "@/components/home/ModalitiesMarquee";
+import MotherChildSection from "@/components/home/MotherChildSection";
+import ImageMarquee from "@/components/home/ImageMarquee";
+import StatsStrip from "@/components/home/StatsStrip";
 import FaqSection from "@/components/home/FaqSection";
 import CTASection from "@/components/home/CTASection";
 import { portfolioItems, courses } from "@/lib/data";
@@ -19,9 +23,13 @@ export default function HomePage() {
       <Hero />
       <AffirmationMarquee />
       <AboutSection />
+      <ModalitiesMarquee />
       <ServicesSection />
+      <MotherChildSection />
+      <StatsStrip />
       <BenefitsSection />
       <ProcessSection />
+      <ImageMarquee />
       <PortfolioPreview items={portfolio} />
       <CoursesPreview courses={featuredCourses} />
       <FaqSection />

@@ -8,11 +8,11 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.25,
+      duration: 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.2,
+      wheelMultiplier: 1.15,
+      touchMultiplier: 1.5,
     });
     lenisRef.current = lenis;
 
@@ -33,7 +33,7 @@ export default function SmoothScrollProvider({ children }: { children: React.Rea
       const el = document.getElementById(id);
       if (!el) return;
       e.preventDefault();
-      lenis.scrollTo(el, { offset: -80, duration: 1.2 });
+      lenis.scrollTo(el, { offset: -80, duration: 0.9 });
     };
     document.addEventListener("click", handler);
 
