@@ -5,7 +5,6 @@ import {
   Sparkles,
   AudioWaveform,
   CircleDot,
-  Gem,
   Hand,
   Wind,
   PersonStanding,
@@ -32,7 +31,6 @@ const modalities = [
   { icon: Sparkles,        label: "Pranic Healing",      color: "bg-rose-soft/70" },
   { icon: AudioWaveform,   label: "Sound Healing",       color: "bg-sage-300/70" },
   { icon: CircleDot,       label: "Chakra Healing",      color: "bg-lavender-300/70" },
-  { icon: Gem,             label: "Crystal Healing",     color: "bg-rose-dusty/70" },
   { icon: Hand,            label: "Mudra Therapy",       color: "bg-cream-200" },
   { icon: Wind,            label: "Pranayama",           color: "bg-sage-300/70" },
   { icon: PersonStanding,  label: "Therapeutic Yoga",    color: "bg-rose-soft/70" },
@@ -63,7 +61,7 @@ export default function ModalitiesMarquee() {
     <section className="relative overflow-hidden border-y border-earth-300/40 bg-cream-100/50 py-8 sm:py-10">
       <div className="container-page mb-5 text-center sm:mb-7">
         <div className="pill mx-auto mb-2">
-          <Sparkles className="h-3.5 w-3.5" /> 24+ healing modalities
+          <Sparkles className="h-3.5 w-3.5" /> 20+ healing modalities
         </div>
         <h3 className="font-display text-xl text-earth-900 sm:text-2xl">
           One studio · <span className="heading-script text-rose-dusty">every way to heal</span>

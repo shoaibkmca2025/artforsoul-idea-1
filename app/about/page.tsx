@@ -15,7 +15,7 @@ const values = [
 ];
 
 const offerings = [
-  { icon: HeartPulse, label: "Healing Therapies", items: "Pranic · Sound · Chakra · Crystal · Mudra · Pranayama · Acupressure · Face Yoga · Inner Child" },
+  { icon: HeartPulse, label: "Healing Therapies", items: "Pranic · Sound · Chakra · Mudra · Pranayama · Acupressure · Face Yoga · Inner Child" },
   { icon: Palette, label: "Creative & Art Therapies", items: "Art · Mandala · Dot Mandala · Texture · Clay · Journaling · Music" },
   { icon: Baby, label: "Garbha Sanskar & Child", items: "Conscious pregnancy · Mother & child development (0–10 yrs) · Parenting guidance" },
   { icon: HomeIcon, label: "Spiritual & Energy", items: "Vastu Shastra · Feng Shui · Customised Healing Paintings · Money Manifestation · Vision Boards" },
@@ -61,7 +61,7 @@ export default function AboutPage() {
             <ScrollReveal delay={0.2}>
               <p className="mt-4 body-soft">
                 My practice brings together more than twenty modalities — from
-                Pranic, Sound and Crystal Healing to Art & Mandala Therapy, Garbha
+                Pranic and Sound Healing to Art & Mandala Therapy, Garbha
                 Sanskar, Vastu Shastra and Feng Shui. Every session is
                 personalised, conducted one-to-one or in small groups, and shaped
                 around your energy on the day.

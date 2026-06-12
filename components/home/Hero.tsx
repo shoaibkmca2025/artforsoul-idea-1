@@ -54,7 +54,7 @@ export default function Hero() {
           >
             Personalised one-to-one & group sessions for emotional healing, inner
             transformation, creativity, wellness and positive energy alignment.
-            Pranic, Sound, Chakra & Crystal healing · Art therapy · Garbha Sanskar ·
+            Pranic, Sound & Chakra healing · Art therapy · Garbha Sanskar ·
             Vastu & more — gathered in one tender space.
           </motion.p>
 

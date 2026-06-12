@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import { Sparkles, Heart, Palette, Users } from "lucide-react";
 
 const stats = [
-  { icon: Sparkles, label: "Healing Modalities",   value: 24, suffix: "+",  color: "bg-rose-soft/70" },
+  { icon: Sparkles, label: "Healing Modalities",   value: 20, suffix: "+",  color: "bg-rose-soft/70" },
   { icon: Heart,    label: "Souls Healed",         value: 500, suffix: "+", color: "bg-sage-300/70" },
   { icon: Palette,  label: "Customised Artworks",  value: 80, suffix: "+",  color: "bg-lavender-300/70" },
   { icon: Users,    label: "Online Sessions",      value: 1000, suffix: "+", color: "bg-rose-dusty/70" },

@@ -11,7 +11,7 @@ const services = [
     title: "Healing Therapies",
     color: "bg-rose-soft/70",
     image: "https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=800&q=70",
-    text: "Pranic, Sound, Chakra, Crystal, Mudra, Pranayama, Acupressure, Face Yoga, Inner Child & Therapeutic Yoga sessions.",
+    text: "Pranic, Sound, Chakra, Mudra, Pranayama, Acupressure, Face Yoga, Inner Child & Therapeutic Yoga sessions.",
   },
   {
     icon: Palette,

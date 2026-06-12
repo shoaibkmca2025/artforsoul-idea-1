@@ -76,14 +76,14 @@ export default function CoursesPreview({ courses }: { courses: Course[] }) {
               </div>
               <h3 className="mt-2 font-display text-2xl text-earth-900">{c.title}</h3>
               <p className="mt-2 body-soft text-sm">{c.tagline}</p>
-              <div className="mt-5 flex items-center justify-between gap-3">
-                <div className="flex flex-col items-start gap-1">
-                  <span className="price-chip">{formatINR(c.price)}</span>
+              <div className="mt-auto flex flex-nowrap items-center justify-between gap-2 pt-5">
+                <span className="flex items-baseline gap-2">
+                  <span className="price-chip whitespace-nowrap">{formatINR(c.price)}</span>
                   {c.originalPrice ? (
-                    <span className="price-strike">{formatINR(c.originalPrice)}</span>
+                    <span className="price-strike whitespace-nowrap">{formatINR(c.originalPrice)}</span>
                   ) : null}
-                </div>
-                <Link href={`/courses/${c.slug}`} className="btn-primary text-xs">
+                </span>
+                <Link href={`/courses/${c.slug}`} className="btn-primary shrink-0 whitespace-nowrap px-4 text-xs">
                   Enroll
                 </Link>
               </div>

@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     q: "Can I combine different healing modalities in one session?",
-    a: "Yes — sessions are designed individually or as a combination of modalities according to your needs and energy. Pranic, Sound, Crystal, Art therapy, Mandala and more can be woven together into one personalised flow.",
+    a: "Yes — sessions are designed individually or as a combination of modalities according to your needs and energy. Pranic, Sound, Art therapy, Mandala and more can be woven together into one personalised flow.",
   },
   {
     q: "What if I've never tried healing or therapy before?",
