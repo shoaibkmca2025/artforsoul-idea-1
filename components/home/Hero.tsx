@@ -2,18 +2,20 @@
 
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight, Sparkles, Play } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
 import { FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 
-// ── Hero video — swap with your own MP4 in /public when ready ──
-const HERO_VIDEO_SRC =
-  "https://videos.pexels.com/video-files/7794505/7794505-hd_1920_1080_30fps.mp4";
+// ── Hero video — drop your own MP4 at public/uploads/hero-video.mp4 ──
+// If the file is missing the card falls back to an animated founder photo,
+// so the hero is always alive.
+const HERO_VIDEO_SRC = "/uploads/hero-video.mp4";
 const HERO_VIDEO_POSTER = FOUNDER_IMAGE_SRC;
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const [videoOk, setVideoOk] = useState(true);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const yArt = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const yText = useTransform(scrollYProgress, [0, 1], [0, -80]);
@@ -107,27 +109,53 @@ export default function Hero() {
             transition={{ delay: 0.4, duration: 1 }}
             whileHover={{ rotate: 0, y: -8 }}
           >
-            <video
-              src={HERO_VIDEO_SRC}
-              poster={HERO_VIDEO_POSTER}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Art & healing session in motion"
-              className="h-full w-full object-cover"
-            />
+            {videoOk ? (
+              <video
+                src={HERO_VIDEO_SRC}
+                poster={HERO_VIDEO_POSTER}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Art & healing session in motion"
+                className="h-full w-full object-cover"
+                onError={() => setVideoOk(false)}
+              />
+            ) : (
+              /* Fallback: founder photo with a slow ken-burns drift, so the
+                 card is always alive even without a video file */
+              <motion.img
+                src={HERO_VIDEO_POSTER}
+                alt="Founder — Art For Soul"
+                className="h-full w-full object-cover"
+                animate={{ scale: [1, 1.08, 1], x: [0, -8, 0], y: [0, -10, 0] }}
+                transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+              />
+            )}
             {/* Soft tint so text/badge stays legible over busy frames */}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-earth-900/25 via-transparent to-transparent" />
-            {/* Animated play badge */}
+            {/* Drifting watercolor glow over the card */}
             <motion.div
-              animate={{ scale: [1, 1.08, 1] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-              className="pointer-events-none absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-full bg-cream-50/90 text-earth-900 shadow-soft backdrop-blur sm:h-12 sm:w-12"
-            >
-              <Play className="h-4 w-4 sm:h-5 sm:w-5 translate-x-[1px]" fill="currentColor" />
-            </motion.div>
+              className="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full bg-rose-soft/50 blur-2xl"
+              animate={{ x: [0, 30, 0], y: [0, 20, 0] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="pointer-events-none absolute -bottom-12 -right-10 h-44 w-44 rounded-full bg-lavender-300/45 blur-2xl"
+              animate={{ x: [0, -25, 0], y: [0, -18, 0] }}
+              transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            />
+            {/* Animated play badge — only while the video is active */}
+            {videoOk && (
+              <motion.div
+                animate={{ scale: [1, 1.08, 1] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                className="pointer-events-none absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-full bg-cream-50/90 text-earth-900 shadow-soft backdrop-blur sm:h-12 sm:w-12"
+              >
+                <Play className="h-4 w-4 sm:h-5 sm:w-5 translate-x-[1px]" fill="currentColor" />
+              </motion.div>
+            )}
             <span className="tape" />
           </motion.div>
 
