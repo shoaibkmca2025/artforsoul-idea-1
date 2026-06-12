@@ -77,7 +77,7 @@ html.lenis, html.lenis body { height: auto; }
   .container-page { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
 
   .btn {
-    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition duration-200 active:scale-95 sm:px-6;
+    @apply inline-flex min-h-[44px] touch-manipulation items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition duration-200 active:scale-95 sm:px-6;
   }
   .btn-primary {
     @apply btn bg-earth-700 text-cream-50 shadow-soft hover:bg-earth-900 hover:shadow-journal;
@@ -153,7 +153,7 @@ html.lenis, html.lenis body { height: auto; }
 
   /* Selectable checkbox chip — hides the input, styles the label pill */
   .check-chip {
-    @apply inline-flex cursor-pointer select-none items-center gap-1.5 rounded-full border border-earth-300/50 bg-cream-50/80 px-3.5 py-2 text-xs font-medium text-earth-700 transition-all hover:bg-cream-100 sm:text-sm;
+    @apply inline-flex min-h-[40px] cursor-pointer touch-manipulation select-none items-center gap-1.5 rounded-full border border-earth-300/50 bg-cream-50/80 px-3.5 py-2 text-xs font-medium text-earth-700 transition-all hover:bg-cream-100 sm:text-sm;
   }
   .check-chip:has(input:checked) {
     @apply border-plum-500 bg-plum-700 text-cream-50 shadow-soft;

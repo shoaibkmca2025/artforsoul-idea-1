@@ -94,7 +94,7 @@ export default function MotherChildSection() {
               className="card-journal group flex h-full flex-col items-center overflow-hidden text-center"
             >
               {/* Image header */}
-              <div className="relative -mx-5 -mt-5 mb-3 aspect-[4/3] w-[calc(100%+2.5rem)] overflow-hidden sm:-mx-6 sm:-mt-6 sm:w-[calc(100%+3rem)]">
+              <div className="relative -mx-5 -mt-5 mb-3 aspect-[16/9] w-[calc(100%+2.5rem)] overflow-hidden sm:-mx-6 sm:-mt-6 sm:aspect-[4/3] sm:w-[calc(100%+3rem)]">
                 <img
                   src={c.image}
                   alt={c.title}

@@ -121,7 +121,7 @@ export default function FloatingDoodles() {
         style={{ x: "-50%", y: "-50%", rotate: lotusRot, scale: lotusScale, opacity: lotusOp }}
         className="absolute left-1/2 top-1/2 will-change-transform"
       >
-        <LotusLogo className="h-[26rem] w-[26rem] sm:h-[38rem] sm:w-[38rem]" />
+        <LotusLogo className="h-[18rem] w-[18rem] sm:h-[38rem] sm:w-[38rem]" />
       </motion.div>
 
       {/* ════ Top-left color-morphing blob cluster ════ */}
@@ -134,20 +134,20 @@ export default function FloatingDoodles() {
         <motion.div style={{ opacity: oTLgold }} className="absolute inset-0 rounded-full bg-gold-300 blur-3xl" />
       </motion.div>
 
-      {/* ════ Right color-morphing blob cluster ════ */}
+      {/* ════ Right color-morphing blob cluster — desktop only (GPU relief on phones) ════ */}
       <motion.div
         style={{ y: yR, x: xR }}
-        className="absolute -right-24 top-[28%] h-[20rem] w-[20rem] will-change-transform sm:h-[28rem] sm:w-[28rem]"
+        className="absolute -right-24 top-[28%] hidden h-[20rem] w-[20rem] will-change-transform sm:block sm:h-[28rem] sm:w-[28rem]"
       >
         <motion.div style={{ opacity: oRlav }} className="absolute inset-0 rounded-full bg-lavender-300 blur-3xl" />
         <motion.div style={{ opacity: oRsage }} className="absolute inset-0 rounded-full bg-sage-300 blur-3xl" />
         <motion.div style={{ opacity: oRrose }} className="absolute inset-0 rounded-full bg-rose-dusty blur-3xl" />
       </motion.div>
 
-      {/* ════ Bottom color-morphing blob — stretches with scroll speed ════ */}
+      {/* ════ Bottom color-morphing blob — desktop only (GPU relief on phones) ════ */}
       <motion.div
         style={{ y: yB, scaleY: velStretch }}
-        className="absolute bottom-[-8rem] left-[18%] h-[20rem] w-[20rem] will-change-transform sm:h-[26rem] sm:w-[26rem]"
+        className="absolute bottom-[-8rem] left-[18%] hidden h-[20rem] w-[20rem] will-change-transform sm:block sm:h-[26rem] sm:w-[26rem]"
       >
         <motion.div style={{ opacity: oBsage }} className="absolute inset-0 rounded-full bg-sage-300 blur-3xl" />
         <motion.div style={{ opacity: oBplum }} className="absolute inset-0 rounded-full bg-plum-300 blur-3xl" />

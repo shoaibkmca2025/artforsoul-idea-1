@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import { ArrowRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
 import { FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 
@@ -146,16 +146,6 @@ export default function Hero() {
               animate={{ x: [0, -25, 0], y: [0, -18, 0] }}
               transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
             />
-            {/* Animated play badge — only while the video is active */}
-            {videoOk && (
-              <motion.div
-                animate={{ scale: [1, 1.08, 1] }}
-                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute bottom-4 left-4 grid h-11 w-11 place-items-center rounded-full bg-cream-50/90 text-earth-900 shadow-soft backdrop-blur sm:h-12 sm:w-12"
-              >
-                <Play className="h-4 w-4 sm:h-5 sm:w-5 translate-x-[1px]" fill="currentColor" />
-              </motion.div>
-            )}
             <span className="tape" />
           </motion.div>
 

@@ -57,7 +57,7 @@ export default function CoursesPreview({ courses }: { courses: Course[] }) {
             className="card-journal flex h-full flex-col overflow-hidden p-0"
           >
             <Link href={`/courses/${c.slug}`} className="block">
-              <div className="relative aspect-[5/4] overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[5/4]">
                 <motion.img
                   src={c.coverImage}
                   alt={c.title}

@@ -24,7 +24,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
   }, [inView, to, count]);
 
   return (
-    <span ref={ref} className="inline-flex items-baseline font-display text-4xl text-earth-900 sm:text-5xl">
+    <span ref={ref} className="inline-flex items-baseline font-display text-3xl text-earth-900 sm:text-5xl">
       <motion.span>{rounded}</motion.span>
       <span className="ml-0.5">{suffix}</span>
     </span>
@@ -35,7 +35,7 @@ export default function StatsStrip() {
   return (
     <section className="container-page py-12 sm:py-16">
       <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-6 shadow-soft backdrop-blur sm:p-10">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -47,12 +47,12 @@ export default function StatsStrip() {
             >
               <motion.div
                 whileHover={{ scale: 1.08, rotate: 4 }}
-                className={`mb-3 grid h-14 w-14 place-items-center rounded-full ${s.color} text-earth-900 shadow-soft sm:h-16 sm:w-16`}
+                className={`mb-3 grid h-12 w-12 place-items-center rounded-full ${s.color} text-earth-900 shadow-soft sm:h-16 sm:w-16`}
               >
-                <s.icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.6} />
+                <s.icon className="h-5 w-5 sm:h-7 sm:w-7" strokeWidth={1.6} />
               </motion.div>
               <Counter to={s.value} suffix={s.suffix} />
-              <p className="mt-1 text-xs uppercase tracking-[0.25em] text-earth-700/80 sm:text-sm">
+              <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-earth-700/80 sm:text-sm sm:tracking-[0.25em]">
                 {s.label}
               </p>
             </motion.div>

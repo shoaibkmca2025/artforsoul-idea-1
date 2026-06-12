@@ -124,7 +124,7 @@ export default function CoursesIndex() {
                 href={`/courses/${c.slug}`}
                 className="card-journal group flex h-full flex-col overflow-hidden p-0 transition-transform hover:-translate-y-2"
               >
-                <div className="relative aspect-[5/4] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden sm:aspect-[5/4]">
                   <img src={c.coverImage} alt={c.title} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-cream-50/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-earth-700 backdrop-blur">
                     <Clock className="h-3 w-3" /> {c.duration}
