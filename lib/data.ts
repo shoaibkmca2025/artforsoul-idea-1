@@ -90,13 +90,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p3",
-    title: "Mandala & Dot Mandala Wall Art",
-    slug: "mandala-wall-art",
-    category: "Mandala Art",
+    title: "Resin Art",
+    slug: "resin-art",
+    category: "Resin Art",
     location: "On request",
     year: "2025",
     description:
-      "Hand-painted mandala and dot-mandala wall art — meditative circles of calm, focus and balance for any wall in your home.",
+      "Glossy, free-flowing resin artworks — luminous waves of colour and depth that catch the light and bring a modern, soulful glow to your wall.",
     coverImage:
       "https://images.unsplash.com/photo-1517697471339-4aa32003c11a?w=900&q=70",
     images: JSON.stringify([
@@ -147,13 +147,13 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "p6",
-    title: "Energy & Vibration Wall Art",
-    slug: "energy-vibration-artwork",
-    category: "Wall Art",
+    title: "Furniture Painting Makeover & Restoration",
+    slug: "furniture-makeover",
+    category: "Furniture Restoration",
     location: "On request",
     year: "2025",
     description:
-      "Mix-media wall art charged with healing energy and colour therapy — perfect for bedrooms, healing rooms and conscious spaces.",
+      "Old furniture lovingly transformed — hand-painted makeovers and restoration that breathe new colour, character and life into cherished pieces.",
     coverImage:
       "https://images.unsplash.com/photo-1486718448742-163732cd1544?w=900&q=70",
     images: JSON.stringify([

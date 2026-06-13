@@ -84,20 +84,33 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <div className="font-display text-base">Instagram</div>
-                  <div className="text-xs text-earth-700/80">@artforsoul</div>
+                  <div className="text-xs text-earth-700/80">@artforsoul.in</div>
                 </div>
               </a>
 
               <a
-                href="mailto:hello@artforsoul.in"
+                href="mailto:artforsoul.in@gmail.com"
                 className="flex items-center gap-3 rounded-2xl border border-earth-300/40 bg-cream-50/80 p-4 hover:bg-cream-100"
               >
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-lavender-300/70">
                   <Mail className="h-5 w-5" />
                 </span>
                 <div>
-                  <div className="font-display text-base">Email</div>
-                  <div className="text-xs text-earth-700/80">hello@artforsoul.in</div>
+                  <div className="font-display text-base">Email (Healing)</div>
+                  <div className="text-xs text-earth-700/80">artforsoul.in@gmail.com</div>
+                </div>
+              </a>
+
+              <a
+                href="mailto:nmartstudioz@gmail.com"
+                className="flex items-center gap-3 rounded-2xl border border-earth-300/40 bg-cream-50/80 p-4 hover:bg-cream-100"
+              >
+                <span className="grid h-10 w-10 place-items-center rounded-full bg-gold-100">
+                  <Mail className="h-5 w-5" />
+                </span>
+                <div>
+                  <div className="font-display text-base">Email (Art Studioz)</div>
+                  <div className="text-xs text-earth-700/80">nmartstudioz@gmail.com</div>
                 </div>
               </a>
 

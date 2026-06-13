@@ -90,7 +90,7 @@ export default function AboutSection() {
           <ScrollReveal direction="up" delay={0.2}>
             <p className="mt-5 body-soft text-base sm:text-lg">
               <span className="font-medium text-earth-900">
-                Healing Therapist · Art Therapist · Wellness Counsellor
+                Artist · Interior Designer · Expressive Art Therapist &amp; Healing Coach
               </span>
               <br />Personalised sessions to take you from <em>stuck</em> to <em>aligned</em>.
             </p>

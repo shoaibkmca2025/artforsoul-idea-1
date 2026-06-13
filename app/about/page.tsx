@@ -25,10 +25,10 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About the studio"
-        title="A studio for healing,"
-        script="art & alignment."
-        subtitle="Art For Soul is a tender meeting place for emotional healing, inner transformation, creativity, wellness and positive energy alignment — built for soft souls and slow becomings."
+        eyebrow="About Me"
+        title="Hi, I'm Nitu Mastud —"
+        script="artist & healing coach."
+        subtitle="Artist · Interior Designer · Expressive Art Therapist & Healing Coach. ✨ I create beautiful spaces, meaningful experiences, and healing transformations. ✨"
       />
 
       <section className="container-page py-12 sm:py-16">
@@ -47,29 +47,41 @@ export default function AboutPage() {
           <div>
             <ScrollReveal>
               <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-                Hello, I'm <span className="heading-script text-rose-dusty">your healing guide</span>.
+                My <span className="heading-script text-rose-dusty">creative journey</span>.
               </h2>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <p className="mt-4 body-soft text-base sm:mt-5 sm:text-lg">
-                I work with people who carry quiet weight — emotional overwhelm,
-                creative blocks, life transitions, motherhood, or the longing for
-                more alignment. Together we blend healing therapies, creative art
-                practice and spiritual guidance to help you come home to yourself.
+                Creativity has always been at the heart of my life. As a self-taught
+                artist and creative soul, I pursued a professional degree in Interior
+                Design — discovering the perfect blend of aesthetics, emotions and
+                functionality — and went on to teach at renowned institutes and
+                colleges in Mumbai.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.2}>
               <p className="mt-4 body-soft">
-                My practice brings together more than twenty modalities — from
-                Pranic and Sound Healing to Art & Mandala Therapy, Garbha
-                Sanskar, Vastu Shastra and Feng Shui. Every session is
-                personalised, conducted one-to-one or in small groups, and shaped
-                around your energy on the day.
+                Over the past 20 years my journey has expanded across interior design,
+                art, photography, décor styling, set design, event management, live
+                shows, short films, workshops and creative mentoring. Yet through
+                every role, art remained closest to my heart — a powerful tool for
+                self-discovery, emotional expression and healing.
+              </p>
+            </ScrollReveal>
+            <ScrollReveal delay={0.25}>
+              <p className="mt-4 body-soft">
+                Driven by this passion, I pursued professional studies in Counseling,
+                Psychology and Art Therapy, expanding into holistic modalities including
+                Pranic Healing, Sound Healing, Chakra Healing, Therapeutic Yoga, Mudra
+                Therapy, Nutrition and Wellness Coaching. This vision gave birth to
+                <span className="font-medium text-earth-900"> Art For Soul</span> — a
+                heart-centred space dedicated to helping individuals heal, grow and
+                reconnect with themselves.
               </p>
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
               <p className="mt-4 font-script text-2xl text-earth-900">
-                ✨ Heal · Create · Transform · Align ✨
+                ✨ I create beautiful spaces… and beautifully healed lives. ✨
               </p>
             </ScrollReveal>
           </div>

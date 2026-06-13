@@ -44,7 +44,7 @@ export default function Footer() {
             <a href={ig} target="_blank" rel="noreferrer" className="btn-ghost text-sm">
               <Instagram className="h-4 w-4" /> Instagram
             </a>
-            <a href="mailto:hello@artforsoul.in" className="btn-ghost text-sm">
+            <a href="mailto:artforsoul.in@gmail.com" className="btn-ghost text-sm">
               <Mail className="h-4 w-4" /> Email
             </a>
           </div>
