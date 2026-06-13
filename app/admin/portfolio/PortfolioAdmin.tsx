@@ -111,7 +111,7 @@ export default function PortfolioAdmin({ initialItems }: { initialItems: Item[] 
     <div>
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="heading-display text-3xl">NM Art Studio</h1>
+          <h1 className="heading-display text-3xl">Art Studioz</h1>
           <p className="body-soft text-sm">Add and curate art images, wall art & mix-media paintings.</p>
         </div>
         <button onClick={() => setShow(true)} className="btn-primary"><Plus className="h-4 w-4" /> Add work</button>

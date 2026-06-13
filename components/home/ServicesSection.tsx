@@ -2,37 +2,36 @@
 
 import { motion } from "framer-motion";
 import ScrollReveal from "@/components/animations/ScrollReveal";
-import { HeartPulse, Palette, Baby, Users, ArrowRight, Sparkles } from "lucide-react";
+import { HeartPulse, HandHeart, Brush, ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 const services = [
   {
     icon: HeartPulse,
-    title: "Healing Therapies",
+    title: "Healing Modalities",
     color: "bg-rose-soft/70",
     image: "https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=800&q=70",
-    text: "Pranic, Sound, Chakra, Mudra, Pranayama, Acupressure, Face Yoga, Inner Child & Therapeutic Yoga sessions.",
+    text: "Pranic, Sound, Chakra, Mudra, Pranayama, Acupressure, Face Yoga, Art & Mandala therapy, Vastu, Feng Shui and more — 20+ holistic ways to heal.",
+    href: "/modalities",
+    cta: "Explore modalities",
   },
   {
-    icon: Palette,
-    title: "Art & Creative Therapy",
-    color: "bg-sage-300/70",
-    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=70",
-    text: "Art therapy, Mandala & Dot Mandala, Texture art, Clay molding, Journaling and Music therapy for emotional release.",
-  },
-  {
-    icon: Baby,
-    title: "Garbha Sanskar & Child",
+    icon: HandHeart,
+    title: "Healing Sessions",
     color: "bg-lavender-300/70",
-    image: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800&q=70",
-    text: "Conscious pregnancy sessions for mother & baby, plus mother-and-child development sessions for ages 0–10.",
+    image: "https://images.unsplash.com/photo-1545389336-cf090694435e?w=800&q=70",
+    text: "One-to-one online sessions, deep healing & counseling, Garbha Sanskar, Mother & Child healing and the 4-week transformation program.",
+    href: "/courses",
+    cta: "Book a session",
   },
   {
-    icon: Users,
-    title: "Mindset & Spiritual Guidance",
-    color: "bg-rose-dusty/70",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&q=70",
-    text: "Money Manifestation, Vision Board, Personality Development, Parenting, Vastu Shastra and Feng Shui guidance.",
+    icon: Brush,
+    title: "Art Studioz",
+    color: "bg-sage-300/70",
+    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=70",
+    text: "Canvas paintings, wall art, mix media, texture & resin art, furniture restoration and customised Vastu & Feng Shui based artwork.",
+    href: "/portfolio",
+    cta: "Visit Art Studioz",
   },
 ];
 
@@ -63,7 +62,7 @@ export default function ServicesSection() {
         </ScrollReveal>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
@@ -75,7 +74,7 @@ export default function ServicesSection() {
             className="card-journal group flex h-full flex-col overflow-hidden"
           >
             {/* Image header */}
-            <div className="relative -mx-5 -mt-5 mb-4 aspect-[5/3] overflow-hidden sm:-mx-6 sm:-mt-6">
+            <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden sm:-mx-6 sm:-mt-6 sm:aspect-[5/3]">
               <img
                 src={s.image}
                 alt={s.title}
@@ -89,8 +88,8 @@ export default function ServicesSection() {
             </div>
             <h3 className="font-display text-2xl text-earth-900">{s.title}</h3>
             <p className="mt-3 flex-1 body-soft text-sm">{s.text}</p>
-            <Link href="/courses" className="mt-5 inline-flex items-center gap-1 text-sm text-earth-700 hover:text-earth-900">
-              Learn more <ArrowRight className="h-3.5 w-3.5" />
+            <Link href={s.href} className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-plum-700 hover:text-plum-900">
+              {s.cta} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </motion.div>
         ))}

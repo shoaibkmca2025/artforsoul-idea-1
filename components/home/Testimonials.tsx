@@ -8,14 +8,14 @@ type T = { id: string; name: string; role?: string | null; quote: string; rating
 
 export default function Testimonials({ items }: { items: T[] }) {
   return (
-    <section className="container-page py-20 sm:py-24">
+    <section id="testimonials" className="container-page scroll-mt-24 py-20 sm:py-24">
       <div className="mb-10 text-center sm:mb-12">
         <ScrollReveal>
-          <div className="pill mx-auto mb-4">Soft proof</div>
+          <div className="pill mx-auto mb-4">Loved by clients</div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-            Real healing <span className="heading-script">stories</span>.
+            Transformation <span className="heading-script text-rose-dusty">Stories</span>
           </h2>
         </ScrollReveal>
       </div>

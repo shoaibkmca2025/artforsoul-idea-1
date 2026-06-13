@@ -7,15 +7,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ScrollProgress from "@/components/animations/ScrollProgress";
 import LotusLogo from "@/components/ui/LotusLogo";
+import AccountNav from "@/components/layout/AccountNav";
 import { cn } from "@/lib/utils";
 
 const NAV = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/portfolio", label: "Art of Healing" },
-  { href: "/courses", label: "Sessions" },
-  { href: "/#faq", label: "FAQs" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "My Journey" },
+  { href: "/courses", label: "Services" },
+  { href: "/#testimonials", label: "Transformation Stories" },
+  { href: "/#faq", label: "Questions from the Heart" },
+  { href: "/blog", label: "Wisdom & Inspiration" },
+  { href: "/#healing-moments", label: "Healing Moments" },
+  { href: "/contact", label: "Let's Connect" },
 ];
 
 export default function Navigation() {
@@ -66,50 +69,28 @@ export default function Navigation() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "relative rounded-full px-4 py-2 text-sm transition-all",
-                  pathname === item.href
-                    ? "text-earth-900"
-                    : "text-earth-700/80 hover:text-earth-900"
-                )}
-              >
-                {pathname === item.href && (
-                  <motion.span
-                    layoutId="nav-active"
-                    className="absolute inset-0 -z-10 rounded-full bg-rose-soft/70"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="hidden items-center gap-3 lg:flex">
-            <Link href="/contact" className="btn-primary text-sm">
-              Book a Session
-            </Link>
+          {/* Long, poetic labels live in an elegant drawer at every screen
+              size — they don't fit a horizontal bar. */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="hidden items-center gap-2 sm:flex">
+              <AccountNav />
+            </div>
+            <button
+              aria-label="Toggle menu"
+              className="inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/80 px-3 py-2.5 text-sm text-earth-800 transition hover:bg-cream-100"
+              onClick={() => setOpen((v) => !v)}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="hidden uppercase tracking-[0.2em] sm:inline">Menu</span>
+            </button>
           </div>
-
-          <button
-            aria-label="Toggle menu"
-            className="grid h-11 w-11 place-items-center rounded-full border border-earth-300/50 bg-cream-50/80 lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
       </header>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-40"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -146,9 +127,9 @@ export default function Navigation() {
                   </motion.li>
                 ))}
               </ul>
-              <Link href="/contact" className="btn-primary mt-3 w-full">
-                Book a Session
-              </Link>
+              <div className="mt-3 flex flex-col gap-2">
+                <AccountNav compact />
+              </div>
             </motion.nav>
           </motion.div>
         )}

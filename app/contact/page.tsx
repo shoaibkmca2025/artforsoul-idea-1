@@ -1,9 +1,8 @@
 import PageHero from "@/components/ui/PageHero";
 import ScrollReveal from "@/components/animations/ScrollReveal";
+import Link from "next/link";
 import ContactForm from "./ContactForm";
-import BookingForm from "./BookingForm";
-import GroupInterestForm from "./GroupInterestForm";
-import { Mail, MessageCircle, Instagram, MapPin } from "lucide-react";
+import { Mail, MessageCircle, Instagram, MapPin, Sparkles, ArrowRight } from "lucide-react";
 
 const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
 const ig = process.env.NEXT_PUBLIC_INSTAGRAM || "https://www.instagram.com/artforsoul.in";
@@ -20,30 +19,37 @@ export default function ContactPage() {
         subtitle="Drop a note, book a session or just say hi. There is no perfect way to begin — only the next gentle step."
       />
 
+      {/* Booking happens through your account — the detailed intake is the signup form */}
+      <section className="container-page pb-10">
+        <ScrollReveal>
+          <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-plum-900 via-plum-700 to-plum-500 p-7 text-center shadow-journal sm:p-10">
+            <div className="pointer-events-none absolute -right-10 -top-10 h-44 w-44 rounded-full bg-gold-500/20 blur-3xl" />
+            <div className="relative">
+              <div className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border border-gold-300/50 bg-plum-900/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-300">
+                <Sparkles className="h-3.5 w-3.5" /> Book a session
+              </div>
+              <h2 className="heading-display text-2xl text-cream-50 sm:text-3xl">
+                Create your free account to book &amp; track your sessions
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-cream-100/85">
+                Your signup includes a short healing intake so every session is
+                personalised to you. Already have an account? Just log in to book.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <Link href="/signup" className="btn bg-gold-500 font-semibold text-plum-900 hover:bg-gold-300">
+                  Create account &amp; book <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link href="/courses" className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 backdrop-blur hover:bg-plum-900/50">
+                  Browse sessions
+                </Link>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+      </section>
+
       <section className="container-page pb-20 sm:pb-24">
         <div className="grid items-start gap-5 sm:gap-6 lg:grid-cols-2">
-          <ScrollReveal>
-            <div className="card-journal">
-              <h3 className="font-display text-2xl text-plum-700">✨ Art Therapy &amp; Healing Session — Booking</h3>
-              <p className="mt-1 text-sm body-soft">Reserve your one-to-one online healing session.</p>
-              <div className="mt-4">
-                <BookingForm />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={0.1}>
-            <div className="card-journal">
-              <h3 className="font-display text-2xl text-plum-700">🌿 Group Circles · Workshops · Retreats</h3>
-              <p className="mt-1 text-sm body-soft">Interested in healing together? Tell us what calls to you.</p>
-              <div className="mt-4">
-                <GroupInterestForm />
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        <div className="mt-6 grid items-start gap-5 sm:gap-6 lg:grid-cols-2">
           <ScrollReveal>
             <div className="card-journal">
               <h3 className="font-display text-2xl">Send a message</h3>

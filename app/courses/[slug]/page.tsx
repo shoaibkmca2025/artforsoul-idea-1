@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { formatINR, safeJson } from "@/lib/utils";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import EnrollForm from "./EnrollForm";
+import BookSessionButton from "@/components/BookSessionButton";
 import { Clock, Layers, Sparkles, CheckCircle2 } from "lucide-react";
 import { courses } from "@/lib/data";
 
@@ -57,14 +58,28 @@ export default function CourseDetail({ params }: { params: { slug: string } }) {
                 {course.originalPrice ? (
                   <span className="price-strike">{formatINR(course.originalPrice)}</span>
                 ) : null}
-                <span className="text-xs uppercase tracking-[0.25em] text-earth-500">Energy Exchange</span>
+                <span className="text-xs uppercase tracking-[0.25em] text-earth-500">
+                  {course.priceUnit ?? "per session"}
+                </span>
               </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.55}>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <BookSessionButton
+                  slug={course.slug}
+                  label={`Book & Pay · ${formatINR(course.price)} ${course.priceUnit ?? "per session"}`}
+                />
+              </div>
+              <p className="mt-2 text-xs text-earth-500">
+                Secure online payment · You'll need a free account to save &amp; access your sessions.
+              </p>
             </ScrollReveal>
 
             <ScrollReveal delay={0.6}>
               <div className="mt-6 rounded-3xl border border-earth-300/40 bg-cream-50/85 p-6 shadow-soft backdrop-blur">
-                <h3 className="font-display text-xl text-earth-900">Save your seat</h3>
-                <p className="mt-1 text-sm body-soft">No payment required to register — we'll guide you through the next step.</p>
+                <h3 className="font-display text-xl text-earth-900">Prefer to enquire first?</h3>
+                <p className="mt-1 text-sm body-soft">Leave your details and we'll guide you through the next step — no payment needed to enquire.</p>
                 <div className="mt-4">
                   <EnrollForm courseId={course.id} courseTitle={course.title} />
                 </div>

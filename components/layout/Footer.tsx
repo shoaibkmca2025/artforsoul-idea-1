@@ -53,8 +53,9 @@ export default function Footer() {
         <div>
           <h4 className="font-display text-lg text-earth-900">Explore</h4>
           <ul className="mt-3 space-y-2 text-sm text-earth-700/90">
-            <li><Link href="/about" className="hover:text-earth-900">About</Link></li>
-            <li><Link href="/portfolio" className="hover:text-earth-900">NM Art Studio</Link></li>
+            <li><Link href="/about-studio" className="hover:text-earth-900">About Art For Soul</Link></li>
+            <li><Link href="/about" className="hover:text-earth-900">Meet the Founder</Link></li>
+            <li><Link href="/portfolio" className="hover:text-earth-900">Art Studioz</Link></li>
             <li><Link href="/courses" className="hover:text-earth-900">Sessions</Link></li>
           </ul>
         </div>

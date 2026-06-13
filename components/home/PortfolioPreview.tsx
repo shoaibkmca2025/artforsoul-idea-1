@@ -38,7 +38,7 @@ export default function PortfolioPreview({ items }: { items: Item[] }) {
         <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-12 md:flex-row md:items-end">
           <div>
             <ScrollReveal>
-              <div className="pill mb-4">NM Art Studio</div>
+              <div className="pill mb-4">Art Studioz</div>
             </ScrollReveal>
             <ScrollReveal delay={0.1}>
               <h2 className="heading-display text-3xl sm:text-4xl md:text-5xl">
@@ -55,7 +55,7 @@ export default function PortfolioPreview({ items }: { items: Item[] }) {
           </div>
           <ScrollReveal delay={0.3}>
             <Link href="/portfolio" className="btn-ghost">
-              Visit NM Art Studio <ArrowUpRight className="h-4 w-4" />
+              Visit Art Studioz <ArrowUpRight className="h-4 w-4" />
             </Link>
           </ScrollReveal>
         </div>

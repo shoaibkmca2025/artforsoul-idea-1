@@ -6,7 +6,6 @@ import { useRef } from "react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import SafeImage from "@/components/ui/SafeImage";
 import { FOUNDER_IMAGE_ALT, FOUNDER_IMAGE_FALLBACK_TEXT, FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
-import { testimonials } from "@/lib/data";
 import {
   ArrowRight,
   Sparkles,
@@ -14,8 +13,6 @@ import {
   Palette,
   Baby,
   Compass,
-  Star,
-  Quote,
 } from "lucide-react";
 
 // ── Update this with the founder's actual name ──
@@ -27,9 +24,6 @@ const badges = [
   { icon: Baby,       label: "Mother & Child", color: "bg-lavender-300/80" },
   { icon: Compass,    label: "Spiritual", color: "bg-rose-dusty/80" },
 ];
-
-const cardTints = ["bg-rose-soft/55", "bg-sage-300/55", "bg-lavender-300/55", "bg-cream-200"];
-const cardRotations = ["-rotate-1", "rotate-1", "-rotate-2", "rotate-2"];
 
 export default function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -82,8 +76,9 @@ export default function AboutSection() {
 
           <ScrollReveal direction="up" delay={0.1}>
             <h2 className="font-display text-[clamp(2.2rem,5.5vw,4rem)] leading-[1.05] text-earth-900">
-              Hi, I'm{" "}
-              <span className="heading-script text-sage-500">{FOUNDER_NAME}!</span>
+              The heart &amp; hands behind{" "}
+              <span className="heading-script text-sage-500">Art For Soul</span> —
+              meet {FOUNDER_NAME}.
             </h2>
           </ScrollReveal>
 
@@ -132,70 +127,6 @@ export default function AboutSection() {
               ✨ Heal · Create · Transform · Align ✨
             </p>
           </ScrollReveal>
-        </div>
-      </div>
-
-      {/* ── Reviews / Testimonials ── */}
-      <div className="mt-20 sm:mt-24">
-        <div className="mb-10 text-center sm:mb-12">
-          <ScrollReveal>
-            <div className="pill mx-auto mb-3">
-              <Sparkles className="h-3.5 w-3.5" /> Loved by clients
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h3 className="heading-display text-3xl sm:text-4xl md:text-5xl">
-              Hearts she has{" "}
-              <span className="heading-script text-rose-dusty">held</span>
-            </h3>
-          </ScrollReveal>
-          <ScrollReveal delay={0.15}>
-            <div className="mt-3 flex items-center justify-center gap-1.5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-rose-dusty text-rose-dusty" strokeWidth={1.5} />
-              ))}
-              <span className="ml-2 text-sm text-earth-700/80">5.0 from clients</span>
-            </div>
-          </ScrollReveal>
-        </div>
-
-        <div className="grid gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.id}
-              initial={{ opacity: 0, y: 40, rotate: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              whileHover={{ y: -8, rotate: 0 }}
-              className={`card-journal flex h-full flex-col ${cardTints[i % cardTints.length]} ${cardRotations[i % cardRotations.length]}`}
-            >
-              <Quote className="h-7 w-7 text-earth-700/40" strokeWidth={1.5} />
-              <p className="mt-3 flex-1 font-display text-base italic leading-relaxed text-earth-900 sm:text-lg">
-                "{t.quote}"
-              </p>
-
-              <div className="mt-4 flex items-center gap-1">
-                {Array.from({ length: t.rating }).map((_, idx) => (
-                  <Star key={idx} className="h-3.5 w-3.5 fill-rose-dusty text-rose-dusty" strokeWidth={1.5} />
-                ))}
-              </div>
-
-              <div className="mt-4 flex items-center gap-3 border-t border-earth-300/40 pt-4">
-                <div className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-cream-50 font-display text-base text-earth-900 shadow-soft">
-                  {t.name.charAt(0)}
-                </div>
-                <div className="leading-tight">
-                  <div className="font-display text-sm text-earth-900">{t.name}</div>
-                  {t.role && (
-                    <div className="text-[10px] uppercase tracking-[0.2em] text-earth-500">
-                      {t.role}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

@@ -1,39 +1,26 @@
 import Hero from "@/components/home/Hero";
 import AboutSection from "@/components/home/AboutSection";
 import ServicesSection from "@/components/home/ServicesSection";
-import BenefitsSection from "@/components/home/BenefitsSection";
-import ProcessSection from "@/components/home/ProcessSection";
-import PortfolioPreview from "@/components/home/PortfolioPreview";
-import CoursesPreview from "@/components/home/CoursesPreview";
-import AffirmationMarquee from "@/components/home/AffirmationMarquee";
-import ModalitiesMarquee from "@/components/home/ModalitiesMarquee";
-import MotherChildSection from "@/components/home/MotherChildSection";
-import ImageMarquee from "@/components/home/ImageMarquee";
-import StatsStrip from "@/components/home/StatsStrip";
+import WorkshopsSection from "@/components/home/WorkshopsSection";
+import Testimonials from "@/components/home/Testimonials";
+import BlogPreview from "@/components/home/BlogPreview";
+import HealingMoments from "@/components/home/HealingMoments";
 import FaqSection from "@/components/home/FaqSection";
 import CTASection from "@/components/home/CTASection";
-import { portfolioItems, courses } from "@/lib/data";
+import { testimonials } from "@/lib/data";
 
 export default function HomePage() {
-  const portfolio = portfolioItems.filter((p) => p.featured).slice(0, 6);
-  const featuredCourses = courses.filter((c) => c.featured && c.published).slice(0, 6);
-
   return (
     <>
-      <Hero />
-      <AffirmationMarquee />
-      <AboutSection />
-      <ModalitiesMarquee />
-      <ServicesSection />
-      <MotherChildSection />
-      <StatsStrip />
-      <BenefitsSection />
-      <ProcessSection />
-      <ImageMarquee />
-      <PortfolioPreview items={portfolio} />
-      <CoursesPreview courses={featuredCourses} />
-      <FaqSection />
-      <CTASection />
+      {/* 1 */} <Hero />
+      {/* 2 */} <AboutSection />
+      {/* 3 */} <ServicesSection />
+      {/* 4 */} <WorkshopsSection />
+      {/* 5 */} <Testimonials items={testimonials} />
+      {/* 6 */} <BlogPreview />
+      {/* 7 */} <HealingMoments />
+      {/* 8 */} <FaqSection />
+      {/* 9 */} <CTASection />
     </>
   );
 }

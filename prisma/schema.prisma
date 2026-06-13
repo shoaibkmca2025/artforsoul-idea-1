@@ -1,0 +1,85 @@
+// Art For Soul — database schema (Supabase Postgres)
+// Run:  npx prisma generate   then   npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")        // Supabase pooled connection (6543)
+  directUrl = env("DIRECT_URL")          // Supabase direct connection (5432) for migrations
+}
+
+// A registered customer. The signup form doubles as a healing intake
+// questionnaire — its answers are stored in `intake` (JSON).
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  name         String?
+  phone        String?
+  city         String?
+  age          String?
+  occupation   String?
+  intake       String?  // JSON of the questionnaire answers
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  purchases    Purchase[]
+}
+
+// A paid session/program purchased by a logged-in customer.
+model Purchase {
+  id            String   @id @default(cuid())
+  userId        String                       // -> User.id
+  email         String
+  name          String?
+
+  user          User?    @relation(fields: [userId], references: [id])
+
+  sessionSlug   String
+  sessionTitle  String
+  amount        Int                          // in INR rupees
+  currency      String   @default("INR")
+
+  status        PurchaseStatus @default(PENDING)
+
+  // Razorpay references
+  razorpayOrderId   String?  @unique
+  razorpayPaymentId String?
+  razorpaySignature String?
+
+  // Optional booking preferences captured at checkout
+  notes         String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+enum PurchaseStatus {
+  PENDING
+  PAID
+  FAILED
+}
+
+// Blog posts. `gated = true` means the full body is only visible to
+// logged-in users; everyone can read the excerpt.
+model BlogPost {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String
+  content     String                          // markdown / plain text
+  coverImage  String?
+  gated       Boolean  @default(false)
+  published   Boolean  @default(true)
+  readMinutes Int      @default(4)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([published])
+}
