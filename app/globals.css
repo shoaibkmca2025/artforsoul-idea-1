@@ -26,6 +26,8 @@ body {
   background: var(--cream-50);
   color: var(--ink);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Watercolor wash — painted once on a fixed, composited layer
@@ -90,7 +92,7 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/70 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-earth-700 backdrop-blur;
+    @apply inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-earth-900 backdrop-blur;
   }
 
   .heading-script {
@@ -106,7 +108,7 @@ html.lenis, html.lenis body { height: auto; }
     font-variation-settings: "opsz" 80, "SOFT" 30;
   }
   .body-soft {
-    @apply text-earth-700/90 leading-relaxed;
+    @apply text-earth-900/85 leading-relaxed;
   }
 
   /* Gradient text — for the most impactful headings */

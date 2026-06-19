@@ -153,9 +153,10 @@ export default function ArtStudiozSection({ items }: { items: Item[] }) {
                 >
                   <span
                     className={cn(
-                      "text-xs font-semibold leading-tight sm:text-sm",
+                      "text-sm font-bold leading-tight drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)] sm:text-lg",
                       isActive ? "text-white" : "text-cream-50"
                     )}
+                    style={{ textShadow: "0 2px 8px rgba(0,0,0,0.6)" }}
                   >
                     {cat.label}
                   </span>

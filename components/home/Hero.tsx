@@ -5,13 +5,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
-import { FOUNDER_IMAGE_SRC } from "@/lib/siteImages";
 
-// ── Hero video — drop your own MP4 at public/uploads/hero-video.mp4 ──
-// If the file is missing the card falls back to an animated founder photo,
-// so the hero is always alive.
-const HERO_VIDEO_SRC = "/uploads/hero-video.mp4";
-const HERO_VIDEO_POSTER = FOUNDER_IMAGE_SRC;
+// ── Hero video (committed in /public/media so it deploys to Vercel) ──
+// If the file is ever missing, the card falls back to the founder photo.
+const HERO_VIDEO_SRC = "/media/hero-video.mp4";
+const HERO_VIDEO_POSTER = "/media/hero-poster.jpg";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);

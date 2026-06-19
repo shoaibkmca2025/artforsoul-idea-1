@@ -41,12 +41,12 @@ export default function AboutSection() {
           {/* Soft watercolor blob behind the photo */}
           <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[3rem] bg-rose-soft/40 blur-2xl" />
 
-          <div className="relative aspect-square overflow-hidden rounded-[2rem] border-[6px] border-cream-50 bg-cream-100 shadow-journal sm:rounded-[2.5rem] sm:border-8">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-[6px] border-cream-50 bg-cream-100 shadow-journal sm:rounded-[2.5rem] sm:border-8">
             <SafeImage
               src={FOUNDER_IMAGE_SRC}
               alt={FOUNDER_IMAGE_ALT}
               fallbackText={FOUNDER_IMAGE_FALLBACK_TEXT}
-              className="h-full w-full object-cover"
+              className="h-full w-full origin-top scale-[1.35] object-cover object-top"
             />
           </div>
 

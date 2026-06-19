@@ -11,7 +11,7 @@ const services = [
     title: "Healing Modalities",
     color: "bg-rose-soft/70",
     image: "https://images.unsplash.com/photo-1591228127791-8e2eaef098d3?w=800&q=70",
-    text: "Pranic, Sound, Chakra, Mudra, Pranayama, Acupressure, Face Yoga, Art & Mandala therapy, Vastu, Feng Shui and more — 20+ holistic ways to heal.",
+    text: "Expressive Art Therapy, Pranic & Sound Healing, Chakra Balancing, Meditation, Music & Dance therapy, Yoga, Breathwork, EFT, Acupressure, Mudra, Facial Yoga, Nutrition & holistic wellness coaching.",
     href: "/modalities",
     cta: "Explore modalities",
   },

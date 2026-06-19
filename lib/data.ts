@@ -531,8 +531,7 @@ export const courses: Course[] = [
     tagline: "A soft one-to-one online healing session to begin your journey",
     description:
       "A gentle, nurturing one-to-one online session — perfect as a first step into healing. Relaxation, emotional release and energy balancing held in a safe, caring space.",
-    coverImage:
-      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=70",
+    coverImage: "/images/gentle-healing-session.jpg",
     price: 1111,
     originalPrice: null,
     duration: "One-to-One · Online",
@@ -560,8 +559,7 @@ export const courses: Course[] = [
     tagline: "One-to-One Online Session for deep emotional healing & inner alignment",
     description:
       "A personalised deep-healing session designed to support emotional healing, mental clarity, inner transformation, energy balancing and overall well-being. Every session is customised according to your personal challenges, emotional state, lifestyle and healing requirements.",
-    coverImage:
-      "https://images.unsplash.com/photo-1545389336-cf090694435e?w=900&q=70",
+    coverImage: "/images/personal-deep-healing.jpg",
     price: 3333,
     originalPrice: null,
     duration: "One-to-One · Online",
@@ -621,8 +619,7 @@ export const courses: Course[] = [
     tagline: "A 9-month healing & counseling journey for mother and baby",
     description:
       "A special healing & counseling program designed exclusively for pregnant women and their babies. Focuses on emotional well-being of the mother, positive energy healing, healthy brain development of the baby and a calm, nurturing pregnancy journey.",
-    coverImage:
-      "https://images.unsplash.com/photo-1519824145371-296894a0daa9?w=900&q=70",
+    coverImage: "/images/garbha-sanskar.jpg",
     price: 3333,
     originalPrice: null,
     duration: "One-to-One · Online · per session",
