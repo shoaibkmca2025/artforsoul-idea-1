@@ -83,7 +83,7 @@ export default function ServicesSection() {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream-50/90 via-transparent to-transparent" />
             </div>
-            <div className={`icon-bubble relative z-10 -mt-12 mb-4 h-16 w-16 ${s.color} ring-4 ring-cream-50 backdrop-blur group-hover:rotate-6 group-hover:scale-110`}>
+            <div className={`icon-bubble relative z-10 -mt-12 mb-4 h-16 w-16 ${s.color} ring-4 ring-cream-50 group-hover:rotate-6 group-hover:scale-110`}>
               <s.icon className="h-7 w-7" strokeWidth={1.6} />
             </div>
             <h3 className="font-display text-2xl text-earth-900">{s.title}</h3>

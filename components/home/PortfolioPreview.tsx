@@ -88,7 +88,7 @@ export default function PortfolioPreview({ items }: { items: Item[] }) {
                   </div>
                   <div className="font-display text-xl sm:text-2xl">{item.title}</div>
                 </div>
-                <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-cream-50/85 text-earth-900 backdrop-blur transition-opacity sm:opacity-0 group-hover:opacity-100">
+                <div className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-cream-50/85 text-earth-900 transition-opacity sm:opacity-0 group-hover:opacity-100">
                   <ArrowUpRight className="h-4 w-4" />
                 </div>
               </div>

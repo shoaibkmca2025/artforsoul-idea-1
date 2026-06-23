@@ -95,7 +95,7 @@ export default function FaqSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className={`rounded-2xl border border-earth-300/40 bg-rose-soft/25 backdrop-blur transition-colors sm:rounded-3xl ${
+              className={`rounded-2xl border border-earth-300/40 bg-rose-soft/25 transition-colors sm:rounded-3xl ${
                 open ? "bg-rose-soft/40 shadow-soft" : "hover:bg-rose-soft/35"
               }`}
             >

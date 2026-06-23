@@ -183,7 +183,7 @@ export default function ArtStudiozSection({ items }: { items: Item[] }) {
             <div className="mb-8 flex flex-col items-center gap-3 text-center sm:mb-10">
               <button
                 onClick={() => setActiveCategory(null)}
-                className="inline-flex items-center gap-1.5 rounded-full border border-earth-300/50 bg-cream-50/80 px-4 py-2 text-sm font-medium text-earth-700 backdrop-blur transition-all hover:border-plum-300 hover:bg-plum-50 hover:text-plum-700"
+                className="inline-flex items-center gap-1.5 rounded-full border border-earth-300/50 bg-cream-50/80 px-4 py-2 text-sm font-medium text-earth-700 transition-all hover:border-plum-300 hover:bg-plum-50 hover:text-plum-700"
               >
                 <ArrowLeft className="h-3.5 w-3.5" />
                 All Categories

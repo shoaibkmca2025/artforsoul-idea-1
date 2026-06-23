@@ -49,3 +49,36 @@ export const cookieOptions = {
   path: "/",
   maxAge: MAX_AGE,
 };
+
+// ─────────────────────────────────────────────
+// Admin session (studio owner) — separate cookie
+// ─────────────────────────────────────────────
+export const ADMIN_COOKIE = "afs_admin";
+
+export const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "admin@artforsoul.in";
+export const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "ArtForSoul@2025";
+
+export async function signAdminSession(email: string): Promise<string> {
+  return await new SignJWT({ role: "admin", email })
+    .setProtectedHeader({ alg: "HS256" })
+    .setSubject("admin")
+    .setIssuedAt()
+    .setExpirationTime(`${MAX_AGE}s`)
+    .sign(secret);
+}
+
+export async function verifyAdminSession(token: string): Promise<boolean> {
+  try {
+    const { payload } = await jwtVerify(token, secret);
+    return payload.role === "admin";
+  } catch {
+    return false;
+  }
+}
+
+/** True when a valid admin is signed in (server components / routes). */
+export async function isAdmin(): Promise<boolean> {
+  const token = cookies().get(ADMIN_COOKIE)?.value;
+  if (!token) return false;
+  return verifyAdminSession(token);
+}

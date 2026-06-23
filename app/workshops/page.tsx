@@ -30,7 +30,7 @@ export default function WorkshopsPage() {
               <div className="card-journal group flex h-full flex-col overflow-hidden p-0">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img src={w.image} alt={w.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-cream-50/85 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-earth-700 backdrop-blur">
+                  <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-cream-50/85 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-earth-700">
                     {w.format}
                   </div>
                 </div>

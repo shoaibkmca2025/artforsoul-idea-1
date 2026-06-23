@@ -13,7 +13,7 @@ export default function Footer() {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="relative mt-16 overflow-hidden border-t border-earth-300/40 bg-cream-100/70 backdrop-blur sm:mt-24">
+    <footer className="relative mt-16 overflow-hidden border-t border-earth-300/40 bg-cream-100/70 sm:mt-24">
       <div className="container-page grid gap-10 py-12 sm:gap-12 sm:py-16 sm:grid-cols-2 md:grid-cols-4">
         <div className="sm:col-span-2 md:col-span-2">
           <div className="flex items-center gap-3">

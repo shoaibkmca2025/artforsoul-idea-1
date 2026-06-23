@@ -39,7 +39,7 @@ export default function ContactPage() {
                 <Link href="/signup" className="btn bg-gold-500 font-semibold text-plum-900 hover:bg-gold-300">
                   Create account &amp; book <ArrowRight className="h-4 w-4" />
                 </Link>
-                <Link href="/courses" className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 backdrop-blur hover:bg-plum-900/50">
+                <Link href="/courses" className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 hover:bg-plum-900/50">
                   Browse sessions
                 </Link>
               </div>

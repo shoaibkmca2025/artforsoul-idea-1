@@ -68,7 +68,7 @@ export default function ModalitiesMarquee() {
               <motion.div
                 key={i}
                 whileHover={{ y: -4, rotate: 2 }}
-                className="flex items-center gap-2.5 rounded-full border border-earth-300/40 bg-cream-50/85 px-4 py-2.5 shadow-soft backdrop-blur sm:gap-3 sm:px-5 sm:py-3"
+                className="flex items-center gap-2.5 rounded-full border border-earth-300/40 bg-cream-50/85 px-4 py-2.5 shadow-soft sm:gap-3 sm:px-5 sm:py-3"
               >
                 <span
                   className={`grid h-9 w-9 place-items-center rounded-full ${m.color} text-earth-900 sm:h-10 sm:w-10`}

@@ -34,7 +34,7 @@ function Counter({ to, suffix }: { to: number; suffix: string }) {
 export default function StatsStrip() {
   return (
     <section className="container-page py-12 sm:py-16">
-      <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-6 shadow-soft backdrop-blur sm:p-10">
+      <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-6 shadow-soft sm:p-10">
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {stats.map((s, i) => (
             <motion.div

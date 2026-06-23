@@ -4,6 +4,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
+const RAZORPAY_KEY_ID = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+const PAYMENT_LINK =
+  process.env.NEXT_PUBLIC_RAZORPAY_PAYMENT_LINK || "https://rzp.io/rzp/MeCfWcy";
+
 declare global {
   interface Window {
     Razorpay?: any;
@@ -31,14 +35,28 @@ export default function BookSessionButton({ slug, className = "btn-primary", lab
     setLoading(true);
     try {
       // 1. Must be signed in
-      const meRes = await fetch("/api/account/me");
-      const me = (await meRes.json()).user;
+      const me = (await (await fetch("/api/account/me")).json()).user;
       if (!me) {
         router.push(`/login?redirect_url=/courses/${slug}`);
         return;
       }
 
-      // 2. Create order
+      // 2. No API keys configured → fall back to the hosted payment link
+      //    (booking stays pending until the studio confirms it).
+      if (!RAZORPAY_KEY_ID) {
+        const r = await fetch("/api/account/book", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug }),
+        });
+        const d = await r.json();
+        if (!r.ok || !d.ok) throw new Error(d.error || "Could not create booking.");
+        window.open(PAYMENT_LINK, "_blank", "noopener");
+        router.push("/payment/status");
+        return;
+      }
+
+      // 3. Razorpay Standard Checkout — card / UPI / QR, auto-verified.
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -47,9 +65,8 @@ export default function BookSessionButton({ slug, className = "btn-primary", lab
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || "Could not start checkout.");
 
-      // 3. Open Razorpay
       const ready = await loadRazorpay();
-      if (!ready) throw new Error("Could not load payment window. Check your connection.");
+      if (!ready) throw new Error("Could not load the payment window. Check your connection.");
 
       const rzp = new window.Razorpay({
         key: data.keyId,
@@ -67,20 +84,15 @@ export default function BookSessionButton({ slug, className = "btn-primary", lab
             body: JSON.stringify(resp),
           });
           const vd = await v.json();
-          if (vd.ok) {
-            toast.success("Payment successful! Your session is booked ✿");
-            router.push("/dashboard");
-            router.refresh();
-          } else {
-            toast.error(vd.error || "Payment could not be verified.");
-          }
+          router.push(`/payment/status?status=${vd.ok ? "success" : "failed"}`);
+          router.refresh();
         },
         modal: { ondismiss: () => setLoading(false) },
       });
+      rzp.on("payment.failed", () => router.push("/payment/status?status=failed"));
       rzp.open();
     } catch (err: any) {
       toast.error(err.message || "Something went wrong.");
-    } finally {
       setLoading(false);
     }
   }

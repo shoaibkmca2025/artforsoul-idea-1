@@ -85,14 +85,14 @@ html.lenis, html.lenis body { height: auto; }
     @apply btn bg-earth-700 text-cream-50 shadow-soft hover:bg-earth-900 hover:shadow-journal;
   }
   .btn-ghost {
-    @apply btn border border-earth-300/60 bg-cream-50/70 text-earth-700 backdrop-blur hover:bg-cream-100;
+    @apply btn border border-earth-300/60 bg-cream-50/90 text-earth-700 hover:bg-cream-100;
   }
   .btn-rose {
     @apply btn bg-rose-dusty text-earth-900 hover:bg-rose-blush;
   }
 
   .pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/70 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-earth-900 backdrop-blur;
+    @apply inline-flex items-center gap-2 rounded-full border border-earth-300/50 bg-cream-50/85 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-earth-900;
   }
 
   .heading-script {
@@ -165,7 +165,7 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   .card-journal {
-    @apply relative rounded-3xl border border-earth-300/40 bg-cream-50/85 p-5 shadow-soft backdrop-blur sm:p-6;
+    @apply relative rounded-3xl border border-earth-300/40 bg-cream-50/95 p-5 shadow-soft sm:p-6;
   }
 
   .tape {

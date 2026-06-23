@@ -65,7 +65,7 @@ export default function CoursesPreview({ courses }: { courses: Course[] }) {
                   whileHover={{ scale: 1.06 }}
                   transition={{ duration: 1.1 }}
                 />
-                <div className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-cream-50/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-earth-700 backdrop-blur">
+                <div className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-cream-50/80 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-earth-700">
                   <Clock className="h-3 w-3" /> {c.duration}
                 </div>
               </div>

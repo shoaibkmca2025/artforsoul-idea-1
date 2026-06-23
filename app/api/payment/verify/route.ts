@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { prisma, isDbConfigured } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
+import { sendBookingPaidEmail } from "@/lib/email";
 
 const isRazorpayConfigured = () =>
   Boolean(process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET);
@@ -43,6 +44,15 @@ export async function POST(req: Request) {
     if (!valid) {
       return NextResponse.json({ ok: false, error: "Payment verification failed." }, { status: 400 });
     }
+
+    // Notify the studio inboxes (non-blocking)
+    await sendBookingPaidEmail({
+      sessionTitle: purchase.sessionTitle,
+      amount: purchase.amount,
+      name: purchase.name,
+      email: purchase.email,
+    });
+
     return NextResponse.json({ ok: true });
   } catch (err: any) {
     return NextResponse.json({ ok: false, error: err?.message || "Verification error." }, { status: 500 });

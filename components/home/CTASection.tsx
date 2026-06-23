@@ -19,7 +19,7 @@ export default function CTASection() {
         <div className="relative grid items-center gap-8 sm:gap-10 md:grid-cols-2">
           <div>
             <ScrollReveal>
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold-300/50 bg-plum-900/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-300 backdrop-blur">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold-300/50 bg-plum-900/40 px-4 py-1.5 text-xs uppercase tracking-[0.25em] text-gold-300">
                 <Sparkles className="h-3.5 w-3.5" /> A soft invitation
               </div>
             </ScrollReveal>
@@ -48,13 +48,13 @@ export default function CTASection() {
                   href={`https://wa.me/${wa.replace(/[^0-9]/g, "")}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 backdrop-blur hover:bg-plum-900/50"
+                  className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 hover:bg-plum-900/50"
                 >
                   <MessageCircle className="h-4 w-4" /> WhatsApp
                 </a>
                 <a
                   href={`tel:${wa.replace(/[^0-9+]/g, "")}`}
-                  className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 backdrop-blur hover:bg-plum-900/50"
+                  className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 hover:bg-plum-900/50"
                 >
                   <Phone className="h-4 w-4" /> Call
                 </a>

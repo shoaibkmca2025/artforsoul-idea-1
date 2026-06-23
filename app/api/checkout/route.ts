@@ -26,13 +26,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: "Session not found." }, { status: 404 });
     }
 
+    const amountPaise = course.price * 100;
+    if (amountPaise < 100) {
+      return NextResponse.json({ ok: false, error: "Amount too low." }, { status: 400 });
+    }
+
     const rzp = new Razorpay({
       key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
       key_secret: process.env.RAZORPAY_KEY_SECRET!,
     });
 
     const order = await rzp.orders.create({
-      amount: course.price * 100,
+      amount: amountPaise,
       currency: "INR",
       receipt: `afs_${Date.now()}`,
       notes: { slug: course.slug, userId: user.id },

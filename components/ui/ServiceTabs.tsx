@@ -16,7 +16,7 @@ export default function ServiceTabs() {
 
   return (
     <div className="container-page -mt-2 mb-10 sm:mb-12">
-      <div className="mx-auto flex w-fit max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-earth-300/40 bg-cream-50/70 p-1.5 shadow-soft backdrop-blur sm:gap-3">
+      <div className="mx-auto flex w-fit max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-earth-300/40 bg-cream-50/70 p-1.5 shadow-soft sm:gap-3">
         {tabs.map((t) => {
           const active = pathname === t.href || pathname.startsWith(t.href + "/");
           return (

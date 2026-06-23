@@ -7,9 +7,9 @@ import { LayoutDashboard, Brush, GraduationCap, Inbox, CalendarCheck, LogOut } f
 
 const links = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/portfolio", label: "Portfolio", icon: Brush },
-  { href: "/admin/courses", label: "Courses", icon: GraduationCap },
   { href: "/admin/bookings", label: "Bookings", icon: CalendarCheck },
+  { href: "/admin/portfolio", label: "Art Studioz", icon: Brush },
+  { href: "/admin/courses", label: "Sessions", icon: GraduationCap },
   { href: "/admin/messages", label: "Messages", icon: Inbox },
 ];
 
@@ -18,7 +18,7 @@ export default function AdminNav({ name }: { name: string }) {
   const router = useRouter();
 
   async function logout() {
-    await fetch("/api/auth/login", { method: "DELETE" });
+    await fetch("/api/admin/login", { method: "DELETE" });
     router.push("/admin/login");
     router.refresh();
   }

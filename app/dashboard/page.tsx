@@ -35,8 +35,8 @@ export default async function DashboardPage() {
         <div className="card-journal mx-auto max-w-xl text-center">
           <p className="font-script text-2xl text-plum-700">No sessions yet</p>
           <p className="mt-2 body-soft">
-            When you book and pay for a session, it will appear here so you can
-            access it anytime.
+            Once your payment is confirmed, your session will appear here so you
+            can access it anytime.
           </p>
           <Link href="/courses" className="btn-primary mt-5">
             Explore sessions <ArrowRight className="h-4 w-4" />
@@ -47,7 +47,7 @@ export default async function DashboardPage() {
           {purchases.map((p) => (
             <div key={p.id} className="card-journal flex h-full flex-col">
               <div className="inline-flex w-fit items-center gap-1.5 rounded-full bg-sage-300/60 px-3 py-1 text-xs font-medium text-earth-900">
-                <CheckCircle2 className="h-3.5 w-3.5" /> Paid
+                <CheckCircle2 className="h-3.5 w-3.5" /> Confirmed
               </div>
               <h3 className="mt-3 font-display text-xl text-earth-900">{p.sessionTitle}</h3>
               <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-earth-500">

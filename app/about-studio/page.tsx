@@ -91,7 +91,7 @@ export default function AboutStudioPage() {
 
       {/* How it helps */}
       <section className="container-page py-12 sm:py-16">
-        <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-7 shadow-soft backdrop-blur sm:p-10">
+        <div className="rounded-[2rem] border border-earth-300/40 bg-cream-50/70 p-7 shadow-soft sm:p-10">
           <ScrollReveal>
             <h2 className="heading-display text-center text-3xl sm:text-4xl">
               How can Art For Soul <span className="heading-script text-plum-500">help you?</span>
@@ -155,7 +155,7 @@ export default function AboutStudioPage() {
               <Link href="/contact" className="btn bg-gold-500 font-semibold text-plum-900 hover:bg-gold-300">
                 Begin Your Journey
               </Link>
-              <Link href="/about" className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 backdrop-blur hover:bg-plum-900/50">
+              <Link href="/about" className="btn border border-cream-50/40 bg-plum-900/30 text-cream-50 hover:bg-plum-900/50">
                 Meet the founder <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

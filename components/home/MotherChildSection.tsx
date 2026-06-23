@@ -103,7 +103,7 @@ export default function MotherChildSection() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-cream-50/90 via-transparent to-transparent" />
               </div>
-              <div className={`icon-bubble relative z-10 -mt-11 h-16 w-16 ${c.tint} ring-4 ring-cream-50 backdrop-blur`}>
+              <div className={`icon-bubble relative z-10 -mt-11 h-16 w-16 ${c.tint} ring-4 ring-cream-50`}>
                 <c.icon className="h-7 w-7" strokeWidth={1.6} />
               </div>
               <h3 className="mt-4 font-display text-lg font-semibold text-plum-700">{c.title}</h3>
