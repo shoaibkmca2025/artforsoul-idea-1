@@ -26,6 +26,7 @@ export type Course = {
   price: number;
   originalPrice: number | null;
   priceUnit?: string; // e.g. "per session" (default) or "full program"
+  paymentLink?: string; // per-session Razorpay payment link (real QR)
   duration: string;
   level: string;
   modules: string; // JSON-encoded
@@ -528,6 +529,7 @@ export const courses: Course[] = [
     id: "c0",
     title: "Gentle Healing Session",
     slug: "gentle-healing-session",
+    paymentLink: "https://rzp.io/rzp/ieuHfDyQ",
     tagline: "A soft one-to-one online healing session to begin your journey",
     description:
       "A gentle, nurturing one-to-one online session — perfect as a first step into healing. Relaxation, emotional release and energy balancing held in a safe, caring space.",
@@ -556,6 +558,7 @@ export const courses: Course[] = [
     id: "c1",
     title: "Personal Deep Healing & Counseling Session",
     slug: "personal-counseling-healing-session",
+    paymentLink: "https://rzp.io/rzp/LFrllRc",
     tagline: "One-to-One Online Session for deep emotional healing & inner alignment",
     description:
       "A personalised deep-healing session designed to support emotional healing, mental clarity, inner transformation, energy balancing and overall well-being. Every session is customised according to your personal challenges, emotional state, lifestyle and healing requirements.",
@@ -586,6 +589,7 @@ export const courses: Course[] = [
     id: "c2",
     title: "Follow-Up Counseling Session",
     slug: "follow-up-counseling-session",
+    paymentLink: "https://rzp.io/rzp/86aQ7NOs",
     tagline: "Continued support for healing & growth",
     description:
       "A one-to-one online follow-up session designed to support you after the main healing & therapy session. We review emotional progress, clear doubts and provide continued guidance for your healing journey.",
@@ -616,6 +620,7 @@ export const courses: Course[] = [
     id: "c3",
     title: "Garbha Sanskar & Prenatal Wellness Session",
     slug: "garbha-sanskar",
+    paymentLink: "https://rzp.io/rzp/qgitXDf",
     tagline: "A 9-month healing & counseling journey for mother and baby",
     description:
       "A special healing & counseling program designed exclusively for pregnant women and their babies. Focuses on emotional well-being of the mother, positive energy healing, healthy brain development of the baby and a calm, nurturing pregnancy journey.",
@@ -645,6 +650,7 @@ export const courses: Course[] = [
     id: "c4",
     title: "Mother & Child Healing Session",
     slug: "mother-child-development",
+    paymentLink: "https://rzp.io/rzp/8qzBWLa",
     tagline: "Foundation-years support for emotional, mental & neurological growth",
     description:
       "One-to-one personalised sessions for mothers and children to support the child's emotional, mental and neurological development during the most important foundation years (0–10). Includes healing, counseling and conscious parenting guidance.",
@@ -675,6 +681,7 @@ export const courses: Course[] = [
     id: "c5",
     title: "4-Week Personal Transformation Healing Program",
     slug: "4-week-transformation-program",
+    paymentLink: "https://rzp.io/rzp/MlMfTeF",
     tagline: "A one-month one-to-one healing & growth journey — 8 online sessions",
     description:
       "A beautiful one-month healing & growth journey designed to help you become emotionally balanced, mentally clear, spiritually aligned and consistent in achieving your goals. Includes 4 deep therapy sessions (90 min each, Friday mornings) and 4 meditation & journaling sessions (30 min each, Tuesday mornings).",

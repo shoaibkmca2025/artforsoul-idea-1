@@ -69,6 +69,7 @@ export default function CourseDetail({ params }: { params: { slug: string } }) {
                 <BookSessionButton
                   slug={course.slug}
                   amount={course.price}
+                  paymentLink={course.paymentLink}
                   label={`Book & Pay · ${formatINR(course.price)} ${course.priceUnit ?? "per session"}`}
                 />
               </div>
