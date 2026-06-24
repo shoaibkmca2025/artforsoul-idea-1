@@ -8,7 +8,8 @@ export default function EnrollForm({ courseId, courseTitle }: { courseId: string
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     setLoading(true);
     try {
       const res = await fetch("/api/enrollments", {
@@ -24,7 +25,7 @@ export default function EnrollForm({ courseId, courseTitle }: { courseId: string
       });
       if (!res.ok) throw new Error("Could not enroll");
       toast.success(`You're enrolled in ${courseTitle}. We'll be in touch soon.`);
-      (e.currentTarget as HTMLFormElement).reset();
+      formEl.reset();
     } catch (err: any) {
       toast.error(err.message || "Something went wrong");
     } finally {

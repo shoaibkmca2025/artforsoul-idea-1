@@ -8,7 +8,10 @@ export default function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = new FormData(e.currentTarget);
+    // Capture the form element BEFORE awaiting — React nulls e.currentTarget
+    // once the handler yields, which caused "Cannot read properties of null".
+    const formEl = e.currentTarget;
+    const form = new FormData(formEl);
     setLoading(true);
     try {
       const payload = {
@@ -24,7 +27,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error("Could not send");
       toast.success("Your message is on its way. We will write back soon.");
-      (e.currentTarget as HTMLFormElement).reset();
+      formEl.reset();
     } catch (err: any) {
       toast.error(err.message || "Something went wrong");
     } finally {
