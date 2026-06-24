@@ -68,6 +68,7 @@ export default function CourseDetail({ params }: { params: { slug: string } }) {
               <div className="mt-6 flex flex-wrap gap-3">
                 <BookSessionButton
                   slug={course.slug}
+                  amount={course.price}
                   label={`Book & Pay · ${formatINR(course.price)} ${course.priceUnit ?? "per session"}`}
                 />
               </div>
