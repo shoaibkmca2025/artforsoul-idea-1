@@ -167,7 +167,7 @@ export default function SignupForm() {
       </button>
       <p className="text-center text-sm text-earth-600">
         Already have an account?{" "}
-        <Link href="/login" className="font-medium text-plum-700 hover:underline">Log in</Link>
+        <Link href={`/login?redirect_url=${encodeURIComponent(redirectUrl)}`} className="font-medium text-plum-700 hover:underline">Log in</Link>
       </p>
     </form>
   );

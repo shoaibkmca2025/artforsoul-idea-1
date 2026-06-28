@@ -3,6 +3,7 @@
 import Link from "next/link";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import LotusLogo from "@/components/ui/LotusLogo";
+import BookCtaButton from "@/components/BookCtaButton";
 import { Sparkles, MessageCircle, Phone } from "lucide-react";
 
 const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
@@ -38,12 +39,9 @@ export default function CTASection() {
             </ScrollReveal>
             <ScrollReveal delay={0.3}>
               <div className="mt-6 flex flex-wrap gap-3 sm:mt-7">
-                <Link
-                  href="/contact"
-                  className="btn bg-gold-500 font-semibold text-plum-900 shadow-journal hover:bg-gold-300"
-                >
+                <BookCtaButton className="btn bg-gold-500 font-semibold text-plum-900 shadow-journal hover:bg-gold-300">
                   Book a Session
-                </Link>
+                </BookCtaButton>
                 <a
                   href={`https://wa.me/${wa.replace(/[^0-9]/g, "")}`}
                   target="_blank"

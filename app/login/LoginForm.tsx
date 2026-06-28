@@ -42,7 +42,7 @@ export default function LoginForm() {
       </button>
       <p className="text-center text-sm text-earth-600">
         New here?{" "}
-        <Link href="/signup" className="font-medium text-plum-700 hover:underline">Create an account</Link>
+        <Link href={`/signup?redirect_url=${encodeURIComponent(redirectUrl)}`} className="font-medium text-plum-700 hover:underline">Create an account</Link>
       </p>
     </form>
   );

@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import TextReveal from "@/components/animations/TextReveal";
+import BookCtaButton from "@/components/BookCtaButton";
 
 // ── Hero video (committed in /public/media so it deploys to Vercel) ──
 // If the file is ever missing, the card falls back to the founder photo.
@@ -62,12 +63,12 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-8 lg:justify-start"
           >
-            <Link href="/contact" className="btn-primary group">
+            <BookCtaButton className="btn-primary group">
               Book a Session
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/courses" className="btn-ghost">
-              Explore Sessions
+            </BookCtaButton>
+            <Link href="/contact" className="btn-ghost">
+              Enquire First
             </Link>
           </motion.div>
 
