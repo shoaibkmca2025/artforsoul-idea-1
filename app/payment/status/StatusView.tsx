@@ -1,56 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle2, XCircle, Clock, ArrowRight } from "lucide-react";
 
-type Status = "loading" | "success" | "failed" | "pending";
+type Status = "success" | "failed" | "pending";
 
 export default function StatusView() {
   const params = useSearchParams();
-  const [status, setStatus] = useState<Status>("loading");
-  const [title, setTitle] = useState<string | null>(null);
 
-  useEffect(() => {
-    const direct = params.get("status"); // from the Razorpay Checkout flow
-    if (direct === "success" || direct === "failed") {
-      setStatus(direct);
-      return;
-    }
-    // From the hosted payment link redirect (or a manual return)
-    const linkStatus =
-      params.get("razorpay_payment_link_status") || params.get("razorpay_status") || "";
-    fetch("/api/account/payment-return", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ linkStatus }),
-    })
-      .then((r) => r.json())
-      .then((d) => {
-        setStatus((d.status as Status) || "pending");
-        setTitle(d.title ?? null);
-      })
-      .catch(() => setStatus("pending"));
-  }, [params]);
-
-  if (status === "loading") {
-    return (
-      <div className="card-journal mx-auto max-w-md text-center">
-        <p className="font-script text-2xl text-plum-700">Checking your payment…</p>
-        <div className="mx-auto mt-4 h-8 w-8 animate-spin rounded-full border-2 border-earth-300 border-t-plum-500" />
-      </div>
-    );
-  }
+  // The status reflects THIS transaction only:
+  //  • ?status=success  → set by the verified Razorpay Checkout (real payment)
+  //  • ?status=failed   → set when the payment failed / was cancelled
+  //  • no param         → the hosted-link path → "pending" (never claims paid)
+  // We intentionally do NOT infer status from the latest historical booking,
+  // which previously made the page show "paid" on every visit.
+  const direct = params.get("status");
+  const status: Status =
+    direct === "success" ? "success" : direct === "failed" ? "failed" : "pending";
 
   const config = {
     success: {
       icon: CheckCircle2,
       ring: "bg-sage-300/70 text-earth-900",
       title: "Payment successful 🌸",
-      msg: title
-        ? `Your booking for "${title}" is confirmed. You'll find it in My Sessions.`
-        : "Your booking is confirmed. You'll find it in My Sessions.",
+      msg: "Your booking is confirmed. You'll find it in My Sessions.",
     },
     pending: {
       icon: Clock,
