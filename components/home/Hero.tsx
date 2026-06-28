@@ -54,33 +54,43 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.96, y: 18 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.7 }}
-          className="relative mt-5 h-[19rem] w-full overflow-hidden rounded-[1.75rem] border-4 border-cream-50 shadow-journal"
+          className="relative mt-5 h-[19rem] w-full rounded-[1.75rem] border-4 border-cream-50 shadow-journal"
         >
-          {videoOk ? (
-            <video
-              src={HERO_VIDEO_SRC}
-              poster={HERO_VIDEO_POSTER}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Art & healing session in motion"
-              className="h-full w-full object-cover"
-              onError={() => setVideoOk(false)}
-            />
-          ) : (
-            <img src={HERO_VIDEO_POSTER} alt="Founder — Art For Soul" className="h-full w-full object-cover" />
-          )}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-earth-900/65 via-earth-900/10 to-transparent" />
-          <div className="absolute right-3 top-3 grid h-14 w-14 place-items-center rounded-full bg-rose-soft/95 shadow-journal">
+          {/* Static clip layer — keeps the <video> inside the rounded frame on
+              iOS Safari (which ignores overflow-hidden on transformed parents) */}
+          <div className="absolute inset-0 overflow-hidden rounded-[1.45rem] [transform:translateZ(0)]">
+            {videoOk ? (
+              <video
+                src={HERO_VIDEO_SRC}
+                poster={HERO_VIDEO_POSTER}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Art & healing session in motion"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+                onError={() => setVideoOk(false)}
+              />
+            ) : (
+              <img
+                src={HERO_VIDEO_POSTER}
+                alt="Founder — Art For Soul"
+                className="absolute inset-0 h-full w-full object-cover object-center"
+              />
+            )}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-earth-900/65 via-earth-900/10 to-transparent" />
+            <p className="absolute inset-x-0 bottom-0 p-4 text-sm font-medium text-cream-50/95">
+              Personalised healing, art therapy &amp; energy alignment — held in one tender space.
+            </p>
+          </div>
+
+          {/* Sticker sits on the frame, above the clip layer */}
+          <div className="absolute right-3 top-3 z-10 grid h-14 w-14 place-items-center rounded-full bg-rose-soft/95 shadow-journal">
             <span className="px-1 text-center font-script text-[9px] leading-tight text-earth-900">
               heal<br />create<br />align
             </span>
           </div>
-          <p className="absolute inset-x-0 bottom-0 p-4 text-sm font-medium text-cream-50/95">
-            Personalised healing, art therapy &amp; energy alignment — held in one tender space.
-          </p>
         </motion.div>
 
         {/* Full-width app CTAs */}
