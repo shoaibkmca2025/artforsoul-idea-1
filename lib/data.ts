@@ -563,7 +563,7 @@ export const courses: Course[] = [
     description:
       "A personalised deep-healing session designed to support emotional healing, mental clarity, inner transformation, energy balancing and overall well-being. Every session is customised according to your personal challenges, emotional state, lifestyle and healing requirements.",
     coverImage: "/images/personal-deep-healing.jpg",
-    price: 3333,
+    price: 1,
     originalPrice: null,
     duration: "One-to-One · Online",
     level: "All levels",
