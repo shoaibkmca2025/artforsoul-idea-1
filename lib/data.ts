@@ -681,7 +681,7 @@ export const courses: Course[] = [
     id: "c5",
     title: "4-Week Personal Transformation Healing Program",
     slug: "4-week-transformation-program",
-    paymentLink: "https://rzp.io/rzp/MlMfTeF",
+    paymentLink: "https://rzp.io/rzp/MeCfWcy",
     tagline: "A one-month one-to-one healing & growth journey — 8 online sessions",
     description:
       "A beautiful one-month healing & growth journey designed to help you become emotionally balanced, mentally clear, spiritually aligned and consistent in achieving your goals. Includes 4 deep therapy sessions (90 min each, Friday mornings) and 4 meditation & journaling sessions (30 min each, Tuesday mornings).",
