@@ -1,23 +1,56 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircle2, XCircle, Clock, ArrowRight } from "lucide-react";
 
-type Status = "success" | "failed" | "pending";
+type Status = "loading" | "success" | "failed" | "pending";
 
 export default function StatusView() {
   const params = useSearchParams();
+  const [status, setStatus] = useState<Status>("loading");
 
-  // The status reflects THIS transaction only:
-  //  • ?status=success  → set by the verified Razorpay Checkout (real payment)
-  //  • ?status=failed   → set when the payment failed / was cancelled
-  //  • no param         → the hosted-link path → "pending" (never claims paid)
-  // We intentionally do NOT infer status from the latest historical booking,
-  // which previously made the page show "paid" on every visit.
-  const direct = params.get("status");
-  const status: Status =
-    direct === "success" ? "success" : direct === "failed" ? "failed" : "pending";
+  useEffect(() => {
+    // (a) Direct status from the in-page flow (if ever used)
+    const direct = params.get("status");
+    if (direct === "success" || direct === "failed") {
+      setStatus(direct);
+      return;
+    }
+
+    // (b) Razorpay Payment Link redirect → verify the signed params on the server
+    const linkStatus = params.get("razorpay_payment_link_status");
+    if (linkStatus) {
+      fetch("/api/payment/link-verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          razorpay_payment_link_id: params.get("razorpay_payment_link_id") || "",
+          razorpay_payment_link_reference_id: params.get("razorpay_payment_link_reference_id") || "",
+          razorpay_payment_link_status: linkStatus,
+          razorpay_payment_id: params.get("razorpay_payment_id") || "",
+          razorpay_signature: params.get("razorpay_signature") || "",
+        }),
+      })
+        .then((r) => r.json())
+        .then((d) => setStatus((d.status as Status) || "pending"))
+        .catch(() => setStatus("pending"));
+      return;
+    }
+
+    // (c) No payment info → just a visit. Never claim "paid".
+    setStatus("pending");
+  }, [params]);
+
+  if (status === "loading") {
+    return (
+      <div className="card-journal mx-auto max-w-md text-center">
+        <p className="font-script text-2xl text-plum-700">Confirming your payment…</p>
+        <div className="mx-auto mt-4 h-8 w-8 animate-spin rounded-full border-2 border-earth-300 border-t-plum-500" />
+      </div>
+    );
+  }
 
   const config = {
     success: {
@@ -30,13 +63,13 @@ export default function StatusView() {
       icon: Clock,
       ring: "bg-gold-100 text-earth-900",
       title: "Booking saved — payment being confirmed",
-      msg: "Thank you! Your booking is saved and will show as confirmed once we receive your payment. It already appears in My Sessions.",
+      msg: "Thank you! Your booking is saved and will show as confirmed once we receive your payment.",
     },
     failed: {
       icon: XCircle,
       ring: "bg-rose-soft/70 text-earth-900",
-      title: "Payment not completed",
-      msg: "Your payment didn't go through. No worries — you can try booking again, or reach out and we'll help.",
+      title: "Payment failed",
+      msg: "Your payment didn't go through. No worries — you can try again, or reach out and we'll help.",
     },
   }[status];
 
@@ -53,7 +86,7 @@ export default function StatusView() {
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         {status === "failed" ? (
           <Link href="/courses" className="btn-primary">
-            Try again <ArrowRight className="h-4 w-4" />
+            Pay again <ArrowRight className="h-4 w-4" />
           </Link>
         ) : (
           <Link href="/dashboard" className="btn-primary">
