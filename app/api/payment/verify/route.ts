@@ -19,8 +19,9 @@ export async function POST(req: Request) {
   try {
     const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = await req.json();
 
+    const secret = (process.env.RAZORPAY_KEY_SECRET || "").trim().replace(/^["']|["']$/g, "");
     const expected = crypto
-      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET!.trim())
+      .createHmac("sha256", secret)
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest("hex");
     const valid = expected === razorpay_signature;

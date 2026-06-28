@@ -32,9 +32,10 @@ export async function GET() {
   let razorpay = "skipped";
   if (env.NEXT_PUBLIC_RAZORPAY_KEY_ID && env.RAZORPAY_KEY_SECRET) {
     try {
+      const clean = (v?: string) => (v || "").trim().replace(/^["']|["']$/g, "");
       const rzp = new Razorpay({
-        key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!.trim(),
-        key_secret: process.env.RAZORPAY_KEY_SECRET!.trim(),
+        key_id: clean(process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID),
+        key_secret: clean(process.env.RAZORPAY_KEY_SECRET),
       });
       const o = await rzp.orders.create({ amount: 100, currency: "INR", receipt: "health_" + Date.now() });
       razorpay = "ok (" + o.id + ")";

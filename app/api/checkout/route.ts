@@ -6,8 +6,13 @@ import { courses } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-const hasRazorpay = () =>
-  Boolean(process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET);
+// Strip accidental surrounding quotes/whitespace — a common mistake when
+// pasting values into Vercel env vars (which must NOT include quotes).
+const clean = (v?: string) => (v || "").trim().replace(/^["']|["']$/g, "");
+const RZP_KEY = () => clean(process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID);
+const RZP_SECRET = () => clean(process.env.RAZORPAY_KEY_SECRET);
+
+const hasRazorpay = () => Boolean(RZP_KEY() && RZP_SECRET());
 
 // Razorpay SDK errors are { statusCode, error: { code, description } } — they
 // have no `.message`, so pull the real reason out of any shape.
@@ -67,8 +72,8 @@ export async function POST(req: Request) {
   let order;
   try {
     const rzp = new Razorpay({
-      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!.trim(),
-      key_secret: process.env.RAZORPAY_KEY_SECRET!.trim(),
+      key_id: RZP_KEY(),
+      key_secret: RZP_SECRET(),
     });
     order = await rzp.orders.create({
       amount: amountPaise,
@@ -111,7 +116,7 @@ export async function POST(req: Request) {
     orderId: order.id,
     amount: order.amount,
     currency: order.currency,
-    keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+    keyId: RZP_KEY(),
     sessionTitle: course.title,
     prefill: { name: user.name ?? "", email: user.email },
   });
