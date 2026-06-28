@@ -4,45 +4,88 @@ import { prisma, isDbConfigured } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/session";
 import { courses } from "@/lib/data";
 
-const isRazorpayConfigured = () =>
+export const dynamic = "force-dynamic";
+
+const hasRazorpay = () =>
   Boolean(process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID && process.env.RAZORPAY_KEY_SECRET);
 
+// Razorpay SDK errors are { statusCode, error: { code, description } } — they
+// have no `.message`, so pull the real reason out of any shape.
+function reason(err: any): string {
+  return (
+    err?.error?.description ||
+    err?.message ||
+    (typeof err === "string" ? err : "") ||
+    "unknown error"
+  );
+}
+
 export async function POST(req: Request) {
-  const user = await getCurrentUser();
+  // 1. Auth
+  let user;
+  try {
+    user = await getCurrentUser();
+  } catch (e: any) {
+    console.error("[checkout] session error:", reason(e));
+    return NextResponse.json({ ok: false, error: "Session error. Please log in again." }, { status: 401 });
+  }
   if (!user) {
     return NextResponse.json({ ok: false, error: "Please sign in first." }, { status: 401 });
   }
-  if (!isRazorpayConfigured() || !isDbConfigured()) {
+
+  // 2. Config presence
+  if (!hasRazorpay()) {
     return NextResponse.json(
-      { ok: false, error: "Payments are not configured yet. Please contact the studio." },
+      { ok: false, error: "Payment keys are missing on the server (Razorpay)." },
+      { status: 503 }
+    );
+  }
+  if (!isDbConfigured()) {
+    return NextResponse.json(
+      { ok: false, error: "Database is not configured on the server." },
       { status: 503 }
     );
   }
 
+  // 3. Resolve session + amount
+  let course;
   try {
     const { slug } = await req.json();
-    const course = courses.find((c) => c.slug === slug && c.published);
-    if (!course) {
-      return NextResponse.json({ ok: false, error: "Session not found." }, { status: 404 });
-    }
+    course = courses.find((c) => c.slug === slug && c.published);
+  } catch {
+    return NextResponse.json({ ok: false, error: "Bad request." }, { status: 400 });
+  }
+  if (!course) {
+    return NextResponse.json({ ok: false, error: "Session not found." }, { status: 404 });
+  }
+  const amountPaise = course.price * 100;
+  if (amountPaise < 100) {
+    return NextResponse.json({ ok: false, error: "Amount too low." }, { status: 400 });
+  }
 
-    const amountPaise = course.price * 100;
-    if (amountPaise < 100) {
-      return NextResponse.json({ ok: false, error: "Amount too low." }, { status: 400 });
-    }
-
+  // 4. Create the Razorpay order (isolated, so we know if THIS is the failure)
+  let order;
+  try {
     const rzp = new Razorpay({
-      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!,
-      key_secret: process.env.RAZORPAY_KEY_SECRET!,
+      key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID!.trim(),
+      key_secret: process.env.RAZORPAY_KEY_SECRET!.trim(),
     });
-
-    const order = await rzp.orders.create({
+    order = await rzp.orders.create({
       amount: amountPaise,
       currency: "INR",
       receipt: `afs_${Date.now()}`,
       notes: { slug: course.slug, userId: user.id },
     });
+  } catch (e: any) {
+    console.error("[checkout] razorpay error:", reason(e), e);
+    return NextResponse.json(
+      { ok: false, error: `Payment gateway: ${reason(e)}` },
+      { status: 502 }
+    );
+  }
 
+  // 5. Save the pending booking (isolated)
+  try {
     await prisma.purchase.create({
       data: {
         userId: user.id,
@@ -55,17 +98,21 @@ export async function POST(req: Request) {
         status: "PENDING",
       },
     });
-
-    return NextResponse.json({
-      ok: true,
-      orderId: order.id,
-      amount: order.amount,
-      currency: order.currency,
-      keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
-      sessionTitle: course.title,
-      prefill: { name: user.name ?? "", email: user.email },
-    });
-  } catch (err: any) {
-    return NextResponse.json({ ok: false, error: err?.message || "Could not start checkout." }, { status: 500 });
+  } catch (e: any) {
+    console.error("[checkout] db error:", reason(e), e);
+    return NextResponse.json(
+      { ok: false, error: `Database: ${reason(e)}` },
+      { status: 500 }
+    );
   }
+
+  return NextResponse.json({
+    ok: true,
+    orderId: order.id,
+    amount: order.amount,
+    currency: order.currency,
+    keyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+    sessionTitle: course.title,
+    prefill: { name: user.name ?? "", email: user.email },
+  });
 }
