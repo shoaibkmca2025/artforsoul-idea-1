@@ -3,6 +3,7 @@ import { Caveat, Fraunces, Plus_Jakarta_Sans, Dancing_Script } from "next/font/g
 import "./globals.css";
 import SmoothScrollProvider from "@/components/animations/SmoothScrollProvider";
 import Navigation from "@/components/layout/Navigation";
+import MobileTabBar from "@/components/layout/MobileTabBar";
 import Footer from "@/components/layout/Footer";
 import FloatingDoodles from "@/components/animations/FloatingDoodles";
 import { Toaster } from "sonner";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navigation />
           <main className="relative">{children}</main>
           <Footer />
+          <MobileTabBar />
         </SmoothScrollProvider>
         <Toaster position="bottom-right" richColors closeButton />
       </body>
