@@ -19,6 +19,13 @@ html {
   scroll-behavior: auto; /* Lenis takes over */
   background: var(--cream-50);
   color: var(--ink);
+  overflow-x: clip; /* Android: stop decorative blobs causing side-scroll */
+}
+
+/* Anchored sections (#faq, #testimonials, …) land below the fixed header
+   instead of hidden underneath it. */
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 body {
