@@ -31,8 +31,8 @@ export default function AboutSection() {
   const yImg = useTransform(scrollYProgress, [0, 1], [60, -60]);
 
   return (
-    <section ref={ref} id="about" className="container-page py-16 sm:py-24 lg:py-28">
-      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <section ref={ref} id="about" className="container-page py-12 sm:py-24 lg:py-28">
+      <div className="grid items-center gap-10 sm:gap-12 lg:grid-cols-2 lg:gap-16">
         {/* ── Photo column ── */}
         <motion.div
           style={{ y: yImg }}

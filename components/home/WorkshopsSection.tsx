@@ -8,7 +8,7 @@ import { workshopEvents } from "@/lib/data";
 
 export default function WorkshopsSection() {
   return (
-    <section id="workshops" className="relative overflow-hidden py-20 sm:py-24">
+    <section id="workshops" className="relative overflow-hidden py-12 sm:py-24">
       {/* soft watercolor washes */}
       <div className="pointer-events-none absolute -left-20 top-12 h-72 w-72 rounded-full bg-rose-soft/35 blur-3xl" />
       <div className="pointer-events-none absolute -right-20 bottom-12 h-72 w-72 rounded-full bg-sage-300/30 blur-3xl" />

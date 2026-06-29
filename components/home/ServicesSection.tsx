@@ -37,7 +37,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="container-page py-20 sm:py-24">
+    <section id="services" className="container-page py-12 sm:py-24">
       <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-14 md:flex-row md:items-end">
         <div>
           <ScrollReveal>
@@ -62,7 +62,7 @@ export default function ServicesSection() {
         </ScrollReveal>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+      <div className="snap-row -mx-4 px-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-3">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
@@ -71,7 +71,7 @@ export default function ServicesSection() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -8, rotate: i % 2 === 0 ? -1.2 : 1.2 }}
-            className="card-journal group flex h-full flex-col overflow-hidden"
+            className="card-journal snap-card group flex h-full w-[82%] flex-col overflow-hidden sm:w-auto"
           >
             {/* Image header */}
             <div className="relative -mx-5 -mt-5 mb-4 aspect-[16/9] overflow-hidden sm:-mx-6 sm:-mt-6 sm:aspect-[5/3]">

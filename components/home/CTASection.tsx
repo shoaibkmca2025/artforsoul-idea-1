@@ -10,7 +10,7 @@ const wa = process.env.NEXT_PUBLIC_WHATSAPP || "+919834040231";
 
 export default function CTASection() {
   return (
-    <section className="container-page py-16 sm:py-24">
+    <section className="container-page py-12 sm:py-24">
       <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-plum-900 via-plum-700 to-plum-500 p-7 shadow-journal sm:rounded-[2.5rem] sm:p-10 md:p-16">
         {/* Watercolor glow accents */}
         <div className="pointer-events-none absolute -right-12 -top-12 h-64 w-64 rounded-full bg-rose-dusty/30 blur-3xl" />

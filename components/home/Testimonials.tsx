@@ -8,7 +8,7 @@ type T = { id: string; name: string; role?: string | null; quote: string; rating
 
 export default function Testimonials({ items }: { items: T[] }) {
   return (
-    <section id="testimonials" className="container-page scroll-mt-24 py-20 sm:py-24">
+    <section id="testimonials" className="container-page scroll-mt-24 py-12 sm:py-24">
       <div className="mb-10 text-center sm:mb-12">
         <ScrollReveal>
           <div className="pill mx-auto mb-4">Loved by clients</div>
@@ -20,7 +20,7 @@ export default function Testimonials({ items }: { items: T[] }) {
         </ScrollReveal>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+      <div className="snap-row -mx-4 px-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-4">
         {items.map((t, i) => (
           <motion.div
             key={t.id}
@@ -29,7 +29,7 @@ export default function Testimonials({ items }: { items: T[] }) {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ rotate: 0, y: -6 }}
-            className="card-journal flex flex-col"
+            className="card-journal snap-card flex w-[80%] flex-col sm:w-auto"
           >
             <Quote className="h-8 w-8 text-rose-dusty" strokeWidth={1.4} />
             <p className="mt-3 font-display text-lg italic leading-relaxed text-earth-900">

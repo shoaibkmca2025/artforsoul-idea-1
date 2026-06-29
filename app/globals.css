@@ -177,7 +177,22 @@ html.lenis, html.lenis body { height: auto; }
   }
 
   .card-journal {
-    @apply relative rounded-3xl border border-earth-300/40 bg-cream-50/95 p-5 shadow-soft sm:p-6;
+    @apply relative rounded-3xl border border-earth-300/40 bg-cream-50/95 p-5 shadow-soft transition-transform duration-200 active:scale-[0.99] sm:p-6;
+  }
+
+  /* App-style horizontal snap carousel (mobile). Add `sm:` overrides in the
+     component to switch back to a grid on larger screens. */
+  .snap-row {
+    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-padding: 0 1rem;
+  }
+  .snap-row::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-card {
+    @apply shrink-0 snap-start;
   }
 
   .tape {

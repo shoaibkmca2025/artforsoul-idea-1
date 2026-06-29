@@ -7,7 +7,7 @@ import { healingMoments } from "@/lib/data";
 
 export default function HealingMoments() {
   return (
-    <section id="healing-moments" className="container-page scroll-mt-24 py-20 sm:py-24">
+    <section id="healing-moments" className="container-page scroll-mt-24 py-12 sm:py-24">
       <div className="mb-10 text-center sm:mb-12">
         <ScrollReveal>
           <div className="pill mx-auto mb-4">

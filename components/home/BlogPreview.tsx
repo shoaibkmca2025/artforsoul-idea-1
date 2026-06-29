@@ -10,7 +10,7 @@ export default function BlogPreview() {
   const posts = blogPosts.slice(0, 3);
 
   return (
-    <section id="wisdom" className="container-page scroll-mt-24 py-20 sm:py-24">
+    <section id="wisdom" className="container-page scroll-mt-24 py-12 sm:py-24">
       <div className="mb-10 flex flex-col items-start justify-between gap-5 sm:mb-12 md:flex-row md:items-end">
         <div>
           <ScrollReveal>

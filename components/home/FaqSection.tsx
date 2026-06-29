@@ -37,7 +37,7 @@ export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="container-page py-20 sm:py-24">
+    <section id="faq" className="container-page py-12 sm:py-24">
       <div className="mb-10 text-center sm:mb-14">
         <ScrollReveal>
           <p className="font-script text-2xl text-sage-500 sm:text-3xl">
