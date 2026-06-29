@@ -35,7 +35,7 @@ export default function MobileTabBar() {
       <div aria-hidden className="h-[4.75rem] lg:hidden" />
 
       <nav className="fixed inset-x-0 bottom-0 z-50 lg:hidden" aria-label="Primary">
-        <div className="mx-auto flex max-w-md items-stretch justify-around gap-1 border-t border-earth-300/40 bg-cream-50/90 px-2 pb-[max(0.35rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-10px_30px_-12px_rgba(60,40,30,0.28)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-md items-stretch justify-around gap-1 border-t border-earth-300/40 bg-cream-50 px-2 pb-[max(0.35rem,env(safe-area-inset-bottom))] pt-1.5 shadow-[0_-10px_30px_-12px_rgba(60,40,30,0.28)]">
           {TABS.map(({ href, label, icon: Icon }) => {
             const active = isActive(href);
             return (

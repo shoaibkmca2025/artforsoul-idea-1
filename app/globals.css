@@ -16,16 +16,31 @@
 html, body { height: 100%; }
 
 html {
-  scroll-behavior: auto; /* Lenis takes over */
+  scroll-behavior: auto; /* Lenis takes over (desktop only) */
   background: var(--cream-50);
   color: var(--ink);
   overflow-x: clip; /* Android: stop decorative blobs causing side-scroll */
+  color-scheme: light; /* never auto-invert to dark (Samsung Internet / Chrome force-dark) */
 }
 
 /* Anchored sections (#faq, #testimonials, …) land below the fixed header
    instead of hidden underneath it. */
 [id] {
   scroll-margin-top: 6rem;
+}
+
+/* Phones/tablets: backdrop-blur is GPU-heavy and janky (especially on
+   Samsung Internet) — disable it. The translucent backgrounds still read
+   fine on their own, and scrolling stays smooth. */
+@media (hover: none) and (pointer: coarse) {
+  .backdrop-blur-sm,
+  .backdrop-blur,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
 }
 
 body {

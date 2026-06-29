@@ -9,8 +9,9 @@
 export default function FloatingDoodles() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
-      {/* Two soft, static depth blobs (no animation, painted once) */}
-      <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-rose-soft/30 blur-3xl" />
+      {/* Two soft, static depth blobs — hidden on phones (blur-3xl is GPU-heavy
+          on low-end Android; the painted watercolor wash already covers it) */}
+      <div className="absolute -left-32 -top-32 hidden h-96 w-96 rounded-full bg-rose-soft/30 blur-3xl sm:block" />
       <div className="absolute -right-32 top-1/3 hidden h-96 w-96 rounded-full bg-lavender-300/25 blur-3xl sm:block" />
 
       {/* A few gentle floating doodles — CSS-only infinite motion */}

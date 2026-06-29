@@ -28,6 +28,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   themeColor: "#FBF7F0",
+  colorScheme: "light", // stop Samsung Internet / Chrome auto-dark from inverting the cream theme
 };
 
 export const metadata: Metadata = {
